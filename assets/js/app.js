@@ -366,6 +366,169 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Enhanced reporting visibility for decision making across club teams',
                 'Created scalable operational foundation for growing member communities'
             ]
+        },
+        {
+            image: 'assets/images/dummy3.jpg',
+            stack: ['Laravel', 'Vue.js', 'Inertia.js', 'PHPMyAdmin'],
+            title: 'Delhi House (Restaurant and Cafe) - Switzerland',
+            desc: 'Full-stack restaurant platform with integrated customer-side journeys and centralized admin operations.',
+            overview: 'Delhi House is a project-focused delivery where customer interactions and restaurant operations were unified in one Laravel-based platform with user and admin modules.',
+            problem: 'The business needed a connected experience where menu discovery, reservations, and contact flows work smoothly for users while admins retain control over menus, reservations, users, and content updates.',
+            solution: 'I implemented user and admin workflows in Laravel, connected critical restaurant modules, and optimized SQL schema/indexing to improve responsiveness and operational reliability.',
+            highlights: [
+                'Integrated user-side and admin-side modules in one coordinated system',
+                'Implemented menu browsing and reservation workflows',
+                'Built interactive contact flows for better lead conversion',
+                'Developed centralized admin controls for menu and reservation management',
+                'Improved backend data operations through SQL optimization in PHPMyAdmin'
+            ],
+            modules: [
+                'Customer-facing menu and reservation interfaces',
+                'Admin panel for users, menus, reservations, and content',
+                'Contact and inquiry handling flows',
+                'Database optimization and schema tuning'
+            ],
+            architecture: [
+                'Laravel module separation for user/admin responsibilities',
+                'Relational SQL structure aligned with restaurant operations',
+                'Backend-first flow design to keep data consistent across interfaces'
+            ],
+            security: [
+                'Role-oriented admin access behavior',
+                'Server-side validation for reservation and contact submissions',
+                'Database-level consistency improvements for stable operations'
+            ],
+            role: [
+                'Implemented full-stack Laravel workflows for both user and admin sides',
+                'Built reservation, menu, and contact functionality',
+                'Optimized database structure and query behavior in PHPMyAdmin'
+            ],
+            outcomes: [
+                'Enabled seamless user-admin data flow across restaurant operations',
+                'Improved reservation handling and content control efficiency',
+                'Delivered a stable project architecture suitable for operational scaling'
+            ]
+        },
+        {
+            image: 'assets/images/dummy1.png',
+            stack: ['Core PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+            title: 'Passionate People',
+            desc: 'Media-focused web platform built around branding communication and user engagement.',
+            overview: 'Passionate People was developed as a practical media website project focused on clear communication, structured content delivery, and responsive front-end behavior.',
+            problem: 'The project required an organized website experience that supports branding communication while maintaining backend data handling and stable performance.',
+            solution: 'I implemented backend logic in Core PHP, structured MySQL storage, and responsive UI layers to ensure predictable rendering and maintainable content flow.',
+            highlights: [
+                'Media and branding-oriented website structure',
+                'Backend workflows in Core PHP for data handling',
+                'Responsive front-end implementation across device sizes',
+                'MySQL schema design aligned with content flow'
+            ],
+            modules: [
+                'Content display and page layout modules',
+                'Core PHP backend handlers',
+                'MySQL data persistence layer',
+                'Responsive UI structure'
+            ],
+            architecture: [
+                'Classic PHP + MySQL architecture with clear module boundaries',
+                'Separation of presentation and backend processing logic',
+                'Simple and maintainable structure suitable for iterative enhancement'
+            ],
+            security: [
+                'Validation-focused backend handling for content workflows',
+                'Structured data access patterns for predictable processing'
+            ],
+            role: [
+                'Built backend workflows and integrated database logic',
+                'Implemented responsive front-end interfaces',
+                'Planned layout structure for communication and engagement'
+            ],
+            outcomes: [
+                'Delivered a stable media-focused web solution',
+                'Improved clarity of branding communication through structured UI',
+                'Established maintainable project foundation for future improvements'
+            ]
+        },
+        {
+            image: 'assets/images/dummy2.jpg',
+            stack: ['Core PHP', 'MySQL', 'Bootstrap', 'JavaScript'],
+            title: 'Akshar Star Electronics',
+            desc: 'Core PHP web project focused on structured backend logic and scalable data handling.',
+            overview: 'Akshar Star Electronics was built as a full project exercise combining backend programming patterns, responsive UI delivery, and scalable database design.',
+            problem: 'The project needed a dependable Core PHP structure with clear business logic, good usability, and data handling that remains stable as content grows.',
+            solution: 'I implemented organized backend modules, responsive front-end pages, and MySQL schema planning supported by system design models like DFD and ERD.',
+            highlights: [
+                'Implemented project logic with structured programming patterns',
+                'Designed layouts for clearer navigation and presentation',
+                'Developed backend infrastructure in Core PHP',
+                'Built responsive interfaces with HTML5, CSS, JavaScript, and Bootstrap',
+                'Created scalable MySQL storage model with flow documentation'
+            ],
+            modules: [
+                'Core PHP backend processing modules',
+                'Frontend layout and responsive interaction layer',
+                'Database model and query workflows',
+                'System flow and architecture documentation'
+            ],
+            architecture: [
+                'PHP + MySQL architecture with practical modularization',
+                'Database-first planning approach for data integrity',
+                'Frontend/backend coordination for predictable user flow'
+            ],
+            security: [
+                'Validation-oriented backend handling',
+                'Structured data processing for reliable form and content operations'
+            ],
+            role: [
+                'Implemented backend and frontend modules end to end',
+                'Designed database structure and architecture documents',
+                'Built responsive experience and navigation flow'
+            ],
+            outcomes: [
+                'Delivered a reliable educational-to-production style project baseline',
+                'Improved usability with clearer layout and responsive behavior',
+                'Created scalable data foundation for future extension'
+            ]
+        },
+        {
+            image: 'assets/images/dummy1.png',
+            stack: ['PHP', 'Laravel', 'CMS Workflow', 'Responsive UI'],
+            title: 'JKN Tours and Travels',
+            desc: 'Travel platform with booking, package management, authentication, and content workflows.',
+            overview: 'JKN Tours and Travels is a travel web delivery focused on backend control for bookings and package workflows combined with responsive customer-facing pages.',
+            problem: 'The business needed a reliable digital workflow to manage travel packages, booking requests, authentication, and regular content updates without friction.',
+            solution: 'I implemented backend logic in PHP/Laravel style workflows, integrated authentication and database handling, and delivered responsive front-end pages for cross-device use.',
+            highlights: [
+                'Booking and package management workflows',
+                'CMS-oriented content update structure',
+                'Authentication and backend data flow implementation',
+                'Responsive frontend support for desktop and mobile'
+            ],
+            modules: [
+                'Package listing and management module',
+                'Booking flow and backend processing',
+                'Authentication and user control handling',
+                'Responsive public pages for travel content'
+            ],
+            architecture: [
+                'Backend-first modular implementation for travel operations',
+                'Database-connected booking and content modules',
+                'Responsive UI layer aligned with conversion journeys'
+            ],
+            security: [
+                'Authentication-driven access patterns',
+                'Validation-focused booking and content processing'
+            ],
+            role: [
+                'Implemented backend modules and data flow logic',
+                'Built responsive front-end interfaces for travel pages',
+                'Integrated authentication and CMS-aligned workflows'
+            ],
+            outcomes: [
+                'Improved travel content and booking management reliability',
+                'Delivered scalable operations with structured backend modules',
+                'Enabled better cross-device user experience for travel customers'
+            ]
         }
     ];
 
@@ -391,15 +554,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (themeToggle) {
             const icon = themeToggle.querySelector('i');
-            const label = themeToggle.querySelector('span');
             if (icon) icon.className = dark ? 'bi bi-sun' : 'bi bi-moon-stars';
-            if (label) label.textContent = dark ? 'Light' : 'Dark';
+            themeToggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
         }
     };
 
     const setMenuExpanded = expanded => {
         if (!menuToggle) return;
         menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        menuToggle.classList.toggle('active', expanded);
     };
 
     const closeMenu = () => {

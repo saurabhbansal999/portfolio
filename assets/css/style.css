@@ -45,6 +45,7 @@
 }
 
 html {
+    font-size: clamp(15px, 0.2vw + 14px, 17px);
     scroll-behavior: smooth;
 }
 
@@ -53,7 +54,45 @@ body {
     font-family: "Segoe UI", "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
     color: var(--text);
     background: linear-gradient(180deg, #f2f5f9 0%, #f8fafc 100%);
-    line-height: 1.6;
+    line-height: 1.65;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3, h4, h5, h6,
+p,
+li,
+a,
+span,
+small,
+strong,
+button {
+    overflow-wrap: anywhere;
+}
+
+.section-head p,
+.lead,
+.about-text,
+.project-desc,
+.timeline-item p,
+.detail-list li,
+.info-card p,
+.process-step p,
+.testimonial-card p,
+.project-modal-section p,
+.project-modal-section li {
+    font-size: clamp(0.83rem, 0.24vw + 0.79rem, 0.96rem);
+}
+
+.project-title,
+.section-head h2,
+.timeline-item h3,
+.edu-top h3,
+.info-card h3,
+.testimonial-card h3,
+.project-modal-head h3 {
+    overflow-wrap: anywhere;
+    min-width: 0;
 }
 
 a {
@@ -106,6 +145,13 @@ a {
     gap: 0.65rem;
 }
 
+.header-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.55rem;
+}
+
 .main-nav {
     display: flex;
     align-items: center;
@@ -120,7 +166,7 @@ a {
 }
 
 .main-nav a {
-    font-size: 0.83rem;
+    font-size: clamp(0.78rem, 0.08vw + 0.76rem, 0.86rem);
     color: #334155;
     padding: 0.38rem 0.54rem;
     border-radius: 8px;
@@ -160,29 +206,61 @@ a {
 
 .menu-toggle {
     display: none;
-    border: 0;
-    background: transparent;
-    padding: 0.25rem;
+    border: 1px solid #d6dee8;
+    background: #f1f4f9;
+    padding: 0.5rem;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 4px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .menu-toggle span {
     display: block;
-    width: 22px;
+    width: 16px;
     height: 2px;
     background: #1f2937;
+    border-radius: 999px;
+    transform-origin: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu-toggle:hover {
+    background: #e8edf6;
+    border-color: #c9d4e3;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
 }
 
 .theme-toggle {
-    white-space: nowrap;
-    padding: 0.5rem 0.8rem;
-    font-size: 0.82rem;
+    padding: 0;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    font-size: 0.9rem;
     border-radius: 9px;
     box-shadow: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    justify-content: center;
+}
+
+.theme-toggle i {
+    font-size: 1rem;
 }
 
 .section {
@@ -215,7 +293,7 @@ a {
 
 .eyebrow {
     margin: 0;
-    font-size: 0.78rem;
+    font-size: clamp(0.72rem, 0.22vw + 0.68rem, 0.82rem);
     text-transform: uppercase;
     letter-spacing: 0.09em;
     color: #4b5563;
@@ -292,7 +370,7 @@ h1 {
 }
 
 .hero-pills span {
-    font-size: 0.74rem;
+    font-size: clamp(0.72rem, 0.15vw + 0.69rem, 0.8rem);
     color: #4b5563;
     border: 1px solid #d7e0ea;
     background: #f4f7fb;
@@ -314,7 +392,7 @@ h1 {
     border-radius: 10px;
     border: 1px solid transparent;
     padding: 0.68rem 1.02rem;
-    font-size: 0.88rem;
+    font-size: clamp(0.82rem, 0.2vw + 0.78rem, 0.92rem);
     font-weight: 600;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
@@ -367,7 +445,7 @@ h1 {
 
 .stat-label {
     margin: 0.2rem 0 0;
-    font-size: 0.74rem;
+    font-size: clamp(0.72rem, 0.16vw + 0.68rem, 0.8rem);
     color: var(--muted);
     line-height: 1.45;
 }
@@ -429,7 +507,7 @@ h1 {
 .file-name {
     margin-left: 0.35rem;
     color: #9ca3af;
-    font-size: 0.78rem;
+    font-size: clamp(0.74rem, 0.15vw + 0.7rem, 0.82rem);
 }
 
 .code-showcase pre {
@@ -441,7 +519,7 @@ h1 {
 .code-showcase code {
     font-family: 'Fira Code', monospace;
     color: #cbd5e1;
-    font-size: 0.8rem;
+    font-size: clamp(0.74rem, 0.2vw + 0.7rem, 0.82rem);
     line-height: 1.7;
 }
 
@@ -522,7 +600,7 @@ h1 {
 }
 
 .project-badge {
-    font-size: 0.72rem;
+    font-size: clamp(0.7rem, 0.16vw + 0.66rem, 0.78rem);
     color: #4b5563;
     background: #f3f6fa;
     border: 1px solid #d5dde8;
@@ -551,7 +629,7 @@ h1 {
 
 .project-actions a,
 .project-details-btn {
-    font-size: 0.78rem;
+    font-size: clamp(0.76rem, 0.14vw + 0.73rem, 0.84rem);
     font-weight: 600;
     padding: 0.45rem 0.7rem;
     border-radius: 8px;
@@ -645,7 +723,7 @@ body.modal-open {
 
 .project-modal-kicker {
     margin: 0;
-    font-size: 0.74rem;
+    font-size: clamp(0.72rem, 0.16vw + 0.68rem, 0.8rem);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: #526074;
@@ -721,7 +799,7 @@ body.modal-open {
     margin: 0;
     padding: 0.45rem 0.75rem 0;
     color: #475569;
-    font-size: 0.78rem;
+    font-size: clamp(0.74rem, 0.14vw + 0.71rem, 0.82rem);
 }
 
 .project-carousel-meta {
@@ -734,7 +812,7 @@ body.modal-open {
 
 #projectModalImageCounter {
     color: #334155;
-    font-size: 0.76rem;
+    font-size: clamp(0.72rem, 0.16vw + 0.68rem, 0.8rem);
     font-weight: 600;
 }
 
@@ -782,7 +860,7 @@ body.modal-open {
     color: #334155;
     padding: 0.42rem 0.7rem;
     border-radius: 999px;
-    font-size: 0.79rem;
+    font-size: clamp(0.76rem, 0.16vw + 0.72rem, 0.84rem);
     font-weight: 600;
     cursor: pointer;
 }
@@ -815,7 +893,7 @@ body.modal-open {
 }
 
 .project-modal-section h4 {
-    font-size: 0.84rem;
+    font-size: clamp(0.78rem, 0.2vw + 0.74rem, 0.88rem);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: #46576c;
@@ -838,7 +916,7 @@ body.modal-open {
 
 .project-modal-section li {
     color: #334155;
-    font-size: 0.82rem;
+    font-size: clamp(0.8rem, 0.18vw + 0.76rem, 0.9rem);
     line-height: 1.62;
 }
 
@@ -928,7 +1006,7 @@ body.modal-open {
     border: 1px solid #d3dae4;
     background: #f4f6f9;
     color: #374151;
-    font-size: 0.76rem;
+    font-size: clamp(0.72rem, 0.18vw + 0.68rem, 0.82rem);
     font-weight: 500;
     line-height: 1.25;
 }
@@ -1028,7 +1106,7 @@ body.modal-open {
 .timeline-meta {
     color: var(--primary) !important;
     font-weight: 600;
-    font-size: 0.79rem !important;
+    font-size: clamp(0.74rem, 0.2vw + 0.7rem, 0.84rem) !important;
     letter-spacing: 0.01em;
     white-space: nowrap;
 }
@@ -1042,7 +1120,7 @@ body.modal-open {
     border: 1px solid #d5dde8;
     background: #f3f6fa;
     color: #4b5563 !important;
-    font-size: 0.75rem !important;
+    font-size: clamp(0.72rem, 0.18vw + 0.68rem, 0.82rem) !important;
     font-weight: 600;
 }
 
@@ -1110,7 +1188,7 @@ body.modal-open {
     display: flex;
     gap: 0.6rem;
     align-items: flex-start;
-    font-size: 0.79rem;
+    font-size: clamp(0.76rem, 0.16vw + 0.72rem, 0.84rem);
     color: #475569;
     line-height: 1.55;
 }
@@ -1159,7 +1237,7 @@ body.modal-open {
     margin: 0;
     color: var(--primary);
     font-weight: 600;
-    font-size: 0.79rem;
+    font-size: clamp(0.74rem, 0.2vw + 0.7rem, 0.84rem);
     letter-spacing: 0.01em;
     white-space: nowrap;
 }
@@ -1183,7 +1261,7 @@ body.modal-open {
 
 .detail-list li {
     color: #374151;
-    font-size: 0.82rem;
+    font-size: clamp(0.8rem, 0.18vw + 0.76rem, 0.9rem);
     line-height: 1.7;
 }
 
@@ -1594,15 +1672,11 @@ body.cursor-on-light .cursor-ring {
 
 @media (max-width: 768px) {
     .header-actions {
-        margin-left: 0;
+        margin-left: auto;
     }
 
     .section {
         padding-block: 3rem;
-    }
-
-    .theme-toggle {
-        display: none;
     }
 
     .menu-toggle {
@@ -1640,6 +1714,10 @@ body.cursor-on-light .cursor-ring {
         font-size: 0.88rem;
     }
 
+    .header-controls {
+        margin-left: 0.4rem;
+    }
+
     .nav-indicator {
         display: none;
     }
@@ -1657,6 +1735,11 @@ body.cursor-on-light .cursor-ring {
     .footer-inner {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .timeline-meta,
+    .edu-meta {
+        white-space: normal;
     }
 }
 
@@ -1697,6 +1780,16 @@ body.cursor-on-light .cursor-ring {
 
     .hero-stats {
         grid-template-columns: 1fr;
+    }
+
+    .timeline-meta,
+    .edu-meta {
+        white-space: normal;
+        line-height: 1.45 !important;
+    }
+
+    .file-name {
+        white-space: normal;
     }
 
     .project-modal {
@@ -1770,7 +1863,7 @@ body.cursor-on-light .cursor-ring {
     }
 
     .code-showcase code {
-        font-size: 0.73rem;
+        font-size: 0.76rem;
         line-height: 1.6;
     }
 
@@ -1778,8 +1871,11 @@ body.cursor-on-light .cursor-ring {
     .about-text,
     .detail-list li,
     .timeline-item p,
-    .project-desc {
-        font-size: 0.8rem;
+    .project-desc,
+    .project-modal-section p,
+    .project-modal-section li {
+        font-size: 0.85rem;
+        line-height: 1.68;
     }
 
     .project-body {
@@ -1799,7 +1895,7 @@ body.cursor-on-light .cursor-ring {
 
     .hero-highlight {
         margin-top: 0.5rem;
-        font-size: 0.68rem;
+        font-size: 0.72rem;
     }
 
     .hero-small {
@@ -1832,7 +1928,11 @@ body.cursor-on-light .cursor-ring {
 
     .timeline-role,
     .edu-role {
-        font-size: 0.69rem !important;
+        font-size: 0.72rem !important;
+    }
+
+    .project-modal-tab {
+        flex: 1 1 100%;
     }
 }
 
@@ -1845,9 +1945,14 @@ body.cursor-on-light .cursor-ring {
         gap: 0.35rem;
     }
 
+    .main-nav a {
+        font-size: 0.84rem;
+        padding: 0.5rem;
+    }
+
     .hero-pills span {
-        font-size: 0.67rem;
-        padding: 0.18rem 0.42rem;
+        font-size: 0.72rem;
+        padding: 0.2rem 0.45rem;
     }
 
     .file-name {
@@ -1855,16 +1960,24 @@ body.cursor-on-light .cursor-ring {
     }
 
     .code-showcase code {
-        font-size: 0.7rem;
+        font-size: 0.73rem;
     }
 
     .section-head h2 {
-        font-size: 1.18rem;
+        font-size: 1.22rem;
     }
 
     .project-title,
     .info-card h3 {
-        font-size: 0.88rem;
+        font-size: 0.92rem;
+    }
+
+    .section-head p,
+    .project-desc,
+    .project-modal-section p,
+    .project-modal-section li {
+        font-size: 0.84rem;
+        line-height: 1.66;
     }
 }
 
@@ -1969,6 +2082,16 @@ body.dark-theme.cursor-on-dark.cursor-hover .cursor-ring {
 
 body.dark-theme .menu-toggle span {
     background: #e5e7eb;
+}
+
+body.dark-theme .menu-toggle {
+    border-color: #52525b;
+    background: #2a2d34;
+}
+
+body.dark-theme .menu-toggle:hover {
+    border-color: #6b7280;
+    background: #343943;
 }
 
 body.dark-theme .terminal-showcase {
