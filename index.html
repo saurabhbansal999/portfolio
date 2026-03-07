@@ -1,434 +1,549 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Saurabh | Portfolio</title>
+    <title>Saurabh Bansal | Laravel + Vue Full Stack Developer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="assets/css/style.css"
+    <meta
+      name="description"
+      content="Saurabh Bansal is a Laravel + Vue full stack developer building scalable web applications, secure APIs, responsive dashboards, and performance-focused digital products."
     />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
+    <meta
+      name="keywords"
+      content="Saurabh Bansal, Laravel Developer, Vue.js Developer, Full Stack Developer, PHP Developer, MySQL, REST API Development, Admin Dashboard Development, Portfolio"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Saurabh Bansal" />
+    <link rel="canonical" href="/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Saurabh Bansal | Laravel + Vue Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Portfolio of Saurabh Bansal featuring Laravel + Vue projects, API architecture, responsive UI delivery, and full stack engineering work."
     />
+    <meta property="og:site_name" content="Saurabh Bansal Portfolio" />
+    <meta property="og:image" content="assets/images/logo.png" />
+    <meta property="og:url" content="/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Saurabh Bansal | Laravel + Vue Full Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="Explore Laravel + Vue case studies, technical skills, and full stack delivery highlights by Saurabh Bansal."
+    />
+    <meta name="twitter:image" content="assets/images/logo.png" />
 
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <script src="assets/js/app.js" defer></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Saurabh Bansal",
+        "jobTitle": "Laravel + Vue Full Stack Developer",
+        "description": "Full stack developer specializing in Laravel, Vue.js, API integration, MySQL optimization, and responsive web application delivery.",
+        "email": "mailto:saurabhbansal960@gmail.com",
+        "telephone": "+91 99787 03114",
+        "url": "/",
+        "image": "assets/images/logo.png",
+        "nationality": "Indian",
+        "sameAs": [
+          "https://github.com/saurabhbansal999",
+          "https://www.linkedin.com/in/saurabh-bansal-b73b09207/"
+        ],
+        "knowsAbout": [
+          "Laravel",
+          "Vue.js",
+          "Inertia.js",
+          "Bootstrap",
+          "REST API",
+          "MySQL",
+          "PHP",
+          "Full Stack Development",
+          "AI Integration",
+          "AI Chatbot"
+        ]
+      }
+    </script>
   </head>
 
   <body>
-    <header>
-      <div class="container d-flex justify-content-between align-items-center">
-        <a href="index.html" id="logo">
-          <img src="assets/images/logo.png" alt="logo" class="img-fluid" />
-          <span class="ps-2 fw-bold fs-20 text-white"> Saurabh </span>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand">
+          <span>Saurabh Bansal</span>
         </a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
           <span></span>
           <span></span>
           <span></span>
         </button>
-        <nav id="navMenu">
-          <a href="#home"><span class="hash">#</span>home</a>
-          <a href="#works"><span class="hash">#</span>works</a>
-          <a href="#about"><span class="hash">#</span>about-me</a>
-          <a href="#contacts"><span class="hash">#</span>contacts</a>
-        </nav>
+
+        <div class="header-actions">
+          <nav id="navMenu" class="main-nav" aria-label="Primary">
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#services">Services</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+          <button id="themeToggle" class="btn btn-secondary theme-toggle" type="button" aria-label="Toggle theme">
+            <i class="bi bi-moon-stars"></i>
+            <span>Dark</span>
+          </button>
+        </div>
       </div>
     </header>
 
-    <section id="home">
-      <div class="container vh-100">
-        <!-- Row 1 -->
-        <div class="row align-items-center justify-content-center py-1 py-md-5">
-          <div
-            class="col-12 col-md-6 text-white d-flex flex-column justify-content-left gap-3"
-          >
-            <div>
-              <p class="main-text">
-                Hi, I'm a
-                <span class="fw-bold">Saurabh <br /></span>
-                <span>A FULL STACK DEVELOPER</span>
-              </p>
+    <main>
+      <section id="home" class="section hero-section">
+        <div class="container hero-grid">
+          <div class="hero-content fade-in">
+            <p class="hero-name">Hi, I'm Saurabh Bansal</p>
+            <p class="eyebrow hero-highlight">Laravel + Vue Full Stack Engineer</p>
+            <h1 class="hero-small">I design and ship reliable web products that scale with your business.</h1>
+            <p class="lead">
+              I convert business goals into secure backend systems, clean APIs,
+              and responsive frontends with a strong focus on maintainability and delivery quality.
+            </p>
+            <div class="hero-pills" aria-label="Core capabilities">
+              <span>API Architecture</span>
+              <span>Admin Dashboards</span>
+              <span>Responsive Frontend</span>
+              <span>Performance Optimization</span>
             </div>
-            <div>
-              <p class="text-grey">
-                I am a web developer who enjoys building clean, reliable, and
-                scalable web applications. I focus on understanding real-world
-                problems and turning them into simple, efficient digital
-                solutions that are easy to use and maintain.
-              </p>
-            </div>
-            <div>
-              <a class="btn-cs-primary">
-                <i class="bi bi-send"></i>
-                Hire me !!
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary">Start a Project</a>
+              <a href="#projects" class="btn btn-secondary">Explore Projects</a>
+              <a href="assets/pdf/Saurabh's CV.pdf" download class="btn btn-secondary">
+                Download CV
               </a>
+            </div>
+            <div class="hero-stats" aria-label="Experience highlights">
+              <article class="stat-card">
+                <p class="stat-value">3+</p>
+                <p class="stat-label">Years of Hands-On Delivery</p>
+              </article>
+              <article class="stat-card">
+                <p class="stat-value">6+</p>
+                <p class="stat-label">End-to-End Product Builds</p>
+              </article>
+              <article class="stat-card">
+                <p class="stat-value">14+</p>
+                <p class="stat-label">Production-Focused Skills</p>
+              </article>
             </div>
           </div>
 
-          <div class="col-12 col-md-6 text-white image-box">
-            <img src="assets/images/main-right.svg" class="img-fluid" alt="" />
-            <p class="square-box-text">
-              <span class="pink-box"></span>
-              <a class="text-grey">
-                Currently working as
-                <a class="text-white fw-bold">Laravel</a>
-                Developer
-              </a>
+          <div class="hero-visual fade-in-delay">
+            <div class="code-showcase terminal-showcase" aria-label="Terminal preview">
+              <div class="code-head terminal-head">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="file-name">saurabh@portfolio:~</span>
+              </div>
+              <pre><code><span class="prompt">$</span> stack --show
+Laravel  | Vue.js  | MySQL
+<span class="prompt">$</span> focus --show
+Performance  | Security  | UX
+<span class="prompt">$</span> run deliver-project
+<span class="ok">[ok]</span> solution shipped successfully</code></pre>
+            </div>
+            <div class="hero-snapshot" aria-label="Current role and stack">
+              <div class="status-card">
+                <span class="status-dot" aria-hidden="true"></span>
+                Currently working as a <strong>Full Stack Developer</strong>
+              </div>
+              <div class="status-card">
+                <span class="status-dot" aria-hidden="true"></span>
+                Core stack: <strong>Laravel, Vue.js, MySQL, API Integration</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Portfolio</p>
+            <h2>Featured Laravel + Vue Projects</h2>
+            <p>
+              Selected full stack work across professional and academic delivery,
+              presented with clear scope, implementation ownership, and measurable outcomes.
             </p>
           </div>
-        </div>
 
-        <!-- Row 2 -->
-        <div
-          class="row align-items-center justify-content-center mt-1 mt-md-5 pt-1 pt-md-5"
-        >
-          <div class="col-12 col-md-10">
-            <div class="quote-wrapper">
-              <span class="quote-mark quote-start">“</span>
-              <div class="text-grey text-center fs-20">
-                A Mile of Road will Take you to Rome, but a Mile of Runway will
-                Take you anywhere
-              </div>
-            </div>
+          <div id="projectsGrid" class="projects-grid"></div>
+
+          <div class="center-wrap">
+            <button id="viewAllProjects" class="btn btn-secondary" type="button">
+              View More Projects
+            </button>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="works">
-      <div class="container">
-        <!-- Projects -->
-        <div
-          class="d-flex justify-content-between align-items-center py-3 py-md-5"
-        >
+      <section id="services" class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Services</p>
+            <h2>What I Can Help You Build</h2>
+            <p>
+              Delivery-focused full stack engineering services for products that need
+              speed, reliability, and long-term scalability.
+            </p>
+          </div>
+          <div class="services-grid">
+            <article class="info-card">
+              <h3>Custom Web Applications</h3>
+              <p>Business-driven applications using Laravel, Vue.js, and structured backend logic.</p>
+            </article>
+            <article class="info-card">
+              <h3>REST API Development</h3>
+              <p>Secure API architecture, validation layers, and clear documentation.</p>
+            </article>
+            <article class="info-card">
+              <h3>Admin Dashboards</h3>
+              <p>Interactive admin systems with user control, reporting, and smooth workflows.</p>
+            </article>
+            <article class="info-card">
+              <h3>Performance Optimization</h3>
+              <p>Database tuning, query optimization, and performance improvements for production apps.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="process" class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Process</p>
+            <h2>How I Deliver Projects</h2>
+            <p>A practical workflow from discovery to stable production release.</p>
+          </div>
+          <div class="process-grid">
+            <article class="process-step"><span>01</span><h3>Discovery</h3><p>Understand goals, constraints, users, and success metrics.</p></article>
+            <article class="process-step"><span>02</span><h3>Architecture</h3><p>Plan MVC structure, APIs, and frontend flow for maintainable implementation.</p></article>
+            <article class="process-step"><span>03</span><h3>Build</h3><p>Develop full stack features with Laravel, Vue.js, and clean database design.</p></article>
+            <article class="process-step"><span>04</span><h3>Optimize</h3><p>Refine SQL queries, responsiveness, and overall application performance.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Experience</p>
+            <h2>Professional Experience</h2>
+            <p>Hands-on product delivery across travel, hospitality, and business web platforms.</p>
+          </div>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-top">
+                <h3>CodersHut, Ahmedabad</h3>
+                <p class="timeline-meta">Feb 2024 - Present</p>
+              </div>
+              <p class="timeline-role">Full Stack Developer</p>
+              <ul class="detail-list">
+                <li>Delivered full stack features using Laravel and Vue.js with structured APIs and dependable data flow.</li>
+                <li>Built user-facing interfaces and reservation workflows focused on responsive, intuitive UX.</li>
+                <li>Developed admin dashboards for menus, reservations, user accounts, and content updates.</li>
+                <li>Improved reliability through secure authentication, SQL optimization, and Git-based collaboration.</li>
+              </ul>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-top">
+                <h3>Swizzdigi Pvt Ltd, Ahmedabad</h3>
+                <p class="timeline-meta">April 2023 - Feb 2024</p>
+              </div>
+              <p class="timeline-role">PHP Web Developer - JKN Tours & Travels</p>
+              <ul class="detail-list">
+                <li>Developed backend modules in PHP for authentication, booking workflows, and travel package management.</li>
+                <li>Implemented CMS workflows to simplify updates for packages and informational content.</li>
+                <li>Built responsive frontend pages with HTML, CSS, and JavaScript for cross-browser compatibility.</li>
+              </ul>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-top">
+                <h3>Delhi House (Restaurant & Cafe), Switzerland</h3>
+                <p class="timeline-meta">Project Engagement</p>
+              </div>
+              <p class="timeline-role">PHP Laravel Developer</p>
+              <ul class="detail-list">
+                <li>Integrated user-side and admin-side workflows in Laravel for consistent operations.</li>
+                <li>Implemented menu browsing, reservation journeys, and interactive contact forms.</li>
+                <li>Built centralized admin controls for menus, reservations, users, and content updates.</li>
+                <li>Optimized SQL schemas and indexing in PHPMyAdmin for better performance.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Capabilities</p>
+            <h2>Technical Skills</h2>
+            <p>
+              Core technologies and engineering capabilities I use to deliver production-ready applications.
+            </p>
+          </div>
+
+          <div class="skills-summary">
+            <div class="metric-card">
+              <p class="metric-label">Primary Stack</p>
+              <p class="metric-value">Laravel + Vue</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-label">Engineering Focus</p>
+              <p class="metric-value">API Design</p>
+            </div>
+            <div class="metric-card">
+              <p class="metric-label">Quality Standards</p>
+              <p class="metric-value">Performance and Security</p>
+            </div>
+          </div>
+
+          <div class="skills-grid">
+            <article class="skill-cluster">
+              <h3>Backend and APIs</h3>
+              <p class="skill-note">Core backend delivery with secure and maintainable architecture.</p>
+              <ul class="skill-list">
+                <li><span>Core PHP</span></li>
+                <li><span>Laravel</span></li>
+                <li><span>API Integration</span></li>
+                <li><span>MVC Architecture</span></li>
+              </ul>
+            </article>
+            <article class="skill-cluster">
+              <h3>Frontend and UI</h3>
+              <p class="skill-note">Responsive interfaces focused on speed, clarity, and consistency.</p>
+              <ul class="skill-list">
+                <li><span>Vue JS</span></li>
+                <li><span>HTML5</span></li>
+                <li><span>CSS</span></li>
+                <li><span>Bootstrap</span></li>
+              </ul>
+            </article>
+            <article class="skill-cluster">
+              <h3>Database and Operations</h3>
+              <p class="skill-note">Reliable data design, optimization, and production operations.</p>
+              <ul class="skill-list">
+                <li><span>Database Management</span></li>
+                <li><span>MySQL Optimization</span></li>
+                <li><span>Live Server Management (cPanel)</span></li>
+                <li><span>Version Control (Git)</span></li>
+              </ul>
+            </article>
+            <article class="skill-cluster">
+              <h3>AI and Automation</h3>
+              <p class="skill-note">Practical AI integrations to improve workflows and user support.</p>
+              <ul class="skill-list">
+                <li><span>AI Integration</span></li>
+                <li><span>AI-Assisted Workflows</span></li>
+                <li><span>AI Chatbot</span></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container about-grid">
           <div>
-            <a href="#works" class="work-header">
-              <span class="hash fs-32">#</span>projects
+            <div class="section-head left">
+              <p class="eyebrow">About</p>
+              <h2>Product-minded engineer focused on practical full stack execution.</h2>
+            </div>
+            <p class="about-text">
+              I specialize in building efficient, user-focused web applications
+              with practical architecture and clean implementation.
+            </p>
+            <p class="about-text">
+              My experience includes media websites, travel workflows, and
+              restaurant platforms with integrated user and admin experiences.
+              I focus on readable code, predictable delivery, and long-term maintainability.
+            </p>
+          </div>
+
+          <aside class="about-panel">
+            <div class="about-crazy" aria-hidden="true">
+              <span class="orbit orbit-a"></span>
+              <span class="orbit orbit-b"></span>
+              <span class="orbit orbit-c"></span>
+              <div class="core-chip">
+                <span>BUILD</span>
+                <span>FAST</span>
+              </div>
+            </div>
+            <ul>
+              <li><i class="bi bi-check2-circle"></i> Scalable backend design</li>
+              <li><i class="bi bi-check2-circle"></i> Responsive frontend UI</li>
+              <li><i class="bi bi-check2-circle"></i> Clean and readable codebase</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="testimonials" class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Contributions</p>
+            <h2>Delivery Highlights</h2>
+            <p>Key contributions that improved product reliability, user flow, and engineering quality.</p>
+          </div>
+          <div class="testimonial-grid">
+            <article class="testimonial-card">
+              <p>Built secure backend modules in PHP and Laravel, including authentication, booking logic, and content workflows.</p>
+              <h3>Backend Development</h3>
+            </article>
+            <article class="testimonial-card">
+              <p>Delivered responsive interfaces for menu systems, reservation flows, and conversion-focused contact journeys.</p>
+              <h3>UI and UX Delivery</h3>
+            </article>
+            <article class="testimonial-card">
+              <p>Designed and optimized SQL structures in PHPMyAdmin to improve data flow, reliability, and application performance.</p>
+              <h3>Database Optimization</h3>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Education</p>
+            <h2>Academic Background</h2>
+            <p>Formal education strengthened by practical full stack project delivery.</p>
+          </div>
+          <div class="cert-grid">
+            <article class="edu-card">
+              <div class="edu-top">
+                <h3>MCA</h3>
+                <p class="edu-meta">2022 - 2024</p>
+              </div>
+              <p class="edu-org">Manipal University, Jaipur</p>
+              <p class="timeline-role edu-role">Project: PHP Website - Passionate People</p>
+              <ul class="detail-list">
+                <li>Built a media-focused website designed around PR and branding communication.</li>
+                <li>Planned layouts strategically to improve engagement and message clarity.</li>
+                <li>Implemented backend workflows in Core PHP with structured data processing.</li>
+                <li>Created responsive frontend interfaces with HTML5, CSS, JavaScript, and Bootstrap.</li>
+                <li>Designed MySQL schema and supported architecture planning using DFD/ERD models.</li>
+              </ul>
+            </article>
+            <article class="edu-card">
+              <div class="edu-top">
+                <h3>BCA</h3>
+                <p class="edu-meta">2018 - 2021</p>
+              </div>
+              <p class="edu-org">JG College of Computer Application (GU)</p>
+              <p class="timeline-role edu-role">Project: PHP Website - Akshar Star Electronics</p>
+              <ul class="detail-list">
+                <li>Implemented project logic and programming patterns to improve usability and functionality.</li>
+                <li>Designed layout structure for clearer navigation and stronger brand presentation.</li>
+                <li>Developed backend infrastructure in Core PHP with organized data handling.</li>
+                <li>Delivered responsive frontend interfaces using HTML5, CSS, JavaScript, and Bootstrap.</li>
+                <li>Built scalable MySQL storage design and documented system flow through DFD/ERD.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="blog" class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Other Experience</p>
+            <h2>Additional Technical Work</h2>
+            <p>Complementary strengths that improve engineering quality and delivery velocity.</p>
+          </div>
+          <div class="blog-grid">
+            <article class="info-card"><h3>Version Control and Deployment</h3><p>Hands-on experience using Git and GitHub with live server management in cPanel.</p></article>
+            <article class="info-card"><h3>Architecture and API Integration</h3><p>MVC architecture, API integration, and modular backend implementation with Laravel.</p></article>
+            <article class="info-card"><h3>AI and Automation</h3><p>Worked on AI integration, AI-assisted workflows, and AI chatbot implementation.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container contact-grid">
+          <div>
+            <div class="section-head left">
+              <p class="eyebrow">Contact</p>
+              <h2>Let's build something valuable.</h2>
+            </div>
+            <p class="about-text">
+              I am open to freelance and full-time opportunities.
+              If you have a product roadmap, feature backlog, or collaboration plan,
+              let's connect and build it with clarity.
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <a
+              href="https://www.linkedin.com/in/saurabh-bansal-b73b09207"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="bi bi-linkedin"></i>
+              <span>Connect on LinkedIn</span>
+            </a>
+            <a href="tel:+919978703114">
+              <i class="bi bi-telephone"></i>
+              <span>Call: +91 99787 03114</span>
+            </a>
+            <a href="mailto:saurabhbansal960@gmail.com">
+              <i class="bi bi-envelope"></i>
+              <span>Email: saurabhbansal960@gmail.com</span>
             </a>
           </div>
         </div>
+      </section>
+    </main>
 
-        <div
-          id="projectsRow"
-          class="row align-items-center justify-content-center mt-1 mt-md-5"
-        >
-          <template id="projectTemplate">
-            <div class="col-4 pb-4">
-              <div class="card">
-                <img
-                  class="img-fluid grey-border-bottom project-image"
-                  alt=""
-                />
-                <div class="card-body px-0 pt-0">
-                  <h5 class="card-title p-3 project-stack"></h5>
-                  <p class="card-text-white fs-20 px-3 project-title"></p>
-                  <p class="text-grey p-3 project-desc"></p>
-                  <span class="p-3">
-                    <a class="btn-cs-primary fs-6 project-link">
-                      Live <i class="bi bi-send ms-2"></i>
-                    </a>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </template>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <p class="footer-brand">Saurabh Bansal</p>
+          <p>Full Stack Developer</p>
         </div>
-
-        <div class="d-flex justify-content-center py-3">
-          <a id="viewAllProjects" class="btn-cs-primary">
-            <i class="bi bi-arrow-clockwise me-2"></i>
-            Load More !!
+        <div class="footer-links">
+          <a href="https://github.com/saurabhbansal999" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/saurabh-bansal-b73b09207"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="mailto:saurabhbansal960@gmail.com">
+            <i class="bi bi-envelope"></i>
           </a>
         </div>
-
-        <!-- Skills -->
-        <div
-          class="d-flex justify-content-between align-items-center py-3 py-md-5"
-        >
-          <div>
-            <a href="#works" class="work-header">
-              <span class="hash fs-32">#</span>skills
-            </a>
-          </div>
-        </div>
-        <div class="row align-items-center justify-content-center py-1 py-md-5">
-          <div class="col-12 col-md-6 text-white image-box">
-            <img src="assets/images/skills-left.png" class="img-fluid" alt="" />
-          </div>
-          <div class="col-12 col-md-6 text-white skills-grid">
-            <div class="card p-0">
-              <div class="card-body p-0">
-                <h5 class="card-title fs-18 p-3 grey-border-bottom">
-                  Programming Languages
-                </h5>
-                <p class="text-grey px-3">PHP | JavaScript | Core PHP</p>
-              </div>
-            </div>
-
-            <div class="card p-0">
-              <div class="card-body p-0">
-                <h5 class="card-title fs-18 p-3 grey-border-bottom">
-                  Frontend Technologies
-                </h5>
-                <p class="text-grey px-3">
-                  HTML5 | CSS3 | SCSS | Bootstrap | Vue.js
-                </p>
-              </div>
-            </div>
-
-            <div class="card p-0">
-              <div class="card-body p-0">
-                <h5 class="card-title fs-18 p-3 grey-border-bottom">
-                  Backend & Frameworks
-                </h5>
-                <p class="text-grey px-3">
-                  Laravel | MVC Architecture | RESTful APIs
-                </p>
-              </div>
-            </div>
-
-            <div class="card p-0">
-              <div class="card-body p-0">
-                <h5 class="card-title fs-18 p-3 grey-border-bottom">
-                  Databases
-                </h5>
-                <p class="text-grey px-3">MySQL | SQLite | PHP MyAdmin</p>
-              </div>
-            </div>
-
-            <div class="card p-0">
-              <div class="card-body p-0">
-                <h5 class="card-title fs-18 p-3 grey-border-bottom">
-                  Tools & Platforms
-                </h5>
-                <p class="text-grey px-3">
-                  Git | GitHub | Live Server | cPanel | Linux
-                </p>
-              </div>
-            </div>
-
-            <div class="card p-0">
-              <div class="card-body p-0">
-                <h5 class="card-title fs-18 p-3 grey-border-bottom">
-                  Additional Skills
-                </h5>
-                <p class="text-grey px-3">
-                  API Integration | Database Optimization | Responsive Design
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-    </section>
-
-    <section id="about">
-      <div class="container vh-100">
-        <div
-          class="d-flex justify-content-between align-items-center py-3 py-md-5"
-        >
-          <div>
-            <a href="#about" class="work-header">
-              <span class="hash fs-32">#</span>about-me
-            </a>
-          </div>
-        </div>
-        <!-- Row 1 -->
-        <div class="row align-items-center justify-content-center py-1 py-md-5">
-          <div
-            class="col-12 text-white d-flex flex-column justify-content-left gap-3"
-          >
-            <div>
-              <p class="main-text">Hi, I'm Saurabh Bansal</p>
-            </div>
-            <div>
-              <p class="text-grey">
-                A passionate Full Stack
-                <a class="hash fs-18">Laravel</a> Developer with extensive
-                hands-on experience in designing, developing, and maintaining
-                scalable, user-focused web applications. Over time, I have
-                worked with <a class="hash fs-18">Laravel</a>,
-                <a class="hash fs-18">Vue.js</a>,
-                <a class="hash fs-18">Inertia.js</a>, and modern frontend
-                technologies to build applications that balance performance,
-                usability, and clean architecture. I enjoy working across the
-                entire development lifecycle — from understanding business
-                requirements and planning application flow to implementing
-                well-structured backend logic and polished user interfaces. My
-                core strength lies in building
-                <a class="hash fs-18">RESTful APIs</a>, handling complex
-                <a class="hash fs-18">backend logic</a>, and creating dynamic
-                interfaces that feel responsive, intuitive, and reliable for end
-                users. With a strong technical foundation in
-                <a class="hash fs-18">HTML</a>, <a class="hash fs-18">CSS</a>,
-                <a class="hash fs-18">JavaScript</a>,
-                <a class="hash fs-18">PHP</a>, <a class="hash fs-18">MySQL</a>,
-                and <a class="hash fs-18">MVC architecture</a>, I focus on
-                writing clean, maintainable code that is easy to scale and adapt
-                as product requirements evolve.
-              </p>
-
-              <p class="text-grey">
-                Currently working as a
-                <a class="hash fs-18">Full Stack Developer</a>, I actively
-                contribute to end-to-end development of real-world projects,
-                including customer-facing platforms and feature-rich
-                <a class="hash fs-18">Admin Dashboards</a>. My work involves
-                close attention to
-                <a class="hash fs-18">performance optimization</a>,
-                <a class="hash fs-18">security best practices</a>, and
-                <a class="hash fs-18">responsive design</a>, ensuring
-                applications perform smoothly across devices and usage
-                scenarios. I have hands-on experience with
-                <a class="hash fs-18">API integration</a>,
-                <a class="hash fs-18">database design and optimization</a>, and
-                <a class="hash fs-18">version control using Git</a>, which
-                allows me to work efficiently in collaborative team
-                environments. Beyond coding, I care deeply about building
-                systems that are practical, developer-friendly, and aligned with
-                real business needs. Driven by continuous learning, curiosity,
-                and a strong passion for technology, my goal is to create
-                digital products that are not only functional and secure, but
-                also thoughtfully designed, easy to maintain, and capable of
-                growing with the people who use them.
-              </p>
-            </div>
-            <div>
-              <a href="#about" class="btn-cs-primary">
-                <i class="bi bi-send"></i>
-                Read More <i class="bi bi-arrow-right"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contacts">
-      <div class="container vh-50">
-        <div
-          class="d-flex justify-content-between align-items-center py-3 py-md-5"
-        >
-          <div>
-            <a href="#contacts" class="work-header">
-              <span class="hash fs-32">#</span>contacts
-            </a>
-          </div>
-        </div>
-        <div class="row align-items-center justify-content-center mt-1 mt-md-5">
-          <div class="col-6">
-            <div>
-              <p class="text-grey">
-                I’m interested in
-                <a class="hash fs-18"> freelance </a>
-                opportunities. However, if you have other request or question,
-                don’t hesitate to contact me.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-6 d-flex justify-content-end">
-            <div class="col-12 col-md-6 text-white skills-grid">
-              <div class="card p-0">
-                <div class="card-body p-0">
-                  <h5 class="card-title fs-18 p-3 grey-border-bottom">
-                    Contact Me here
-                    <i class="bi bi-emoji-sunglasses"></i>
-                  </h5>
-                  <p class="text-grey px-3">
-                    <a
-                      href="https://www.linkedin.com/in/saurabh-bansal-b73b09207"
-                    >
-                      <i class="bi bi-linkedin"></i>
-                      Linked-In
-                    </a>
-                  </p>
-
-                  <p class="text-grey px-3">
-                    <a href="tel: +91 997-870-3114">
-                      <i class="bi bi-phone"></i>
-                      +91 997-870-3114
-                    </a>
-                  </p>
-
-                  <p class="text-grey px-3">
-                    <a href="mailto: saurabhbansal960@gmail.com">
-                      <i class="bi bi-envelope"></i>
-                      <span class="fs-12"> saurabhbansal960@gmail.com </span>
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="grey-border-top">
-      <div class="container py-5">
-        <div class="row align-items-center">
-          <div class="col-6 justify-content-start">
-            <div>
-              <a href="index.html" id="logo">
-                <img
-                  src="assets/images/logo.png"
-                  alt="logo"
-                  class="img-fluid"
-                />
-                <span class="ps-2 fw-bold fs-20 text-white">
-                  Saurabh Bansal
-                </span>
-                <span class="ps-2 fs-18 text-grey"
-                  ><a href="mailto: saurabhbansal960@gmail.com">
-                    saurabhbansal960@gmail.com
-                  </a>
-                </span>
-              </a>
-            </div>
-            <div class="text-grey py-3 ms-4">Full Stack Web developer</div>
-          </div>
-
-          <div
-            class="col-6 d-flex flex-column justify-content-end align-items-end"
-          >
-            <p class="text-white fs-32">Media</p>
-            <span class="d-flex justify-content-center gap-3">
-              <a href="">
-                <i class="bi bi-github text-grey fs-20"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/saurabh-bansal-b73b09207">
-                <i class="bi bi-linkedin text-grey fs-20"></i>
-              </a>
-              <a href="mailto: saurabhbansal960@gmail.com">
-                <i class="bi bi-envelope text-grey fs-20"></i>
-              </a>
-            </span>
-          </div>
-        </div>
-
-        <div class="row pt-5">
-          <div class="col-12 d-flex justify-content-center align-items-center">
-            <p class="text-grey">© Copyright 2026. Made by Saurabh Bansal</p>
-          </div>
-        </div>
-      </div>
+      <p class="copyright">&copy; 2026 Saurabh Bansal. All rights reserved.</p>
     </footer>
   </body>
 </html>
