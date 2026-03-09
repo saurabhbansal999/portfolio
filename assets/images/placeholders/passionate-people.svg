@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">Passionate People Project Placeholder</title>
+  <desc id="d">Stylized placeholder image for Passionate People project.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <rect x="130" y="130" width="940" height="415" rx="26" fill="#ffffff" opacity="0.92"/>
+  <path d="M130 450 C320 360, 470 520, 680 430 S1020 350, 1070 410" fill="none" stroke="#93c5fd" stroke-width="12" opacity="0.8"/>
+  <text x="190" y="260" fill="#111827" font-family="Segoe UI, Arial, sans-serif" font-size="58" font-weight="700">Passionate People</text>
+  <text x="190" y="330" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="30">Media and Branding Website</text>
+  <text x="190" y="390" fill="#475569" font-family="Segoe UI, Arial, sans-serif" font-size="24">Structured content and responsive UI</text>
+</svg>

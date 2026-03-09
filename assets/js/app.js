@@ -21,7 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // images: [{ src: 'assets/images/your-image.jpg', caption: 'Optional caption' }, ...]
     const projects = [
         {
-            image: 'assets/images/dummy1.png',
+            image: 'assets/images/FCN/Screenshot_1.png',
+            images: [
+                { src: 'assets/images/FCN/Screenshot_1.png', caption: 'FCN Seating - Seat map overview' },
+                { src: 'assets/images/FCN/Screenshot_2.png', caption: 'FCN Seating - Section and seat visualization' },
+                { src: 'assets/images/FCN/Screenshot_3.png', caption: 'FCN Seating - Assignment workflow screen' },
+                { src: 'assets/images/FCN/Screenshot_4.png', caption: 'FCN Seating - Seat status legend and controls' },
+                { src: 'assets/images/FCN/Screenshot_5.png', caption: 'FCN Seating - Search and filtering interactions' },
+                { src: 'assets/images/FCN/Screenshot_6.png', caption: 'FCN Seating - Seat state details view' },
+                { src: 'assets/images/FCN/Screenshot_7.png', caption: 'FCN Seating - Responsive layout view' },
+                { src: 'assets/images/FCN/Screenshot_8.png', caption: 'FCN Seating - Reassignment and validation flow' },
+                { src: 'assets/images/FCN/Screenshot_9.png', caption: 'FCN Seating - Occupancy and availability overview' }
+            ],
             stack: ['Laravel', 'Vue 3', 'Responsive UI', 'Seat Workflow'],
             title: 'FCN Seating',
             desc: 'Interactive seat planning platform that replaces manual tracking with a clear, fast allocation workflow.',
@@ -69,7 +80,19 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/dummy2.jpg',
+            image: 'assets/images/FAI MEDICAL/Screenshot_1.png',
+            images: [
+                { src: 'assets/images/FAI MEDICAL/Screenshot_1.png', caption: 'FAI Medical - Dashboard and mission overview' },
+                { src: 'assets/images/FAI MEDICAL/Screenshot_2.png', caption: 'FAI Medical - Transport creation workflow' },
+                { src: 'assets/images/FAI MEDICAL/Screenshot_3.png', caption: 'FAI Medical - Patient clinical information module' },
+                { src: 'assets/images/FAI MEDICAL/Screenshot_4.png', caption: 'FAI Medical - Crew assignment and operations details' },
+                { src: 'assets/images/FAI MEDICAL/Screenshot_5.png', caption: 'FAI Medical - Pre-flight and assessment screen' },
+                { src: 'assets/images/FAI MEDICAL/Screenshot_6.png', caption: 'FAI Medical - In-flight timeline and care module' },
+                { src: 'assets/images/FAI MEDICAL/Screenshot_7.png', caption: 'FAI Medical - Nursing care and patient tracking' },
+                { src: 'assets/images/FAI MEDICAL/Screenshot_8.png', caption: 'FAI Medical - Handover and post-flight documentation' },
+                { src: 'assets/images/FAI MEDICAL/Screenshot_9.png', caption: 'FAI Medical - Reports and clinical visual summaries' },
+                { src: 'assets/images/FAI MEDICAL/Screenshot_10.png', caption: 'FAI Medical - Admin module and data management view' }
+            ],
             stack: ['Laravel 11', 'Vue 3', 'Inertia.js', 'Sanctum', 'Chart.js'],
             title: 'FAI Medical',
             desc: 'Full-stack air-ambulance transport platform covering mission creation, clinical workflows, and secure reporting.',
@@ -120,7 +143,15 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/dummy3.jpg',
+            image: 'assets/images/NoLimits/Screenshot_1.png',
+            images: [
+                { src: 'assets/images/NoLimits/Screenshot_1.png', caption: 'NoLimits - Dashboard and operations overview' },
+                { src: 'assets/images/NoLimits/Screenshot_2.png', caption: 'NoLimits - Property and unit management view' },
+                { src: 'assets/images/NoLimits/Screenshot_3.png', caption: 'NoLimits - Prospect and contract workflow screen' },
+                { src: 'assets/images/NoLimits/Screenshot_4.png', caption: 'NoLimits - Contract lifecycle and status controls' },
+                { src: 'assets/images/NoLimits/Screenshot_5.png', caption: 'NoLimits - Commission tracking and distribution view' },
+                { src: 'assets/images/NoLimits/Screenshot_6.png', caption: 'NoLimits - Admin controls and business analytics' }
+            ],
             stack: ['Laravel 11', 'Vue 3', 'Inertia.js', 'Tailwind', 'Commission Engine'],
             title: 'NoLimits',
             desc: 'Real estate operations and commission platform managing inventory, contracts, and multi-level payouts.',
@@ -170,7 +201,15 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/dummy1.png',
+            image: 'assets/images/LETSTALK/Screenshot_1.png',
+            images: [
+                { src: 'assets/images/LETSTALK/Screenshot_1.png', caption: "Let'z Talk - Dashboard and scenario overview" },
+                { src: 'assets/images/LETSTALK/Screenshot_2.png', caption: "Let'z Talk - Scenario creation and assignment flow" },
+                { src: 'assets/images/LETSTALK/Screenshot_3.png', caption: "Let'z Talk - Student and trainer interaction screen" },
+                { src: 'assets/images/LETSTALK/Screenshot_4.png', caption: "Let'z Talk - Chat and conversation workflow" },
+                { src: 'assets/images/LETSTALK/Screenshot_5.png', caption: "Let'z Talk - Audio and review module view" },
+                { src: 'assets/images/LETSTALK/Screenshot_6.png', caption: "Let'z Talk - Reporting and admin control interface" }
+            ],
             stack: ['Laravel 11', 'Vue 3', 'OpenAI', 'FFmpeg', 'DOMPDF'],
             title: "Let'z Talk",
             desc: 'AI-assisted scenario training platform for institutes with text and audio assessment workflows.',
@@ -220,7 +259,17 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/dummy2.jpg',
+            image: 'assets/images/TENDER SYSTEM/Screenshot_1.png',
+            images: [
+                { src: 'assets/images/TENDER SYSTEM/Screenshot_1.png', caption: 'Tender System - Dashboard and project listing' },
+                { src: 'assets/images/TENDER SYSTEM/Screenshot_2.png', caption: 'Tender System - Lead and vendor management view' },
+                { src: 'assets/images/TENDER SYSTEM/Screenshot_3.png', caption: 'Tender System - Project creation workflow' },
+                { src: 'assets/images/TENDER SYSTEM/Screenshot_4.png', caption: 'Tender System - Itemized requirement and media setup' },
+                { src: 'assets/images/TENDER SYSTEM/Screenshot_5.png', caption: 'Tender System - Bid submission and response screen' },
+                { src: 'assets/images/TENDER SYSTEM/Screenshot_6.png', caption: 'Tender System - Bid comparison and decision module' },
+                { src: 'assets/images/TENDER SYSTEM/Screenshot_7.png', caption: 'Tender System - Communication and bid-level chat flow' },
+                { src: 'assets/images/TENDER SYSTEM/Screenshot_8.png', caption: 'Tender System - Analytics and operational tracking view' }
+            ],
             stack: ['Laravel 10', 'Vue 3', 'Inertia.js', 'Tailwind', 'Queued Mail'],
             title: 'Tender Management System',
             desc: 'Role-based procurement platform for project creation, vendor bidding, bid comparison, and approvals.',
@@ -270,7 +319,12 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/dummy3.jpg',
+            image: 'assets/images/SALMONE/Screenshot_1.png',
+            images: [
+                { src: 'assets/images/SALMONE/Screenshot_1.png', caption: 'Salmone - Landing and brand presentation view' },
+                { src: 'assets/images/SALMONE/Screenshot_2.png', caption: 'Salmone - Partner management dashboard workflow' },
+                { src: 'assets/images/SALMONE/Screenshot_3.png', caption: 'Salmone - Admin controls and content operations' }
+            ],
             stack: ['Laravel', 'Vue.js', 'Inertia.js', 'Blade', 'Vite'],
             title: 'Salmone Digital Platform',
             desc: 'Brand website and partner management dashboard built as a unified full-stack business platform.',
@@ -368,7 +422,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/dummy3.jpg',
+            image: 'assets/images/placeholders/delhi-house.svg',
+            hideImagesTab: true,
             stack: ['Laravel', 'Vue.js', 'Inertia.js', 'PHPMyAdmin'],
             title: 'Delhi House (Restaurant and Cafe) - Switzerland',
             desc: 'Full-stack restaurant platform with integrated customer-side journeys and centralized admin operations.',
@@ -410,7 +465,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/dummy1.png',
+            image: 'assets/images/placeholders/passionate-people.svg',
+            hideImagesTab: true,
             stack: ['Core PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
             title: 'Passionate People',
             desc: 'Media-focused web platform built around branding communication and user engagement.',
@@ -450,7 +506,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/dummy2.jpg',
+            image: 'assets/images/placeholders/akshar-star.svg',
+            hideImagesTab: true,
             stack: ['Core PHP', 'MySQL', 'Bootstrap', 'JavaScript'],
             title: 'Akshar Star Electronics',
             desc: 'Core PHP web project focused on structured backend logic and scalable data handling.',
@@ -491,7 +548,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/dummy1.png',
+            image: 'assets/images/placeholders/jkn-tours.svg',
+            hideImagesTab: true,
             stack: ['PHP', 'Laravel', 'CMS Workflow', 'Responsive UI'],
             title: 'JKN Tours and Travels',
             desc: 'Travel platform with booking, package management, authentication, and content workflows.',
@@ -705,6 +763,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const imageNext = overlay.querySelector('#projectCarouselNext');
         const tabs = Array.from(overlay.querySelectorAll('.project-modal-tab'));
         const tabPanels = Array.from(overlay.querySelectorAll('.project-modal-tab-panel'));
+        const imagesTab = tabs.find(tab => tab.getAttribute('data-tab-target') === 'images');
+        const imagesPanel = tabPanels.find(panel => panel.getAttribute('data-tab-panel') === 'images');
         const overview = overlay.querySelector('#projectModalOverview');
         const problem = overlay.querySelector('#projectModalProblem');
         const solution = overlay.querySelector('#projectModalSolution');
@@ -717,12 +777,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const outcomes = overlay.querySelector('#projectModalOutcomes');
         let carouselSlides = [];
         let activeSlide = 0;
-
-        const fallbackSlides = [
-            { src: 'assets/images/dummy1.png', caption: 'Project preview image 1' },
-            { src: 'assets/images/dummy2.jpg', caption: 'Project preview image 2' },
-            { src: 'assets/images/dummy3.jpg', caption: 'Project preview image 3' }
-        ];
 
         const renderList = (element, items) => {
             element.innerHTML = '';
@@ -758,7 +812,9 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const normalizeSlides = project => {
-            const source = Array.isArray(project.images) && project.images.length ? project.images : fallbackSlides;
+            const source = Array.isArray(project.images) && project.images.length
+                ? project.images
+                : [{ src: project.image, caption: `${project.title} - Project visual` }];
             return source
                 .map((item, index) => {
                     if (typeof item === 'string') {
@@ -815,13 +871,28 @@ document.addEventListener('DOMContentLoaded', () => {
             renderParagraph(solution, project.solution);
             renderParagraph(businessSummary, project.businessSummary || project.desc);
 
+            const showImagesTab = !project.hideImagesTab;
+            if (imagesTab) {
+                imagesTab.hidden = !showImagesTab;
+                imagesTab.setAttribute('aria-hidden', showImagesTab ? 'false' : 'true');
+            }
+            if (imagesPanel && !showImagesTab) {
+                imagesPanel.hidden = true;
+                imagesPanel.classList.remove('is-active');
+            }
+
             tags.innerHTML = project.stack
                 .map(tag => `<span class="project-badge">${tag}</span>`)
                 .join('');
 
-            carouselSlides = normalizeSlides(project);
-            activeSlide = 0;
-            renderCarousel();
+            if (showImagesTab) {
+                carouselSlides = normalizeSlides(project);
+                activeSlide = 0;
+                renderCarousel();
+            } else {
+                carouselSlides = [];
+                activeSlide = 0;
+            }
 
             renderList(highlights, project.highlights);
             renderList(modules, project.modules);

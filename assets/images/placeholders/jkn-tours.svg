@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">JKN Tours and Travels Placeholder</title>
+  <desc id="d">Stylized placeholder image for JKN Tours and Travels project.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c4a6e"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <path d="M90 520 C290 410, 450 610, 670 500 S980 390, 1110 470" fill="none" stroke="#bae6fd" stroke-width="14" opacity="0.55"/>
+  <rect x="170" y="150" width="860" height="360" rx="24" fill="#ffffff" opacity="0.93"/>
+  <text x="230" y="285" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif" font-size="58" font-weight="700">JKN Tours and Travels</text>
+  <text x="230" y="350" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="30">Bookings, Packages, CMS Workflows</text>
+  <text x="230" y="410" fill="#475569" font-family="Segoe UI, Arial, sans-serif" font-size="24">Responsive travel operations platform</text>
+</svg>

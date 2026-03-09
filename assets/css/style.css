@@ -582,7 +582,8 @@ h1 {
 .project-card img {
     width: 100%;
     aspect-ratio: 16 / 9;
-    object-fit: cover;
+    object-fit: contain;
+    background: #eaf0f8;
     border-radius: 8px;
 }
 
@@ -760,9 +761,10 @@ body.modal-open {
 
 .project-modal-carousel img {
     width: 100%;
-    aspect-ratio: 16 / 8;
-    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
     display: block;
+    background: #eaf0f8;
     transform: scale(1);
     opacity: 1;
 }
