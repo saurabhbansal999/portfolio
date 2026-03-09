@@ -372,7 +372,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/dummy1.png',
+            image: 'assets/images/placeholders/fishing-club.svg',
+            hideImagesTab: true,
             stack: ['Laravel 11', 'Vue 3', 'Inertia.js', 'Passport', 'FCM'],
             title: 'Fishing Club Management Platform',
             desc: 'Centralized club operations platform with multi-role access, member APIs, and workflow automation.',
