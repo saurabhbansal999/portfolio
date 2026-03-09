@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.getElementById('navMenu');
     const themeToggle = document.getElementById('themeToggle');
     const aboutCrazy = document.querySelector('.about-crazy');
+    const heroSection = document.querySelector('.hero-section');
     const navLinks = nav ? Array.from(nav.querySelectorAll('a')) : [];
     const navIndicator = nav ? document.createElement('span') : null;
     if (nav && navIndicator) {
@@ -753,6 +754,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(overlay);
 
         const closeBtn = overlay.querySelector('#projectModalClose');
+        const carousel = overlay.querySelector('.project-modal-carousel');
         const title = overlay.querySelector('#projectModalTitle');
         const desc = overlay.querySelector('#projectModalDesc');
         const tags = overlay.querySelector('#projectModalTags');
@@ -955,17 +957,34 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!projectsGrid || !loadMoreBtn) return;
 
         projectsGrid.innerHTML = '';
+        const accents = [
+            ['#0ea5e9', '#22d3ee'],
+            ['#6366f1', '#38bdf8'],
+            ['#f59e0b', '#f97316'],
+            ['#14b8a6', '#06b6d4'],
+            ['#8b5cf6', '#60a5fa'],
+            ['#10b981', '#0ea5e9'],
+            ['#f43f5e', '#fb7185'],
+            ['#06b6d4', '#3b82f6']
+        ];
 
         projects.slice(0, visibleCount).forEach((project, index) => {
             const article = document.createElement('article');
             article.className = 'project-card';
+            const accent = accents[index % accents.length];
+            article.style.setProperty('--accent-a', accent[0]);
+            article.style.setProperty('--accent-b', accent[1]);
 
             const badges = project.stack
                 .map(tag => `<span class="project-badge">${tag}</span>`)
                 .join('');
 
             article.innerHTML = `
-                <img src="${project.image}" alt="${project.title}" />
+                <div class="project-media">
+                    <span class="project-media-glow" aria-hidden="true"></span>
+                    <span class="project-media-grid" aria-hidden="true"></span>
+                    <img src="${project.image}" alt="${project.title}" />
+                </div>
                 <div class="project-body">
                     <div class="project-stack">${badges}</div>
                     <h3 class="project-title">${project.title}</h3>
@@ -980,7 +999,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         loadMoreBtn.style.display = visibleCount >= projects.length ? 'none' : 'inline-flex';
+        initProjectCard3D();
         registerRevealTargets();
+    };
+
+    const initProjectCard3D = () => {
+        if (prefersReducedMotion || !window.matchMedia('(pointer: fine)').matches) return;
+        const cards = projectsGrid ? Array.from(projectsGrid.querySelectorAll('.project-card')) : [];
+
+        cards.forEach(card => {
+            if (card.dataset.tiltBound === '1') return;
+            card.dataset.tiltBound = '1';
+            card.classList.add('has-tilt');
+
+            const reset = () => {
+                card.style.setProperty('--card-tilt-x', '0deg');
+                card.style.setProperty('--card-tilt-y', '0deg');
+                card.style.setProperty('--card-pop', '0px');
+            };
+
+            card.addEventListener('mousemove', event => {
+                const rect = card.getBoundingClientRect();
+                const x = (event.clientX - rect.left) / rect.width;
+                const y = (event.clientY - rect.top) / rect.height;
+                const tiltX = (0.5 - y) * 7;
+                const tiltY = (x - 0.5) * 9;
+                card.style.setProperty('--card-tilt-x', `${tiltX.toFixed(2)}deg`);
+                card.style.setProperty('--card-tilt-y', `${tiltY.toFixed(2)}deg`);
+                card.style.setProperty('--card-pop', '-2px');
+            });
+
+            card.addEventListener('mouseleave', reset);
+            reset();
+        });
     };
 
     const registerRevealTargets = () => {
@@ -1109,6 +1160,75 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!rafId) rafId = window.requestAnimationFrame(setCursorPos);
     };
 
+    const initHeroScroll3D = () => {
+        if (!heroSection || prefersReducedMotion) return;
+
+        if (!heroSection.querySelector('.hero-atmo')) {
+            const atmo = document.createElement('div');
+            atmo.className = 'hero-atmo';
+            atmo.innerHTML = `
+                <span class="orb orb-a" aria-hidden="true"></span>
+                <span class="orb orb-b" aria-hidden="true"></span>
+                <span class="beam" aria-hidden="true"></span>
+            `;
+            heroSection.appendChild(atmo);
+        }
+
+        let ticking = false;
+        let pointerX = 0;
+        let pointerY = 0;
+
+        const updateHeroDepth = () => {
+            const sectionRect = heroSection.getBoundingClientRect();
+            const viewport = window.innerHeight || 1;
+            const progressRaw = Math.max(0, Math.min(1, (viewport - sectionRect.top) / (viewport + sectionRect.height * 0.35)));
+            const progress = Number(progressRaw.toFixed(4));
+
+            const shift = progress * 24;
+            const rot = progress * 2.8;
+            const glow = progress;
+            const bend = pointerX * 2.2;
+
+            heroSection.style.setProperty('--hero-shift', `${shift}px`);
+            heroSection.style.setProperty('--hero-rot', `${rot.toFixed(2)}deg`);
+            heroSection.style.setProperty('--hero-glow', glow.toFixed(3));
+            heroSection.style.setProperty('--hero-bend', `${bend.toFixed(2)}deg`);
+            heroSection.style.setProperty('--hero-mx', pointerX.toFixed(3));
+            heroSection.style.setProperty('--hero-my', pointerY.toFixed(3));
+            ticking = false;
+        };
+
+        const requestTick = () => {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(updateHeroDepth);
+        };
+
+        const handlePointerMove = event => {
+            const rect = heroSection.getBoundingClientRect();
+            if (rect.width <= 0 || rect.height <= 0) return;
+            const nx = ((event.clientX - rect.left) / rect.width) - 0.5;
+            const ny = ((event.clientY - rect.top) / rect.height) - 0.5;
+            pointerX = Math.max(-1, Math.min(1, nx));
+            pointerY = Math.max(-1, Math.min(1, ny));
+            requestTick();
+        };
+
+        const handlePointerLeave = () => {
+            pointerX = 0;
+            pointerY = 0;
+            requestTick();
+        };
+
+        window.addEventListener('scroll', requestTick, { passive: true });
+        window.addEventListener('resize', requestTick);
+        if (window.matchMedia('(pointer: fine)').matches) {
+            heroSection.addEventListener('pointermove', handlePointerMove);
+            heroSection.addEventListener('pointerleave', handlePointerLeave);
+        }
+        requestTick();
+    };
+
     if (menuToggle && nav) {
         menuToggle.addEventListener('click', () => {
             const isOpen = nav.classList.toggle('active');
@@ -1187,7 +1307,7 @@ document.addEventListener('DOMContentLoaded', () => {
     markActiveLink(initialHash);
 
     const storedTheme = localStorage.getItem('theme');
-    applyTheme(storedTheme || 'light');
+    applyTheme(storedTheme || 'dark');
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             const nextTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
@@ -1239,6 +1359,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initRevealObserver();
     initCustomCursor();
+    initHeroScroll3D();
     renderProjects();
     updateActiveByScroll();
     updateNavIndicator();
