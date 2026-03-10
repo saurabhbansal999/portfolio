@@ -17,23 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
         .map(id => document.getElementById(id))
         .filter(Boolean);
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isPerformanceConstrained = () => (
+        window.innerWidth <= 1024
+        || (typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4)
+    );
 
-    // Optional per-project image format:
-    // images: [{ src: 'assets/images/your-image.jpg', caption: 'Optional caption' }, ...]
     const projects = [
         {
-            image: 'assets/images/FCN/Screenshot_1.png',
-            images: [
-                { src: 'assets/images/FCN/Screenshot_1.png', caption: 'FCN Seating - Seat map overview' },
-                { src: 'assets/images/FCN/Screenshot_2.png', caption: 'FCN Seating - Section and seat visualization' },
-                { src: 'assets/images/FCN/Screenshot_3.png', caption: 'FCN Seating - Assignment workflow screen' },
-                { src: 'assets/images/FCN/Screenshot_4.png', caption: 'FCN Seating - Seat status legend and controls' },
-                { src: 'assets/images/FCN/Screenshot_5.png', caption: 'FCN Seating - Search and filtering interactions' },
-                { src: 'assets/images/FCN/Screenshot_6.png', caption: 'FCN Seating - Seat state details view' },
-                { src: 'assets/images/FCN/Screenshot_7.png', caption: 'FCN Seating - Responsive layout view' },
-                { src: 'assets/images/FCN/Screenshot_8.png', caption: 'FCN Seating - Reassignment and validation flow' },
-                { src: 'assets/images/FCN/Screenshot_9.png', caption: 'FCN Seating - Occupancy and availability overview' }
-            ],
+            image: 'assets/images/placeholders/fcn-seating.svg',
             stack: ['Laravel', 'Vue 3', 'Responsive UI', 'Seat Workflow'],
             title: 'FCN Seating',
             desc: 'Interactive seat planning platform that replaces manual tracking with a clear, fast allocation workflow.',
@@ -81,19 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/FAI MEDICAL/Screenshot_1.png',
-            images: [
-                { src: 'assets/images/FAI MEDICAL/Screenshot_1.png', caption: 'FAI Medical - Dashboard and mission overview' },
-                { src: 'assets/images/FAI MEDICAL/Screenshot_2.png', caption: 'FAI Medical - Transport creation workflow' },
-                { src: 'assets/images/FAI MEDICAL/Screenshot_3.png', caption: 'FAI Medical - Patient clinical information module' },
-                { src: 'assets/images/FAI MEDICAL/Screenshot_4.png', caption: 'FAI Medical - Crew assignment and operations details' },
-                { src: 'assets/images/FAI MEDICAL/Screenshot_5.png', caption: 'FAI Medical - Pre-flight and assessment screen' },
-                { src: 'assets/images/FAI MEDICAL/Screenshot_6.png', caption: 'FAI Medical - In-flight timeline and care module' },
-                { src: 'assets/images/FAI MEDICAL/Screenshot_7.png', caption: 'FAI Medical - Nursing care and patient tracking' },
-                { src: 'assets/images/FAI MEDICAL/Screenshot_8.png', caption: 'FAI Medical - Handover and post-flight documentation' },
-                { src: 'assets/images/FAI MEDICAL/Screenshot_9.png', caption: 'FAI Medical - Reports and clinical visual summaries' },
-                { src: 'assets/images/FAI MEDICAL/Screenshot_10.png', caption: 'FAI Medical - Admin module and data management view' }
-            ],
+            image: 'assets/images/placeholders/fai-medical.svg',
             stack: ['Laravel 11', 'Vue 3', 'Inertia.js', 'Sanctum', 'Chart.js'],
             title: 'FAI Medical',
             desc: 'Full-stack air-ambulance transport platform covering mission creation, clinical workflows, and secure reporting.',
@@ -144,15 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/NoLimits/Screenshot_1.png',
-            images: [
-                { src: 'assets/images/NoLimits/Screenshot_1.png', caption: 'NoLimits - Dashboard and operations overview' },
-                { src: 'assets/images/NoLimits/Screenshot_2.png', caption: 'NoLimits - Property and unit management view' },
-                { src: 'assets/images/NoLimits/Screenshot_3.png', caption: 'NoLimits - Prospect and contract workflow screen' },
-                { src: 'assets/images/NoLimits/Screenshot_4.png', caption: 'NoLimits - Contract lifecycle and status controls' },
-                { src: 'assets/images/NoLimits/Screenshot_5.png', caption: 'NoLimits - Commission tracking and distribution view' },
-                { src: 'assets/images/NoLimits/Screenshot_6.png', caption: 'NoLimits - Admin controls and business analytics' }
-            ],
+            image: 'assets/images/placeholders/nolimits.svg',
             stack: ['Laravel 11', 'Vue 3', 'Inertia.js', 'Tailwind', 'Commission Engine'],
             title: 'NoLimits',
             desc: 'Real estate operations and commission platform managing inventory, contracts, and multi-level payouts.',
@@ -202,15 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/LETSTALK/Screenshot_1.png',
-            images: [
-                { src: 'assets/images/LETSTALK/Screenshot_1.png', caption: "Let'z Talk - Dashboard and scenario overview" },
-                { src: 'assets/images/LETSTALK/Screenshot_2.png', caption: "Let'z Talk - Scenario creation and assignment flow" },
-                { src: 'assets/images/LETSTALK/Screenshot_3.png', caption: "Let'z Talk - Student and trainer interaction screen" },
-                { src: 'assets/images/LETSTALK/Screenshot_4.png', caption: "Let'z Talk - Chat and conversation workflow" },
-                { src: 'assets/images/LETSTALK/Screenshot_5.png', caption: "Let'z Talk - Audio and review module view" },
-                { src: 'assets/images/LETSTALK/Screenshot_6.png', caption: "Let'z Talk - Reporting and admin control interface" }
-            ],
+            image: 'assets/images/placeholders/letz-talk.svg',
             stack: ['Laravel 11', 'Vue 3', 'OpenAI', 'FFmpeg', 'DOMPDF'],
             title: "Let'z Talk",
             desc: 'AI-assisted scenario training platform for institutes with text and audio assessment workflows.',
@@ -260,17 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/TENDER SYSTEM/Screenshot_1.png',
-            images: [
-                { src: 'assets/images/TENDER SYSTEM/Screenshot_1.png', caption: 'Tender System - Dashboard and project listing' },
-                { src: 'assets/images/TENDER SYSTEM/Screenshot_2.png', caption: 'Tender System - Lead and vendor management view' },
-                { src: 'assets/images/TENDER SYSTEM/Screenshot_3.png', caption: 'Tender System - Project creation workflow' },
-                { src: 'assets/images/TENDER SYSTEM/Screenshot_4.png', caption: 'Tender System - Itemized requirement and media setup' },
-                { src: 'assets/images/TENDER SYSTEM/Screenshot_5.png', caption: 'Tender System - Bid submission and response screen' },
-                { src: 'assets/images/TENDER SYSTEM/Screenshot_6.png', caption: 'Tender System - Bid comparison and decision module' },
-                { src: 'assets/images/TENDER SYSTEM/Screenshot_7.png', caption: 'Tender System - Communication and bid-level chat flow' },
-                { src: 'assets/images/TENDER SYSTEM/Screenshot_8.png', caption: 'Tender System - Analytics and operational tracking view' }
-            ],
+            image: 'assets/images/placeholders/tender-management.svg',
             stack: ['Laravel 10', 'Vue 3', 'Inertia.js', 'Tailwind', 'Queued Mail'],
             title: 'Tender Management System',
             desc: 'Role-based procurement platform for project creation, vendor bidding, bid comparison, and approvals.',
@@ -320,12 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         {
-            image: 'assets/images/SALMONE/Screenshot_1.png',
-            images: [
-                { src: 'assets/images/SALMONE/Screenshot_1.png', caption: 'Salmone - Landing and brand presentation view' },
-                { src: 'assets/images/SALMONE/Screenshot_2.png', caption: 'Salmone - Partner management dashboard workflow' },
-                { src: 'assets/images/SALMONE/Screenshot_3.png', caption: 'Salmone - Admin controls and content operations' }
-            ],
+            image: 'assets/images/placeholders/salmone-digital.svg',
             stack: ['Laravel', 'Vue.js', 'Inertia.js', 'Blade', 'Vite'],
             title: 'Salmone Digital Platform',
             desc: 'Brand website and partner management dashboard built as a unified full-stack business platform.',
@@ -374,7 +322,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             image: 'assets/images/placeholders/fishing-club.svg',
-            hideImagesTab: true,
             stack: ['Laravel 11', 'Vue 3', 'Inertia.js', 'Passport', 'FCM'],
             title: 'Fishing Club Management Platform',
             desc: 'Centralized club operations platform with multi-role access, member APIs, and workflow automation.',
@@ -425,7 +372,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             image: 'assets/images/placeholders/delhi-house.svg',
-            hideImagesTab: true,
             stack: ['Laravel', 'Vue.js', 'Inertia.js', 'PHPMyAdmin'],
             title: 'Delhi House (Restaurant and Cafe) - Switzerland',
             desc: 'Full-stack restaurant platform with integrated customer-side journeys and centralized admin operations.',
@@ -468,7 +414,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             image: 'assets/images/placeholders/passionate-people.svg',
-            hideImagesTab: true,
             stack: ['Core PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
             title: 'Passionate People',
             desc: 'Media-focused web platform built around branding communication and user engagement.',
@@ -509,7 +454,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             image: 'assets/images/placeholders/akshar-star.svg',
-            hideImagesTab: true,
             stack: ['Core PHP', 'MySQL', 'Bootstrap', 'JavaScript'],
             title: 'Akshar Star Electronics',
             desc: 'Core PHP web project focused on structured backend logic and scalable data handling.',
@@ -551,7 +495,6 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             image: 'assets/images/placeholders/jkn-tours.svg',
-            hideImagesTab: true,
             stack: ['PHP', 'Laravel', 'CMS Workflow', 'Responsive UI'],
             title: 'JKN Tours and Travels',
             desc: 'Travel platform with booking, package management, authentication, and content workflows.',
@@ -676,7 +619,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button type="button" class="project-modal-tab is-active" role="tab" aria-selected="true" data-tab-target="overview">Overview</button>
                     <button type="button" class="project-modal-tab" role="tab" aria-selected="false" data-tab-target="technical">Technical</button>
                     <button type="button" class="project-modal-tab" role="tab" aria-selected="false" data-tab-target="business">Business</button>
-                    <button type="button" class="project-modal-tab" role="tab" aria-selected="false" data-tab-target="images">Images</button>
                 </div>
                 <div class="project-modal-panels">
                     <section class="project-modal-tab-panel is-active" role="tabpanel" data-tab-panel="overview">
@@ -731,22 +673,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             </section>
                         </div>
                     </section>
-                    <section class="project-modal-tab-panel" role="tabpanel" data-tab-panel="images" hidden>
-                        <figure class="project-modal-carousel">
-                            <button type="button" class="project-carousel-nav prev" id="projectCarouselPrev" aria-label="Previous image">
-                                <i class="bi bi-chevron-left"></i>
-                            </button>
-                            <img id="projectModalImage" src="" alt="" />
-                            <button type="button" class="project-carousel-nav next" id="projectCarouselNext" aria-label="Next image">
-                                <i class="bi bi-chevron-right"></i>
-                            </button>
-                            <figcaption id="projectModalImageCaption"></figcaption>
-                            <div class="project-carousel-meta">
-                                <span id="projectModalImageCounter">1 / 1</span>
-                                <div class="project-carousel-dots" id="projectCarouselDots"></div>
-                            </div>
-                        </figure>
-                    </section>
                 </div>
             </article>
         `;
@@ -754,20 +680,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(overlay);
 
         const closeBtn = overlay.querySelector('#projectModalClose');
-        const carousel = overlay.querySelector('.project-modal-carousel');
         const title = overlay.querySelector('#projectModalTitle');
         const desc = overlay.querySelector('#projectModalDesc');
         const tags = overlay.querySelector('#projectModalTags');
-        const image = overlay.querySelector('#projectModalImage');
-        const imageCaption = overlay.querySelector('#projectModalImageCaption');
-        const imageCounter = overlay.querySelector('#projectModalImageCounter');
-        const imageDots = overlay.querySelector('#projectCarouselDots');
-        const imagePrev = overlay.querySelector('#projectCarouselPrev');
-        const imageNext = overlay.querySelector('#projectCarouselNext');
         const tabs = Array.from(overlay.querySelectorAll('.project-modal-tab'));
         const tabPanels = Array.from(overlay.querySelectorAll('.project-modal-tab-panel'));
-        const imagesTab = tabs.find(tab => tab.getAttribute('data-tab-target') === 'images');
-        const imagesPanel = tabPanels.find(panel => panel.getAttribute('data-tab-panel') === 'images');
         const overview = overlay.querySelector('#projectModalOverview');
         const problem = overlay.querySelector('#projectModalProblem');
         const solution = overlay.querySelector('#projectModalSolution');
@@ -778,8 +695,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const security = overlay.querySelector('#projectModalSecurity');
         const role = overlay.querySelector('#projectModalRole');
         const outcomes = overlay.querySelector('#projectModalOutcomes');
-        let carouselSlides = [];
-        let activeSlide = 0;
 
         const renderList = (element, items) => {
             element.innerHTML = '';
@@ -814,58 +729,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        const normalizeSlides = project => {
-            const source = Array.isArray(project.images) && project.images.length
-                ? project.images
-                : [{ src: project.image, caption: `${project.title} - Project visual` }];
-            return source
-                .map((item, index) => {
-                    if (typeof item === 'string') {
-                        return {
-                            src: item,
-                            caption: `${project.title} - Screen ${index + 1}`
-                        };
-                    }
-
-                    if (item && item.src) {
-                        return {
-                            src: item.src,
-                            caption: item.caption || `${project.title} - Screen ${index + 1}`
-                        };
-                    }
-
-                    return null;
-                })
-                .filter(Boolean);
-        };
-
-        const renderCarousel = () => {
-            if (!carouselSlides.length) return;
-
-            const slide = carouselSlides[activeSlide];
-            image.classList.remove('is-transitioning');
-            image.src = slide.src;
-            image.alt = `${title.textContent} preview ${activeSlide + 1}`;
-            imageCaption.textContent = slide.caption;
-            imageCounter.textContent = `${activeSlide + 1} / ${carouselSlides.length}`;
-            void image.offsetWidth;
-            image.classList.add('is-transitioning');
-
-            imageDots.innerHTML = '';
-            carouselSlides.forEach((_, index) => {
-                const dot = document.createElement('button');
-                dot.type = 'button';
-                dot.className = 'project-carousel-dot';
-                dot.setAttribute('aria-label', `Go to image ${index + 1}`);
-                dot.classList.toggle('is-active', index === activeSlide);
-                dot.addEventListener('click', () => {
-                    activeSlide = index;
-                    renderCarousel();
-                });
-                imageDots.appendChild(dot);
-            });
-        };
-
         const open = project => {
             title.textContent = project.title;
             desc.textContent = project.desc;
@@ -874,28 +737,9 @@ document.addEventListener('DOMContentLoaded', () => {
             renderParagraph(solution, project.solution);
             renderParagraph(businessSummary, project.businessSummary || project.desc);
 
-            const showImagesTab = !project.hideImagesTab;
-            if (imagesTab) {
-                imagesTab.hidden = !showImagesTab;
-                imagesTab.setAttribute('aria-hidden', showImagesTab ? 'false' : 'true');
-            }
-            if (imagesPanel && !showImagesTab) {
-                imagesPanel.hidden = true;
-                imagesPanel.classList.remove('is-active');
-            }
-
             tags.innerHTML = project.stack
                 .map(tag => `<span class="project-badge">${tag}</span>`)
                 .join('');
-
-            if (showImagesTab) {
-                carouselSlides = normalizeSlides(project);
-                activeSlide = 0;
-                renderCarousel();
-            } else {
-                carouselSlides = [];
-                activeSlide = 0;
-            }
 
             renderList(highlights, project.highlights);
             renderList(modules, project.modules);
@@ -917,16 +761,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         closeBtn?.addEventListener('click', close);
-        imagePrev?.addEventListener('click', () => {
-            if (!carouselSlides.length) return;
-            activeSlide = (activeSlide - 1 + carouselSlides.length) % carouselSlides.length;
-            renderCarousel();
-        });
-        imageNext?.addEventListener('click', () => {
-            if (!carouselSlides.length) return;
-            activeSlide = (activeSlide + 1) % carouselSlides.length;
-            renderCarousel();
-        });
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 const targetTab = tab.getAttribute('data-tab-target');
@@ -940,14 +774,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', event => {
             if (event.key === 'Escape' && overlay.classList.contains('is-open')) close();
             if (!overlay.classList.contains('is-open')) return;
-            if (event.key === 'ArrowLeft') {
-                activeSlide = (activeSlide - 1 + carouselSlides.length) % carouselSlides.length;
-                renderCarousel();
-            }
-            if (event.key === 'ArrowRight') {
-                activeSlide = (activeSlide + 1) % carouselSlides.length;
-                renderCarousel();
-            }
         });
 
         return { overlay, open, close };
@@ -978,12 +804,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const badges = project.stack
                 .map(tag => `<span class="project-badge">${tag}</span>`)
                 .join('');
+            const hasSvgPreview = typeof project.image === 'string' && project.image.endsWith('.svg');
+            const mediaContent = hasSvgPreview
+                ? `<img src="${project.image}" alt="${project.title}" />`
+                : '<span class="project-media-title">Project Preview</span>';
 
             article.innerHTML = `
                 <div class="project-media">
                     <span class="project-media-glow" aria-hidden="true"></span>
                     <span class="project-media-grid" aria-hidden="true"></span>
-                    <img src="${project.image}" alt="${project.title}" />
+                    ${mediaContent}
                 </div>
                 <div class="project-body">
                     <div class="project-stack">${badges}</div>
@@ -1011,6 +841,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (card.dataset.tiltBound === '1') return;
             card.dataset.tiltBound = '1';
             card.classList.add('has-tilt');
+            let rect = null;
+            const readRect = () => {
+                rect = card.getBoundingClientRect();
+            };
 
             const reset = () => {
                 card.style.setProperty('--card-tilt-x', '0deg');
@@ -1018,8 +852,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.style.setProperty('--card-pop', '0px');
             };
 
+            card.addEventListener('mouseenter', readRect);
             card.addEventListener('mousemove', event => {
-                const rect = card.getBoundingClientRect();
+                if (!rect) readRect();
+                if (!rect || rect.width <= 0 || rect.height <= 0) return;
                 const x = (event.clientX - rect.left) / rect.width;
                 const y = (event.clientY - rect.top) / rect.height;
                 const tiltX = (0.5 - y) * 7;
@@ -1029,7 +865,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.style.setProperty('--card-pop', '-2px');
             });
 
-            card.addEventListener('mouseleave', reset);
+            card.addEventListener('mouseleave', () => {
+                rect = null;
+                reset();
+            });
             reset();
         });
     };
@@ -1081,7 +920,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const initCustomCursor = () => {
-        if (prefersReducedMotion || !window.matchMedia('(pointer: fine)').matches) return;
+        if (prefersReducedMotion || isPerformanceConstrained() || !window.matchMedia('(pointer: fine)').matches) return;
 
         const dot = document.createElement('span');
         const ring = document.createElement('span');
@@ -1144,13 +983,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('pointermove', event => {
             mouseX = event.clientX;
             mouseY = event.clientY;
-            const target = document.elementFromPoint(event.clientX, event.clientY);
-            if (target instanceof Element) applyCursorContrast(target);
             if (!rafId) rafId = window.requestAnimationFrame(setCursorPos);
         });
 
         document.addEventListener('mouseover', event => {
+            if (!(event.target instanceof Element)) return;
             const interactive = event.target.closest('a, button, .btn, [role="button"]');
+            applyCursorContrast(event.target);
             document.body.classList.toggle('cursor-hover', Boolean(interactive));
         });
 
@@ -1316,13 +1155,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    let resizeRafId = null;
     window.addEventListener('resize', () => {
-        const minimumVisible = batchSize();
-        visibleCount = Math.max(visibleCount, minimumVisible);
-        if (window.innerWidth > 768) closeMenu();
-        renderProjects();
-        updateActiveByScroll();
-        updateNavIndicator();
+        if (resizeRafId) return;
+        resizeRafId = window.requestAnimationFrame(() => {
+            const minimumVisible = batchSize();
+            visibleCount = Math.max(visibleCount, minimumVisible);
+            if (window.innerWidth > 768) closeMenu();
+            renderProjects();
+            updateActiveByScroll();
+            updateNavIndicator();
+            resizeRafId = null;
+        });
     });
 
     window.addEventListener('hashchange', () => {
@@ -1330,9 +1174,20 @@ document.addEventListener('DOMContentLoaded', () => {
         markActiveLink(hash);
     });
 
-    window.addEventListener('scroll', updateActiveByScroll, { passive: true });
+    let scrollRafId = null;
+    window.addEventListener('scroll', () => {
+        if (scrollRafId) return;
+        scrollRafId = window.requestAnimationFrame(() => {
+            updateActiveByScroll();
+            scrollRafId = null;
+        });
+    }, { passive: true });
 
     if (aboutCrazy && !prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
+        let aboutRect = null;
+        const readAboutRect = () => {
+            aboutRect = aboutCrazy.getBoundingClientRect();
+        };
         const resetTilt = () => {
             aboutCrazy.style.setProperty('--tilt-x', '0deg');
             aboutCrazy.style.setProperty('--tilt-y', '0deg');
@@ -1340,10 +1195,12 @@ document.addEventListener('DOMContentLoaded', () => {
             aboutCrazy.style.setProperty('--my', '50%');
         };
 
+        aboutCrazy.addEventListener('mouseenter', readAboutRect);
         aboutCrazy.addEventListener('mousemove', event => {
-            const rect = aboutCrazy.getBoundingClientRect();
-            const x = (event.clientX - rect.left) / rect.width;
-            const y = (event.clientY - rect.top) / rect.height;
+            if (!aboutRect) readAboutRect();
+            if (!aboutRect || aboutRect.width <= 0 || aboutRect.height <= 0) return;
+            const x = (event.clientX - aboutRect.left) / aboutRect.width;
+            const y = (event.clientY - aboutRect.top) / aboutRect.height;
             const tiltX = (0.5 - y) * 7;
             const tiltY = (x - 0.5) * 7;
 
@@ -1353,7 +1210,10 @@ document.addEventListener('DOMContentLoaded', () => {
             aboutCrazy.style.setProperty('--my', `${(y * 100).toFixed(1)}%`);
         });
 
-        aboutCrazy.addEventListener('mouseleave', resetTilt);
+        aboutCrazy.addEventListener('mouseleave', () => {
+            aboutRect = null;
+            resetTilt();
+        });
         resetTilt();
     }
 

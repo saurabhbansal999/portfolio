@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">Salmone Digital Platform Placeholder</title>
+  <desc id="d">Stylized placeholder image for Salmone Digital Platform project.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <path d="M40 500 C210 430, 330 590, 520 520 S830 430, 1160 500" fill="none" stroke="#fbcfe8" stroke-width="14" opacity="0.56"/>
+  <circle cx="980" cy="145" r="72" fill="#f472b6" opacity="0.88"/>
+  <rect x="145" y="150" width="910" height="380" rx="24" fill="#ffffff" opacity="0.93"/>
+  <text x="205" y="275" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif" font-size="58" font-weight="700">Salmone Digital</text>
+  <text x="205" y="340" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="30">Brand + Partner Management Platform</text>
+  <text x="205" y="402" fill="#475569" font-family="Segoe UI, Arial, sans-serif" font-size="24">Public website and secure admin workflows</text>
+</svg>
