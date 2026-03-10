@@ -471,30 +471,33 @@ body:not(.dark-theme) .hero-atmo .orb {
 
 body:not(.dark-theme) {
     background:
-        radial-gradient(120% 100% at 0% 0%, rgba(34, 197, 94, 0.06), transparent 46%),
-        radial-gradient(130% 110% at 100% 0%, rgba(56, 189, 248, 0.08), transparent 52%),
-        linear-gradient(180deg, #f4f8ff 0%, #f8fbff 48%, #f4f7fc 100%);
+        radial-gradient(120% 100% at 0% 0%, rgba(16, 185, 129, 0.08), transparent 46%),
+        radial-gradient(130% 110% at 100% 0%, rgba(14, 165, 233, 0.12), transparent 52%),
+        linear-gradient(180deg, #eef6ff 0%, #f5f9ff 48%, #edf3fb 100%);
 }
 
 body:not(.dark-theme)::before {
-    opacity: 0.68;
+    opacity: 0.74;
     background:
-        radial-gradient(95% 65% at 12% 4%, rgba(14, 165, 233, 0.11), transparent 64%),
-        radial-gradient(86% 62% at 88% 11%, rgba(37, 99, 235, 0.09), transparent 62%),
-        radial-gradient(72% 58% at 50% 44%, rgba(34, 197, 94, 0.06), transparent 68%),
-        radial-gradient(78% 62% at 14% 84%, rgba(56, 189, 248, 0.05), transparent 66%),
-        radial-gradient(78% 62% at 86% 92%, rgba(96, 165, 250, 0.05), transparent 66%);
+        radial-gradient(95% 65% at 12% 4%, rgba(14, 165, 233, 0.14), transparent 64%),
+        radial-gradient(86% 62% at 88% 11%, rgba(37, 99, 235, 0.12), transparent 62%),
+        radial-gradient(72% 58% at 50% 44%, rgba(16, 185, 129, 0.08), transparent 68%),
+        radial-gradient(78% 62% at 14% 84%, rgba(56, 189, 248, 0.07), transparent 66%),
+        radial-gradient(78% 62% at 86% 92%, rgba(59, 130, 246, 0.07), transparent 66%);
 }
 
 body:not(.dark-theme) .site-header {
-    background: rgba(255, 255, 255, 0.9);
-    border-bottom-color: #d7e3f1;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(245, 251, 255, 0.9) 100%);
+    border-bottom-color: #cfe0f3;
+    box-shadow: 0 10px 24px rgba(9, 30, 66, 0.1);
 }
 
 body:not(.dark-theme) .main-nav {
-    border-color: #d5e1ef;
-    background: rgba(255, 255, 255, 0.96);
+    border-color: #c9ddef;
+    background:
+        radial-gradient(120% 120% at 0% 0%, rgba(56, 189, 248, 0.1), transparent 54%),
+        radial-gradient(120% 120% at 100% 100%, rgba(59, 130, 246, 0.08), transparent 58%),
+        rgba(255, 255, 255, 0.96);
 }
 
 body:not(.dark-theme) .main-nav a {
@@ -503,16 +506,16 @@ body:not(.dark-theme) .main-nav a {
 
 body:not(.dark-theme) .main-nav a:hover,
 body:not(.dark-theme) .main-nav a.active {
-    color: #0b4a78;
-    border-color: #bfd4eb;
-    background: #eef5ff;
+    color: #0a4d7e;
+    border-color: #b8d4ef;
+    background: rgba(226, 241, 255, 0.92);
 }
 
 body:not(.dark-theme) .hero-section {
     background:
-        radial-gradient(125% 90% at 8% -10%, rgba(14, 165, 233, 0.12), transparent 56%),
-        radial-gradient(118% 92% at 95% 0%, rgba(59, 130, 246, 0.14), transparent 58%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.58) 0%, rgba(242, 248, 255, 0.52) 100%);
+        radial-gradient(125% 90% at 8% -10%, rgba(14, 165, 233, 0.16), transparent 56%),
+        radial-gradient(118% 92% at 95% 0%, rgba(37, 99, 235, 0.18), transparent 58%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.64) 0%, rgba(238, 247, 255, 0.56) 100%);
 }
 
 body:not(.dark-theme) .hero-name {
@@ -528,14 +531,14 @@ body:not(.dark-theme) .hero-pills span {
 }
 
 body:not(.dark-theme) .btn-primary {
-    background: linear-gradient(135deg, #0d5b8f 0%, #0a74b8 100%);
-    border-color: #0a74b8;
-    box-shadow: 0 10px 22px rgba(10, 116, 184, 0.24);
+    background: linear-gradient(135deg, #0a5a94 0%, #0284c7 100%);
+    border-color: #0284c7;
+    box-shadow: 0 12px 24px rgba(2, 132, 199, 0.26);
 }
 
 body:not(.dark-theme) .btn-primary:hover {
-    background: linear-gradient(135deg, #0b4f7d 0%, #0968a4 100%);
-    border-color: #0968a4;
+    background: linear-gradient(135deg, #0a4f81 0%, #0369a1 100%);
+    border-color: #0369a1;
 }
 
 body:not(.dark-theme) .btn-secondary,
@@ -546,15 +549,15 @@ body:not(.dark-theme) .theme-toggle {
 }
 
 body:not(.dark-theme) .project-card {
-    background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
-    border-color: #d5e3f3;
+    background: linear-gradient(180deg, #ffffff 0%, #eff7ff 100%);
+    border-color: #cadef2;
     box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
 }
 
 body:not(.dark-theme) .project-card:hover {
-    box-shadow: 0 20px 42px rgba(10, 82, 129, 0.16);
-    border-color: #c3d8ef;
-    background: linear-gradient(180deg, #ffffff 0%, #edf6ff 100%);
+    box-shadow: 0 20px 42px rgba(3, 105, 161, 0.18);
+    border-color: #b8d4ef;
+    background: linear-gradient(180deg, #ffffff 0%, #e9f4ff 100%);
 }
 
 body:not(.dark-theme) .project-title {
