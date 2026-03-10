@@ -2833,3 +2833,7 @@ body.dark-theme .contact-card:hover {
     box-shadow: none;
     border-color: #6b7280;
 }
+
+.cursor-pointer{
+    cursor: pointer;
+}
