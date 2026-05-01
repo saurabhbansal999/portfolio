@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menuToggle');
     const nav = document.getElementById('navMenu');
-    const themeToggle = document.getElementById('themeToggle');
     const aboutCrazy = document.querySelector('.about-crazy');
     const heroSection = document.querySelector('.hero-section');
     const navLinks = nav ? Array.from(nav.querySelectorAll('a')) : [];
@@ -548,20 +547,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let visibleCount = batchSize();
 
-    const applyTheme = theme => {
-        const dark = theme === 'dark';
-        document.body.classList.toggle('dark-theme', dark);
-        if (document.body.classList.contains('custom-cursor')) {
-            document.body.classList.toggle('cursor-on-dark', dark);
-            document.body.classList.toggle('cursor-on-light', !dark);
-        }
-        if (themeToggle) {
-            const icon = themeToggle.querySelector('i');
-            if (icon) icon.className = dark ? 'bi bi-sun' : 'bi bi-moon-stars';
-            themeToggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
-        }
-    };
-
     const setMenuExpanded = expanded => {
         if (!menuToggle) return;
         menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
@@ -952,9 +937,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (parsed && parsed.a > 0.08) return parsed;
                 current = current.parentElement;
             }
-            return document.body.classList.contains('dark-theme')
-                ? { r: 24, g: 28, b: 35, a: 1 }
-                : { r: 242, g: 245, b: 249, a: 1 };
+            return { r: 245, g: 240, b: 255, a: 1 };
         };
 
         const applyCursorContrast = target => {
@@ -995,7 +978,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.addEventListener('mousedown', () => document.body.classList.add('cursor-down'));
         document.addEventListener('mouseup', () => document.body.classList.remove('cursor-down'));
-        document.body.classList.add(document.body.classList.contains('dark-theme') ? 'cursor-on-dark' : 'cursor-on-light');
+        document.body.classList.add('cursor-on-light');
         if (!rafId) rafId = window.requestAnimationFrame(setCursorPos);
     };
 
@@ -1114,7 +1097,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateActiveByScroll = () => {
         if (!sections.length) return;
 
-        const headerOffset = 130;
+        const headerOffset = 60;
         const targetY = window.scrollY + headerOffset;
         let activeId = sections[0].id;
 
@@ -1144,16 +1127,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initialHash = window.location.hash.replace('#', '') || 'home';
     markActiveLink(initialHash);
-
-    const storedTheme = localStorage.getItem('theme');
-    applyTheme(storedTheme || 'dark');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const nextTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
-            localStorage.setItem('theme', nextTheme);
-            applyTheme(nextTheme);
-        });
-    }
 
     let resizeRafId = null;
     window.addEventListener('resize', () => {
@@ -1223,4 +1196,17 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProjects();
     updateActiveByScroll();
     updateNavIndicator();
+
+    if (window.location.hash) {
+        const hashId = window.location.hash.replace('#', '');
+        const hashTarget = document.getElementById(hashId);
+        if (hashTarget) {
+            requestAnimationFrame(() => {
+                const offset = 0;
+                const top = hashTarget.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: 'auto' });
+                markActiveLink(hashId);
+            });
+        }
+    }
 });

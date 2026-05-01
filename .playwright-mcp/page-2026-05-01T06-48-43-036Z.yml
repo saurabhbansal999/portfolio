@@ -1,0 +1,410 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - paragraph [ref=e7]: Hi, I'm Saurabh Bansal
+        - paragraph [ref=e8]: Laravel + Vue Full Stack Engineer
+        - heading "I design and ship reliable web products that scale with your business." [level=1] [ref=e9]
+        - paragraph [ref=e10]: I convert business goals into secure backend systems, clean APIs, and responsive frontends with a strong focus on maintainability and delivery quality.
+        - generic "Core capabilities" [ref=e11]:
+          - generic [ref=e12]: API Architecture
+          - generic [ref=e13]: Admin Dashboards
+          - generic [ref=e14]: Responsive Frontend
+          - generic [ref=e15]: Performance Optimization
+        - generic [ref=e16]:
+          - link "Start a Project" [ref=e17] [cursor=pointer]:
+            - /url: "#contact"
+          - link "Explore Projects" [ref=e18] [cursor=pointer]:
+            - /url: "#projects"
+          - link "Download CV" [ref=e19] [cursor=pointer]:
+            - /url: assets/pdf/Saurabh's CV.pdf
+        - generic "Experience highlights" [ref=e20]:
+          - article [ref=e21]:
+            - paragraph [ref=e22]: 3+
+            - paragraph [ref=e23]: Years of Hands-On Delivery
+          - article [ref=e24]:
+            - paragraph [ref=e25]: 6+
+            - paragraph [ref=e26]: End-to-End Product Builds
+          - article [ref=e27]:
+            - paragraph [ref=e28]: 14+
+            - paragraph [ref=e29]: Production-Focused Skills
+      - generic "Tech stack visualization" [ref=e31]:
+        - generic [ref=e32]: Available for projects
+        - generic [ref=e34]: Open to remote work
+        - generic [ref=e37]:
+          - generic [ref=e38]: L
+          - generic [ref=e39]: L
+          - generic [ref=e40]: L
+        - generic [ref=e42]:
+          - generic [ref=e43]: V
+          - generic [ref=e44]: V
+          - generic [ref=e45]: V
+        - generic [ref=e47]:
+          - generic [ref=e48]: DB
+          - generic [ref=e49]: DB
+          - generic [ref=e50]: DB
+        - generic [ref=e52]:
+          - generic [ref=e53]: PHP
+          - generic [ref=e54]: PHP
+          - generic [ref=e55]: PHP
+        - generic [ref=e57]:
+          - generic [ref=e58]: API
+          - generic [ref=e59]: API
+          - generic [ref=e60]: API
+    - generic [ref=e72]:
+      - generic [ref=e73]:
+        - paragraph [ref=e74]: Portfolio
+        - heading "Featured Laravel + Vue Projects" [level=2] [ref=e75]
+        - paragraph [ref=e76]: Selected full stack work across professional and academic delivery, presented with clear scope, implementation ownership, and measurable outcomes.
+      - generic [ref=e77]:
+        - article [ref=e78]:
+          - img "FCN Seating" [ref=e80]
+          - generic [ref=e81]:
+            - generic [ref=e82]:
+              - generic [ref=e83]: Laravel
+              - generic [ref=e84]: Vue 3
+              - generic [ref=e85]: Responsive UI
+              - generic [ref=e86]: Seat Workflow
+            - heading "FCN Seating" [level=3] [ref=e87]
+            - paragraph [ref=e88]: Interactive seat planning platform that replaces manual tracking with a clear, fast allocation workflow.
+            - button "View Details " [ref=e90] [cursor=pointer]:
+              - text: View Details
+              - generic [ref=e91]: 
+        - article [ref=e92]:
+          - img "FAI Medical" [ref=e94]
+          - generic [ref=e95]:
+            - generic [ref=e96]:
+              - generic [ref=e97]: Laravel 11
+              - generic [ref=e98]: Vue 3
+              - generic [ref=e99]: Inertia.js
+              - generic [ref=e100]: Sanctum
+              - generic [ref=e101]: Chart.js
+            - heading "FAI Medical" [level=3] [ref=e102]
+            - paragraph [ref=e103]: Full-stack air-ambulance transport platform covering mission creation, clinical workflows, and secure reporting.
+            - button "View Details " [ref=e105] [cursor=pointer]:
+              - text: View Details
+              - generic [ref=e106]: 
+      - button "View More Projects" [ref=e108] [cursor=pointer]
+    - generic [ref=e110]:
+      - generic [ref=e111]:
+        - paragraph [ref=e112]: Services
+        - heading "What I Can Help You Build" [level=2] [ref=e113]
+        - paragraph [ref=e114]: Delivery-focused full stack engineering services for products that need speed, reliability, and long-term scalability.
+      - generic [ref=e115]:
+        - article [ref=e116]:
+          - generic [ref=e117]: ⚙️
+          - heading "Custom Web Applications" [level=3] [ref=e118]
+          - paragraph [ref=e119]: Business-driven applications using Laravel, Vue.js, and structured backend logic.
+        - article [ref=e120]:
+          - generic [ref=e121]: 🔗
+          - heading "REST API Development" [level=3] [ref=e122]
+          - paragraph [ref=e123]: Secure API architecture, validation layers, and clear documentation.
+        - article [ref=e124]:
+          - generic [ref=e125]: 📊
+          - heading "Admin Dashboards" [level=3] [ref=e126]
+          - paragraph [ref=e127]: Interactive admin systems with user control, reporting, and smooth workflows.
+        - article [ref=e128]:
+          - generic [ref=e129]: 🚀
+          - heading "Performance Optimization" [level=3] [ref=e130]
+          - paragraph [ref=e131]: Database tuning, query optimization, and performance improvements for production apps.
+    - generic [ref=e133]:
+      - generic [ref=e134]:
+        - paragraph [ref=e135]: Process
+        - heading "How I Deliver Projects" [level=2] [ref=e136]
+        - paragraph [ref=e137]: A practical workflow from discovery to stable production release.
+      - generic [ref=e138]:
+        - article [ref=e139]:
+          - generic [ref=e140]: "01"
+          - heading "Discovery" [level=3] [ref=e141]
+          - paragraph [ref=e142]: Understand goals, constraints, users, and success metrics.
+        - article [ref=e143]:
+          - generic [ref=e144]: "02"
+          - heading "Architecture" [level=3] [ref=e145]
+          - paragraph [ref=e146]: Plan MVC structure, APIs, and frontend flow for maintainable implementation.
+        - article [ref=e147]:
+          - generic [ref=e148]: "03"
+          - heading "Build" [level=3] [ref=e149]
+          - paragraph [ref=e150]: Develop full stack features with Laravel, Vue.js, and clean database design.
+        - article [ref=e151]:
+          - generic [ref=e152]: "04"
+          - heading "Optimize" [level=3] [ref=e153]
+          - paragraph [ref=e154]: Refine SQL queries, responsiveness, and overall application performance.
+    - generic [ref=e156]:
+      - generic [ref=e157]:
+        - paragraph [ref=e158]: Experience
+        - heading "Professional Experience" [level=2] [ref=e159]
+        - paragraph [ref=e160]: Hands-on product delivery across travel, hospitality, and business web platforms.
+      - generic [ref=e161]:
+        - article [ref=e162]:
+          - generic [ref=e163]:
+            - heading "CodersHut, Ahmedabad" [level=3] [ref=e164]
+            - paragraph [ref=e165]: Feb 2024 - Present
+          - paragraph [ref=e166]: Full Stack Developer
+          - list [ref=e167]:
+            - listitem [ref=e168]: Delivered full stack features using Laravel and Vue.js with structured APIs and dependable data flow.
+            - listitem [ref=e169]: Built user-facing interfaces and reservation workflows focused on responsive, intuitive UX.
+            - listitem [ref=e170]: Developed admin dashboards for menus, reservations, user accounts, and content updates.
+            - listitem [ref=e171]: Improved reliability through secure authentication, SQL optimization, and Git-based collaboration.
+        - article [ref=e172]:
+          - generic [ref=e173]:
+            - heading "Swizzdigi Pvt Ltd, Ahmedabad" [level=3] [ref=e174]
+            - paragraph [ref=e175]: April 2023 - Feb 2024
+          - paragraph [ref=e176]: PHP Web Developer - JKN Tours & Travels
+          - list [ref=e177]:
+            - listitem [ref=e178]: Developed backend modules in PHP for authentication, booking workflows, and travel package management.
+            - listitem [ref=e179]: Implemented CMS workflows to simplify updates for packages and informational content.
+            - listitem [ref=e180]: Built responsive frontend pages with HTML, CSS, and JavaScript for cross-browser compatibility.
+    - generic [ref=e182]:
+      - generic [ref=e183]:
+        - paragraph [ref=e184]: Capabilities
+        - heading "Technical Skills" [level=2] [ref=e185]
+        - paragraph [ref=e186]: Core technologies and engineering capabilities I use to deliver production-ready applications.
+      - generic [ref=e187]:
+        - generic [ref=e188]:
+          - paragraph [ref=e189]: Primary Stack
+          - paragraph [ref=e190]: Laravel + Vue
+        - generic [ref=e191]:
+          - paragraph [ref=e192]: Engineering Focus
+          - paragraph [ref=e193]: API Design
+        - generic [ref=e194]:
+          - paragraph [ref=e195]: Quality Standards
+          - paragraph [ref=e196]: Performance and Security
+      - generic [ref=e197]:
+        - article [ref=e198]:
+          - heading "Backend and APIs" [level=3] [ref=e199]
+          - paragraph [ref=e200]: Core backend delivery with secure and maintainable architecture.
+          - list [ref=e201]:
+            - listitem [ref=e202]:
+              - generic [ref=e203]: Core PHP
+            - listitem [ref=e204]:
+              - generic [ref=e205]: Laravel
+            - listitem [ref=e206]:
+              - generic [ref=e207]: API Integration
+            - listitem [ref=e208]:
+              - generic [ref=e209]: MVC Architecture
+        - article [ref=e210]:
+          - heading "Frontend and UI" [level=3] [ref=e211]
+          - paragraph [ref=e212]: Responsive interfaces focused on speed, clarity, and consistency.
+          - list [ref=e213]:
+            - listitem [ref=e214]:
+              - generic [ref=e215]: Vue JS
+            - listitem [ref=e216]:
+              - generic [ref=e217]: HTML5
+            - listitem [ref=e218]:
+              - generic [ref=e219]: CSS
+            - listitem [ref=e220]:
+              - generic [ref=e221]: Bootstrap
+        - article [ref=e222]:
+          - heading "Database and Operations" [level=3] [ref=e223]
+          - paragraph [ref=e224]: Reliable data design, optimization, and production operations.
+          - list [ref=e225]:
+            - listitem [ref=e226]:
+              - generic [ref=e227]: Database Management
+            - listitem [ref=e228]:
+              - generic [ref=e229]: MySQL Optimization
+            - listitem [ref=e230]:
+              - generic [ref=e231]: Live Server Management (cPanel)
+            - listitem [ref=e232]:
+              - generic [ref=e233]: Version Control (Git)
+        - article [ref=e234]:
+          - heading "AI and Automation" [level=3] [ref=e235]
+          - paragraph [ref=e236]: Practical AI integrations to improve workflows and user support.
+          - list [ref=e237]:
+            - listitem [ref=e238]:
+              - generic [ref=e239]: AI Integration
+            - listitem [ref=e240]:
+              - generic [ref=e241]: AI-Assisted Workflows
+            - listitem [ref=e242]:
+              - generic [ref=e243]: AI Chatbot
+    - generic [ref=e245]:
+      - generic [ref=e246]:
+        - generic [ref=e247]:
+          - paragraph [ref=e248]: About
+          - heading "Product-minded engineer focused on practical full stack execution." [level=2] [ref=e249]
+        - paragraph [ref=e250]: I specialize in building efficient, user-focused web applications with practical architecture and clean implementation.
+        - paragraph [ref=e251]: My experience includes media websites, travel workflows, and restaurant platforms with integrated user and admin experiences. I focus on readable code, predictable delivery, and long-term maintainability.
+      - complementary [ref=e252]:
+        - generic [ref=e257]:
+          - generic [ref=e258]: BUILD
+          - generic [ref=e259]: FAST
+        - list [ref=e260]:
+          - listitem [ref=e261]:
+            - generic [ref=e262]: 
+            - text: Scalable backend design
+          - listitem [ref=e263]:
+            - generic [ref=e264]: 
+            - text: Responsive frontend UI
+          - listitem [ref=e265]:
+            - generic [ref=e266]: 
+            - text: Clean and readable codebase
+    - generic [ref=e268]:
+      - generic [ref=e269]:
+        - paragraph [ref=e270]: Contributions
+        - heading "Delivery Highlights" [level=2] [ref=e271]
+        - paragraph [ref=e272]: Key contributions that improved product reliability, user flow, and engineering quality.
+      - generic [ref=e273]:
+        - article [ref=e274]:
+          - paragraph [ref=e275]: Built secure backend modules in PHP and Laravel, including authentication, booking logic, and content workflows.
+          - heading "Backend Development" [level=3] [ref=e276]
+        - article [ref=e277]:
+          - paragraph [ref=e278]: Delivered responsive interfaces for menu systems, reservation flows, and conversion-focused contact journeys.
+          - heading "UI and UX Delivery" [level=3] [ref=e279]
+        - article [ref=e280]:
+          - paragraph [ref=e281]: Designed and optimized SQL structures in PHPMyAdmin to improve data flow, reliability, and application performance.
+          - heading "Database Optimization" [level=3] [ref=e282]
+    - generic [ref=e284]:
+      - generic [ref=e285]:
+        - paragraph [ref=e286]: Education
+        - heading "Academic Background" [level=2] [ref=e287]
+        - paragraph [ref=e288]: Formal education strengthened by practical full stack project delivery.
+      - generic [ref=e289]:
+        - article [ref=e290]:
+          - generic [ref=e291]:
+            - heading "MCA" [level=3] [ref=e292]
+            - paragraph [ref=e293]: 2022 - 2024
+          - paragraph [ref=e294]: Manipal University, Jaipur
+          - paragraph [ref=e295]: "Project: PHP Website - Passionate People"
+          - list [ref=e296]:
+            - listitem [ref=e297]: Built a media-focused website designed around PR and branding communication.
+            - listitem [ref=e298]: Planned layouts strategically to improve engagement and message clarity.
+            - listitem [ref=e299]: Implemented backend workflows in Core PHP with structured data processing.
+            - listitem [ref=e300]: Created responsive frontend interfaces with HTML5, CSS, JavaScript, and Bootstrap.
+            - listitem [ref=e301]: Designed MySQL schema and supported architecture planning using DFD/ERD models.
+        - article [ref=e302]:
+          - generic [ref=e303]:
+            - heading "BCA" [level=3] [ref=e304]
+            - paragraph [ref=e305]: 2018 - 2021
+          - paragraph [ref=e306]: JG College of Computer Application (GU)
+          - paragraph [ref=e307]: "Project: PHP Website - Akshar Star Electronics"
+          - list [ref=e308]:
+            - listitem [ref=e309]: Implemented project logic and programming patterns to improve usability and functionality.
+            - listitem [ref=e310]: Designed layout structure for clearer navigation and stronger brand presentation.
+            - listitem [ref=e311]: Developed backend infrastructure in Core PHP with organized data handling.
+            - listitem [ref=e312]: Delivered responsive frontend interfaces using HTML5, CSS, JavaScript, and Bootstrap.
+            - listitem [ref=e313]: Built scalable MySQL storage design and documented system flow through DFD/ERD.
+    - generic [ref=e315]:
+      - generic [ref=e316]:
+        - paragraph [ref=e317]: Blog
+        - heading "Additional Technical Work" [level=2] [ref=e318]
+        - paragraph [ref=e319]: Complementary strengths that improve engineering quality and delivery velocity.
+      - generic [ref=e320]:
+        - article [ref=e321]:
+          - generic [ref=e322]: 🔧
+          - heading "Version Control and Deployment" [level=3] [ref=e323]
+          - paragraph [ref=e324]: Hands-on experience using Git and GitHub with live server management in cPanel.
+        - article [ref=e325]:
+          - generic [ref=e326]: 🏗️
+          - heading "Architecture and API Integration" [level=3] [ref=e327]
+          - paragraph [ref=e328]: MVC architecture, API integration, and modular backend implementation with Laravel.
+        - article [ref=e329]:
+          - generic [ref=e330]: 🤖
+          - heading "AI and Automation" [level=3] [ref=e331]
+          - paragraph [ref=e332]: Worked on AI integration, AI-assisted workflows, and AI chatbot implementation.
+    - generic [ref=e334]:
+      - generic [ref=e335]:
+        - generic [ref=e336]:
+          - paragraph [ref=e337]: Contact
+          - heading "Let's build something valuable." [level=2] [ref=e338]
+        - paragraph [ref=e339]: I am open to freelance and full-time opportunities. If you have a product roadmap, feature backlog, or collaboration plan, let's connect and build it with clarity.
+      - generic [ref=e340]:
+        - link " Connect on LinkedIn" [ref=e341] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/saurabh-bansal-b73b09207
+          - generic [ref=e342]: 
+          - generic [ref=e343]: Connect on LinkedIn
+        - 'link " Call: +91 99787 03114" [ref=e344] [cursor=pointer]':
+          - /url: tel:+919978703114
+          - generic [ref=e345]: 
+          - generic [ref=e346]: "Call: +91 99787 03114"
+        - 'link " Email: saurabhbansal960@gmail.com" [ref=e347] [cursor=pointer]':
+          - /url: mailto:saurabhbansal960@gmail.com
+          - generic [ref=e348]: 
+          - generic [ref=e349]: "Email: saurabhbansal960@gmail.com"
+  - generic [ref=e352]:
+    - generic [ref=e353]:
+      - paragraph [ref=e354]: Let's Work Together
+      - heading "Building Reliable Digital Products That Scale." [level=2] [ref=e355]:
+        - text: Building Reliable
+        - text: Digital Products
+        - text: That Scale.
+      - paragraph [ref=e356]: I take business goals and turn them into clean Laravel + Vue solutions — fast, secure, and built to last.
+      - link "Start a Conversation →" [ref=e357] [cursor=pointer]:
+        - /url: "#contact"
+    - generic [ref=e358]:
+      - generic [ref=e360]:
+        - generic [ref=e361]: V
+        - generic [ref=e362]: V
+        - generic [ref=e363]: V
+      - generic [ref=e365]:
+        - generic [ref=e366]: L
+        - generic [ref=e367]: L
+        - generic [ref=e368]: L
+      - generic [ref=e370]:
+        - generic [ref=e371]: DB
+        - generic [ref=e372]: DB
+        - generic [ref=e373]: DB
+      - generic [ref=e375]:
+        - generic [ref=e376]: PHP
+        - generic [ref=e377]: PHP
+        - generic [ref=e378]: PHP
+  - contentinfo [ref=e382]:
+    - generic [ref=e383]:
+      - generic [ref=e384]:
+        - paragraph [ref=e385]: Saurabh Bansal
+        - paragraph [ref=e386]: Full Stack Developer
+      - generic [ref=e387]:
+        - link "" [ref=e388] [cursor=pointer]:
+          - /url: https://github.com/saurabhbansal999
+          - generic [ref=e389]: 
+        - link "" [ref=e390] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/saurabh-bansal-b73b09207
+          - generic [ref=e391]: 
+        - link "" [ref=e392] [cursor=pointer]:
+          - /url: mailto:saurabhbansal960@gmail.com
+          - generic [ref=e393]: 
+    - paragraph [ref=e394]: © 2026 Saurabh Bansal. All rights reserved.
+  - navigation "Primary navigation" [ref=e395]:
+    - link "SB." [ref=e396] [cursor=pointer]:
+      - /url: "#home"
+    - generic [ref=e398]:
+      - link "Home" [ref=e399] [cursor=pointer]:
+        - /url: "#home"
+      - link "Projects" [ref=e400] [cursor=pointer]:
+        - /url: "#projects"
+      - link "Services" [ref=e401] [cursor=pointer]:
+        - /url: "#services"
+      - link "Experience" [ref=e402] [cursor=pointer]:
+        - /url: "#experience"
+      - link "Skills" [ref=e403] [cursor=pointer]:
+        - /url: "#skills"
+      - link "Education" [ref=e404] [cursor=pointer]:
+        - /url: "#education"
+      - link "Blog" [ref=e405] [cursor=pointer]:
+        - /url: "#blog"
+      - link "Contact" [ref=e406] [cursor=pointer]:
+        - /url: "#contact"
+    - generic [ref=e408]:
+      - button "Switch to dark theme" [ref=e409] [cursor=pointer]:
+        - generic [ref=e410]: 
+      - link "Hire Me" [ref=e411] [cursor=pointer]:
+        - /url: "#contact"
+  - generic:
+    - dialog:
+      - button:
+        - generic: 
+      - generic:
+        - paragraph: Project Case Study
+      - tablist:
+        - tab [selected]: Overview
+        - tab: Technical
+        - tab: Business
+      - generic:
+        - tabpanel:
+          - generic:
+            - generic:
+              - heading [level=4]: Overview
+            - generic:
+              - heading [level=4]: Problem Context
+            - generic:
+              - heading [level=4]: Solution Approach
+            - generic:
+              - heading [level=4]: Key Highlights

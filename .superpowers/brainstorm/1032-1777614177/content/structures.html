@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Design Directions</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #111;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding: 32px 24px 60px;
+  }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .sub { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 32px; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  .design-card {
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid rgba(255,255,255,0.08);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .design-card:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-3px); }
+  .design-card.selected { border-color: #fff; }
+
+  /* ── PREVIEW FRAME ── */
+  .preview {
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform-origin: top left;
+  }
+
+  /* ── INFO ── */
+  .card-info {
+    padding: 14px 16px 16px;
+    background: rgba(255,255,255,0.04);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .card-info h3 { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+  .card-info p { font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.5; max-width: 240px; }
+  .badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 12px;
+    margin-top: 1px;
+  }
+
+  /* ══════════════════════════════════════
+     DESIGN A — VOID + AMBER
+  ══════════════════════════════════════ */
+  .a-bg { background: #000; color: #fff; flex: 1; display: flex; flex-direction: column; }
+  .a-nav {
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .a-nav .brand { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; }
+  .a-nav .links { display: flex; gap: 16px; }
+  .a-nav .links span { font-size: 10px; color: rgba(255,255,255,0.35); }
+  .a-nav .links span.hi { color: #F5A623; }
+  .a-hero {
+    flex: 1;
+    padding: 24px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .a-hero .eyebrow { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #F5A623; margin-bottom: 8px; }
+  .a-hero h2 { font-size: 28px; font-weight: 800; line-height: 1.1; color: #fff; letter-spacing: -0.03em; }
+  .a-hero h2 em { font-style: normal; color: #F5A623; }
+  .a-hero .tagline { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 8px; line-height: 1.6; }
+  .a-stats {
+    display: flex;
+    gap: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+  .a-stats .stat .num { font-size: 20px; font-weight: 800; color: #fff; }
+  .a-stats .stat .lbl { font-size: 8px; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 1px; }
+  .a-projects {
+    padding: 0 20px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .a-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .a-row .name { font-size: 11px; font-weight: 600; color: #fff; }
+  .a-row .tag { font-size: 9px; color: #F5A623; }
+  .a-row .arr { font-size: 10px; color: rgba(255,255,255,0.2); }
+
+  /* ══════════════════════════════════════
+     DESIGN B — CREAM EDITORIAL
+  ══════════════════════════════════════ */
+  .b-bg { background: #F4EFE6; color: #1A1614; flex: 1; display: flex; flex-direction: column; }
+  .b-nav {
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  .b-nav .brand { font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #1A1614; }
+  .b-nav .links { display: flex; gap: 16px; }
+  .b-nav .links span { font-size: 10px; color: rgba(0,0,0,0.3); }
+  .b-hero {
+    flex: 1;
+    padding: 20px 20px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .b-rule { height: 2px; background: #1A1614; width: 32px; margin-bottom: 12px; }
+  .b-hero h2 { font-size: 26px; font-weight: 900; line-height: 1.1; color: #1A1614; letter-spacing: -0.04em; }
+  .b-hero h2 em { font-style: italic; color: #C84B31; }
+  .b-hero .tagline { font-size: 10px; color: rgba(0,0,0,0.4); margin-top: 8px; max-width: 200px; line-height: 1.6; }
+  .b-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 14px;
+    background: #1A1614;
+    color: #F4EFE6;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 3px;
+    width: fit-content;
+  }
+  .b-projects {
+    padding: 12px 20px 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .b-proj {
+    padding: 8px 10px;
+    background: #fff;
+    border-radius: 4px;
+    border-left: 3px solid #C84B31;
+  }
+  .b-proj .name { font-size: 10px; font-weight: 700; color: #1A1614; }
+  .b-proj .tag { font-size: 8px; color: rgba(0,0,0,0.35); margin-top: 2px; }
+
+  /* ══════════════════════════════════════
+     DESIGN C — CHARCOAL + ELECTRIC LIME
+  ══════════════════════════════════════ */
+  .c-bg { background: #18181B; color: #fff; flex: 1; display: flex; flex-direction: column; }
+  .c-nav {
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .c-nav .brand { font-size: 12px; font-weight: 800; color: #fff; }
+  .c-nav .dot { width: 6px; height: 6px; border-radius: 50%; background: #AAFF00; }
+  .c-nav .links { display: flex; gap: 14px; align-items: center; }
+  .c-nav .links span { font-size: 10px; color: rgba(255,255,255,0.3); }
+  .c-hero {
+    flex: 1;
+    padding: 16px 20px 12px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: start;
+  }
+  .c-hero-left {}
+  .c-hero .label { font-size: 8px; text-transform: uppercase; letter-spacing: 0.18em; color: #AAFF00; margin-bottom: 8px; }
+  .c-hero h2 { font-size: 22px; font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; }
+  .c-hero .tagline { font-size: 9px; color: rgba(255,255,255,0.35); margin-top: 6px; line-height: 1.6; }
+  .c-hero-right {
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    min-width: 80px;
+  }
+  .c-stat { text-align: center; margin-bottom: 8px; }
+  .c-stat .num { font-size: 16px; font-weight: 800; color: #AAFF00; }
+  .c-stat .lbl { font-size: 7px; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.1em; }
+  .c-cards {
+    padding: 0 20px 14px;
+    display: flex;
+    gap: 8px;
+  }
+  .c-card {
+    flex: 1;
+    padding: 10px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+  }
+  .c-card .dot-accent { width: 16px; height: 3px; background: #AAFF00; border-radius: 2px; margin-bottom: 6px; }
+  .c-card .name { font-size: 9px; font-weight: 700; color: #fff; }
+  .c-card .tag { font-size: 8px; color: rgba(255,255,255,0.3); margin-top: 2px; }
+
+  /* ══════════════════════════════════════
+     DESIGN D — SLATE + DEEP TEAL
+  ══════════════════════════════════════ */
+  .d-bg { background: #0F1923; color: #fff; flex: 1; display: flex; flex-direction: column; }
+  .d-nav {
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .d-nav .brand { font-size: 11px; font-weight: 700; color: #E2E8F0; }
+  .d-nav .pill {
+    font-size: 8px;
+    padding: 3px 8px;
+    border: 1px solid rgba(20,184,166,0.4);
+    color: #14B8A6;
+    border-radius: 20px;
+    letter-spacing: 0.06em;
+  }
+  .d-nav .links { display: flex; gap: 14px; }
+  .d-nav .links span { font-size: 10px; color: rgba(255,255,255,0.25); }
+  .d-hero {
+    flex: 1;
+    padding: 22px 20px 14px;
+    position: relative;
+  }
+  .d-accent-line {
+    position: absolute;
+    left: 20px;
+    top: 22px;
+    bottom: 14px;
+    width: 2px;
+    background: linear-gradient(to bottom, #14B8A6, transparent);
+  }
+  .d-hero-inner { padding-left: 14px; }
+  .d-hero .eyebrow { font-size: 8px; text-transform: uppercase; letter-spacing: 0.2em; color: #14B8A6; margin-bottom: 8px; }
+  .d-hero h2 { font-size: 22px; font-weight: 800; line-height: 1.15; color: #E2E8F0; letter-spacing: -0.02em; }
+  .d-hero .tagline { font-size: 9px; color: rgba(255,255,255,0.3); margin-top: 8px; line-height: 1.7; max-width: 220px; }
+  .d-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  .d-tag {
+    font-size: 8px;
+    padding: 3px 8px;
+    background: rgba(20,184,166,0.1);
+    border: 1px solid rgba(20,184,166,0.2);
+    color: #14B8A6;
+    border-radius: 4px;
+  }
+  .d-projects {
+    padding: 0 20px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .d-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 10px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 6px;
+  }
+  .d-row .dot { width: 5px; height: 5px; border-radius: 50%; background: #14B8A6; flex-shrink: 0; }
+  .d-row .name { font-size: 10px; font-weight: 600; color: #E2E8F0; flex: 1; }
+  .d-row .stack { font-size: 8px; color: rgba(255,255,255,0.25); }
+
+  .select-hint {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+</style>
+</head>
+<body>
+
+<h1>Design Directions</h1>
+<p class="sub">4 structural + color approaches — real layout, single accent color, no gradient spam. Click to select.</p>
+
+<div class="grid">
+
+  <!-- A: VOID + AMBER -->
+  <div class="design-card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="preview">
+      <div class="a-bg">
+        <div class="a-nav">
+          <span class="brand">Saurabh Bansal</span>
+          <div class="links">
+            <span>Projects</span>
+            <span>Experience</span>
+            <span class="hi">Contact ↗</span>
+          </div>
+        </div>
+        <div class="a-hero">
+          <div>
+            <div class="eyebrow">Full Stack Engineer</div>
+            <h2>I build things<br/>that <em>ship.</em></h2>
+            <div class="tagline">Laravel · Vue · MySQL · REST APIs<br/>Focused on delivery and maintainability.</div>
+          </div>
+          <div class="a-stats">
+            <div class="stat"><div class="num">3+</div><div class="lbl">Years</div></div>
+            <div class="stat"><div class="num">6+</div><div class="lbl">Products</div></div>
+            <div class="stat"><div class="num">14+</div><div class="lbl">Skills</div></div>
+          </div>
+        </div>
+        <div class="a-projects">
+          <div class="a-row"><span class="name">FCN Seating</span><span class="tag">Laravel · Vue</span><span class="arr">↗</span></div>
+          <div class="a-row"><span class="name">FAI Medical</span><span class="tag">Laravel · Inertia</span><span class="arr">↗</span></div>
+          <div class="a-row"><span class="name">NoLimits</span><span class="tag">Real Estate</span><span class="arr">↗</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <div>
+        <h3>Void + Amber</h3>
+        <p>Pure black · Amber <span style="color:#F5A623">#F5A623</span> · List-style projects · No cards · Minimal noise</p>
+      </div>
+      <span class="badge" style="background:rgba(245,166,35,0.15); color:#F5A623;">A</span>
+    </div>
+  </div>
+
+  <!-- B: CREAM EDITORIAL -->
+  <div class="design-card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="preview">
+      <div class="b-bg">
+        <div class="b-nav">
+          <span class="brand">Saurabh Bansal</span>
+          <div class="links">
+            <span>Projects</span>
+            <span>Experience</span>
+            <span style="color:#C84B31; font-weight:600;">Hire Me</span>
+          </div>
+        </div>
+        <div class="b-hero">
+          <div class="b-rule"></div>
+          <h2>Full Stack<br/><em>Engineer.</em></h2>
+          <div class="tagline">Laravel · Vue · MySQL · API Architecture. Building reliable digital products since 2023.</div>
+          <div class="b-btn">View Work →</div>
+        </div>
+        <div class="b-projects">
+          <div class="b-proj"><div class="name">FCN Seating</div><div class="tag">Laravel · Vue 3</div></div>
+          <div class="b-proj"><div class="name">FAI Medical</div><div class="tag">Inertia · Sanctum</div></div>
+          <div class="b-proj"><div class="name">NoLimits</div><div class="tag">Commission Engine</div></div>
+          <div class="b-proj"><div class="name">Let'z Talk</div><div class="tag">OpenAI · FFmpeg</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <div>
+        <h3>Cream Editorial</h3>
+        <p>Off-white <span style="color:#C84B31">#F4EFE6</span> bg · Terracotta accent · Italic serif feel · Grid cards</p>
+      </div>
+      <span class="badge" style="background:rgba(200,75,49,0.15); color:#C84B31;">B</span>
+    </div>
+  </div>
+
+  <!-- C: CHARCOAL + LIME -->
+  <div class="design-card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="preview">
+      <div class="c-bg">
+        <div class="c-nav">
+          <div class="links" style="align-items:center; gap:8px;">
+            <div class="dot"></div>
+            <span class="brand" style="font-size:11px; font-weight:800;">Saurabh Bansal</span>
+          </div>
+          <div class="links">
+            <span>Work</span>
+            <span>Skills</span>
+            <span style="color:#AAFF00; font-weight:600;">Contact</span>
+          </div>
+        </div>
+        <div class="c-hero">
+          <div class="c-hero-left">
+            <div class="label">Available for work</div>
+            <h2>Laravel +<br/>Vue Engineer</h2>
+            <div class="tagline">Full stack delivery across<br/>APIs, dashboards, and SaaS products.</div>
+          </div>
+          <div class="c-hero-right">
+            <div class="c-stat"><div class="num">3+</div><div class="lbl">Years</div></div>
+            <div class="c-stat"><div class="num">6+</div><div class="lbl">Apps</div></div>
+            <div class="c-stat"><div class="num">14+</div><div class="lbl">Skills</div></div>
+          </div>
+        </div>
+        <div class="c-cards">
+          <div class="c-card"><div class="dot-accent"></div><div class="name">FCN Seating</div><div class="tag">Laravel · Vue</div></div>
+          <div class="c-card"><div class="dot-accent"></div><div class="name">FAI Medical</div><div class="tag">Inertia · Auth</div></div>
+          <div class="c-card"><div class="dot-accent"></div><div class="name">NoLimits</div><div class="tag">Commissions</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <div>
+        <h3>Charcoal + Electric Lime</h3>
+        <p>Near-black <span style="color:#AAFF00">#18181B</span> · Lime <span style="color:#AAFF00">#AAFF00</span> · 2-col hero · Compact cards</p>
+      </div>
+      <span class="badge" style="background:rgba(170,255,0,0.1); color:#AAFF00;">C</span>
+    </div>
+  </div>
+
+  <!-- D: SLATE + TEAL -->
+  <div class="design-card" data-choice="d" onclick="toggleSelect(this)">
+    <div class="preview">
+      <div class="d-bg">
+        <div class="d-nav">
+          <span class="brand">Saurabh Bansal</span>
+          <div class="links">
+            <span>Projects</span>
+            <span>Skills</span>
+            <span>Contact</span>
+          </div>
+          <span class="pill">Open to work</span>
+        </div>
+        <div class="d-hero">
+          <div class="d-accent-line"></div>
+          <div class="d-hero-inner">
+            <div class="eyebrow">Full Stack Developer</div>
+            <h2>Laravel · Vue<br/>Engineer</h2>
+            <div class="tagline">Building clean APIs, admin dashboards, and full stack products that last.</div>
+            <div class="d-tags">
+              <span class="d-tag">Laravel</span>
+              <span class="d-tag">Vue.js</span>
+              <span class="d-tag">MySQL</span>
+              <span class="d-tag">REST API</span>
+            </div>
+          </div>
+        </div>
+        <div class="d-projects">
+          <div class="d-row"><div class="dot"></div><span class="name">FCN Seating</span><span class="stack">Laravel · Vue 3</span></div>
+          <div class="d-row"><div class="dot"></div><span class="name">FAI Medical</span><span class="stack">Inertia · Sanctum</span></div>
+          <div class="d-row"><div class="dot"></div><span class="name">NoLimits Real Estate</span><span class="stack">Commission Engine</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <div>
+        <h3>Slate + Deep Teal</h3>
+        <p>Dark slate <span style="color:#14B8A6">#0F1923</span> · Teal <span style="color:#14B8A6">#14B8A6</span> · Vertical accent line · Row-based projects</p>
+      </div>
+      <span class="badge" style="background:rgba(20,184,166,0.15); color:#14B8A6;">D</span>
+    </div>
+  </div>
+
+</div>
+
+<p class="select-hint">Click a card to select · Or tell me in the terminal</p>
+
+<script>
+function toggleSelect(el) {
+  document.querySelectorAll('.design-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  const choice = el.getAttribute('data-choice');
+  if (window.__companion) {
+    window.__companion.record({ type: 'click', choice, text: el.querySelector('h3').textContent });
+  } else {
+    try {
+      const ev = { type: 'click', choice, text: el.querySelector('h3').textContent, timestamp: Date.now() };
+      fetch('/event', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(ev) }).catch(() => {});
+    } catch(e) {}
+  }
+}
+</script>
+</body>
+</html>

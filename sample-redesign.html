@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Redesign Sample – Saurabh Bansal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --purple:   #6C4EF0;
+      --purple-dark: #4B2FD4;
+      --purple-bg: #0D0A1E;
+      --accent-orange: #FF7A38;
+      --accent-green:  #41D38A;
+      --accent-pink:   #F06CB5;
+      --white: #ffffff;
+      --text-muted: rgba(255,255,255,0.55);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F5F0FF;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(108,78,240,0.08);
+    }
+    .nav-brand { font-weight: 900; font-size: 1.1rem; color: var(--purple); letter-spacing: -0.5px; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: #444; font-size: 0.875rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--purple); }
+    .nav-cta {
+      background: var(--purple); color: #fff; border: none; border-radius: 100px;
+      padding: 10px 24px; font-size: 0.875rem; font-weight: 600; cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .nav-cta:hover { background: var(--purple-dark); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    /* Left – white side */
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px 64px 80px 80px;
+      background: #fff;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-left::after {
+      content: '';
+      position: absolute; right: -40px; top: 0; bottom: 0; width: 80px;
+      background: #fff;
+      clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    }
+    .eyebrow {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.8rem; font-weight: 600; color: var(--purple);
+      text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
+    .eyebrow::before {
+      content: ''; display: block; width: 28px; height: 2px;
+      background: var(--purple);
+    }
+    .hero-name {
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 900; line-height: 1.1;
+      color: #111; letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+    .hero-name span { color: var(--purple); }
+    .hero-sub {
+      font-size: 1rem; color: #666; line-height: 1.7;
+      max-width: 420px; margin-bottom: 36px;
+    }
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px;
+    }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 100px;
+      font-size: 0.78rem; font-weight: 600;
+      background: rgba(108,78,240,0.08); color: var(--purple);
+      border: 1px solid rgba(108,78,240,0.15);
+    }
+    .pill-dot { width: 6px; height: 6px; border-radius: 50%; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+    .btn-primary {
+      background: var(--purple); color: #fff;
+      padding: 14px 32px; border-radius: 100px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 8px 32px rgba(108,78,240,0.35);
+    }
+    .btn-primary:hover { background: var(--purple-dark); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(108,78,240,0.45); }
+    .btn-outline {
+      border: 2px solid rgba(108,78,240,0.25); color: var(--purple);
+      padding: 14px 32px; border-radius: 100px;
+      font-weight: 600; font-size: 0.9rem; text-decoration: none;
+      transition: border-color .2s, background .2s, transform .2s;
+    }
+    .btn-outline:hover { border-color: var(--purple); background: rgba(108,78,240,0.05); transform: translateY(-2px); }
+
+    .hero-stats { display: flex; gap: 40px; }
+    .stat-val { font-size: 2rem; font-weight: 900; color: #111; letter-spacing: -1px; }
+    .stat-lbl { font-size: 0.75rem; color: #888; font-weight: 500; margin-top: 2px; }
+
+    /* Right – purple scene */
+    .hero-right {
+      position: relative;
+      background: linear-gradient(145deg, #7C5EF5 0%, #5234D6 60%, #3A1FA8 100%);
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    /* subtle grid overlay */
+    .hero-right::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    /* ── 3D FLOATING TECH CUBES ── */
+    .scene {
+      position: relative;
+      width: 420px; height: 420px;
+      transform-style: preserve-3d;
+    }
+
+    .cube-wrap {
+      position: absolute;
+      transform-style: preserve-3d;
+    }
+    /* isometric cube via CSS */
+    .iso-cube {
+      position: relative;
+      width: 80px; height: 80px;
+      transform-style: preserve-3d;
+      transform: rotateX(-30deg) rotateY(45deg);
+    }
+    .iso-cube .face {
+      position: absolute; width: 80px; height: 80px;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; font-weight: 900; color: rgba(255,255,255,0.9);
+      letter-spacing: -1px;
+    }
+    .iso-cube .top  { transform: rotateX(90deg) translateZ(40px); }
+    .iso-cube .front{ transform: translateZ(40px); }
+    .iso-cube .right{ transform: rotateY(90deg) translateZ(40px); }
+
+    /* Laravel cube – red */
+    .cube-laravel .top   { background: #C0392B; filter: brightness(1.3); }
+    .cube-laravel .front { background: #E74C3C; }
+    .cube-laravel .right { background: #A93226; }
+
+    /* Vue cube – green */
+    .cube-vue .top   { background: #27AE60; filter: brightness(1.2); }
+    .cube-vue .front { background: #2ECC71; }
+    .cube-vue .right { background: #1E8449; }
+
+    /* MySQL cube – blue */
+    .cube-mysql .top   { background: #1565C0; filter: brightness(1.3); }
+    .cube-mysql .front { background: #1E88E5; }
+    .cube-mysql .right { background: #0D47A1; }
+
+    /* PHP cube – lavender */
+    .cube-php .top   { background: #7B68EE; filter: brightness(1.3); }
+    .cube-php .front { background: #9B8FFF; }
+    .cube-php .right { background: #5D52CC; }
+
+    /* API cube – orange */
+    .cube-api .top   { background: #E67E22; filter: brightness(1.2); }
+    .cube-api .front { background: #F39C12; }
+    .cube-api .right { background: #CA6F1E; }
+
+    /* small accent cubes */
+    .iso-cube.sm { width: 44px; height: 44px; }
+    .iso-cube.sm .face { width: 44px; height: 44px; font-size: 0.7rem; border-radius: 4px; }
+    .iso-cube.sm .top  { transform: rotateX(90deg) translateZ(22px); }
+    .iso-cube.sm .front{ transform: translateZ(22px); }
+    .iso-cube.sm .right{ transform: rotateY(90deg) translateZ(22px); }
+
+    /* sphere accents */
+    .sphere {
+      position: absolute;
+      border-radius: 50%;
+      box-shadow: inset -6px -6px 16px rgba(0,0,0,0.25), inset 4px 4px 12px rgba(255,255,255,0.3);
+    }
+
+    /* ── FLOAT ANIMATIONS ── */
+    @keyframes floatA {
+      0%,100% { transform: translateY(0px) rotate(0deg); }
+      50%      { transform: translateY(-22px) rotate(3deg); }
+    }
+    @keyframes floatB {
+      0%,100% { transform: translateY(0px) rotate(0deg); }
+      50%      { transform: translateY(-14px) rotate(-4deg); }
+    }
+    @keyframes floatC {
+      0%,100% { transform: translateY(0px); }
+      50%      { transform: translateY(-30px); }
+    }
+    @keyframes floatD {
+      0%,100% { transform: translateY(0px) rotate(0deg); }
+      33%      { transform: translateY(-18px) rotate(5deg); }
+      66%      { transform: translateY(-8px) rotate(-2deg); }
+    }
+    @keyframes spin { to { transform: rotateX(-30deg) rotateY(405deg); } }
+    @keyframes pulse { 0%,100%{opacity:.7;transform:scale(1)} 50%{opacity:1;transform:scale(1.08)} }
+
+    .cw1 { top: 50px;  left: 190px; animation: floatA 5s ease-in-out infinite; }
+    .cw2 { top: 200px; left: 60px;  animation: floatB 6.5s ease-in-out infinite; }
+    .cw3 { top: 310px; left: 250px; animation: floatC 4.5s ease-in-out infinite; }
+    .cw4 { top: 140px; left: 310px; animation: floatD 7s ease-in-out infinite; }
+    .cw5 { top: 30px;  left: 60px;  animation: floatB 5.8s ease-in-out infinite 1s; }
+    .cw6 { top: 290px; left: 80px;  animation: floatA 6s ease-in-out infinite 0.5s; }
+
+    .sp1 {
+      width: 28px; height: 28px;
+      background: radial-gradient(circle at 35% 35%, #FF9F50, #E05A00);
+      top: 180px; left: 230px;
+      animation: floatC 4s ease-in-out infinite 0.3s;
+    }
+    .sp2 {
+      width: 18px; height: 18px;
+      background: radial-gradient(circle at 35% 35%, #fff, #ccc);
+      top: 90px; left: 310px;
+      animation: floatA 5.5s ease-in-out infinite 1.2s;
+    }
+    .sp3 {
+      width: 22px; height: 22px;
+      background: radial-gradient(circle at 35% 35%, #A8F5D2, #3AB875);
+      top: 360px; left: 170px;
+      animation: floatB 6s ease-in-out infinite 0.8s;
+    }
+    .sp4 {
+      width: 14px; height: 14px;
+      background: radial-gradient(circle at 35% 35%, #F5B8E0, #E060A8);
+      top: 70px; left: 160px;
+      animation: floatD 4.8s ease-in-out infinite;
+    }
+
+    /* ring accent */
+    .ring {
+      position: absolute;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.35);
+      top: 270px; left: 340px;
+      animation: floatA 7s ease-in-out infinite 2s, pulse 3s ease-in-out infinite;
+    }
+
+    /* floating badge */
+    .float-badge {
+      position: absolute;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 10px 16px;
+      display: flex; align-items: center; gap: 8px;
+      color: #fff; font-size: 0.78rem; font-weight: 600;
+      white-space: nowrap;
+    }
+    .badge-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .badge1 { top: 40px;  right: -10px; animation: floatB 6s ease-in-out infinite; }
+    .badge2 { bottom: 70px; left: -20px; animation: floatA 5s ease-in-out infinite 1s; }
+
+    /* ── SERVICES SECTION ── */
+    .services {
+      padding: 100px 80px;
+      background: #fff;
+    }
+    .section-head { text-align: center; margin-bottom: 64px; }
+    .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; font-weight: 700; color: var(--purple);
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;
+    }
+    .section-eyebrow::before, .section-eyebrow::after {
+      content: ''; display: block; width: 20px; height: 2px; background: var(--purple);
+    }
+    .section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 900; color: #111; letter-spacing: -1px; }
+    .section-sub { color: #777; margin-top: 12px; font-size: 0.95rem; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1000px; margin: 0 auto;
+    }
+    .service-card {
+      background: #faf9ff;
+      border: 1px solid rgba(108,78,240,0.08);
+      border-radius: 20px;
+      padding: 36px 28px;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+      cursor: default;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(108,78,240,0.12);
+      border-color: rgba(108,78,240,0.2);
+    }
+    .svc-icon {
+      width: 64px; height: 64px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; margin-bottom: 20px;
+    }
+    .svc-purple { background: linear-gradient(135deg, #7C5EF5, #5234D6); }
+    .svc-orange { background: linear-gradient(135deg, #FF9A50, #E05A00); }
+    .svc-green  { background: linear-gradient(135deg, #41D38A, #1E8449); }
+    .svc-title { font-size: 1.05rem; font-weight: 800; color: #111; margin-bottom: 10px; }
+    .svc-desc  { font-size: 0.85rem; color: #777; line-height: 1.65; }
+
+    /* ── ABOUT PURPLE SECTION ── */
+    .about-purple {
+      background: linear-gradient(145deg, #7C5EF5 0%, #4B2FD4 100%);
+      padding: 100px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-purple::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .about-text { position: relative; z-index: 2; }
+    .about-eyebrow { color: rgba(255,255,255,0.6); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+    .about-eyebrow::before { content:''; display:block; width:20px; height:2px; background: rgba(255,255,255,0.5); }
+    .about-title { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 900; color: #fff; line-height: 1.15; letter-spacing: -1px; margin-bottom: 20px; }
+    .about-desc { color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.75; margin-bottom: 32px; }
+    .about-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--purple);
+      padding: 14px 28px; border-radius: 100px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+    .about-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+
+    .about-cubes {
+      position: relative; height: 340px; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ac-wrap { position: absolute; transform-style: preserve-3d; }
+    .ac1 { top: 20px;  left: 120px; animation: floatA 5s ease-in-out infinite; }
+    .ac2 { top: 110px; left: 30px;  animation: floatB 6s ease-in-out infinite 0.5s; }
+    .ac3 { top: 180px; left: 200px; animation: floatC 5.5s ease-in-out infinite 1s; }
+    .ac4 { top: 60px;  left: 240px; animation: floatD 4.8s ease-in-out infinite 0.3s; }
+
+    .sp-a {
+      position: absolute;
+      border-radius: 50%;
+      box-shadow: inset -4px -4px 10px rgba(0,0,0,0.2), inset 3px 3px 8px rgba(255,255,255,0.25);
+    }
+    .spa1 { width:22px;height:22px; background: radial-gradient(circle at 35% 35%,#FF9F50,#E05A00); top:140px;left:180px; animation:floatA 4s ease-in-out infinite; }
+    .spa2 { width:16px;height:16px; background: radial-gradient(circle at 35% 35%,#fff,#ccc); top:60px;left:200px; animation:floatB 5s ease-in-out infinite 1s; }
+    .spa3 { width:18px;height:18px; background: radial-gradient(circle at 35% 35%,#A8F5D2,#3AB875); top:230px;left:100px; animation:floatC 6s ease-in-out infinite 0.5s; }
+
+    /* ── FOOTER STRIP ── */
+    .footer-note {
+      background: #111; color: rgba(255,255,255,0.4);
+      text-align: center; padding: 24px;
+      font-size: 0.78rem;
+    }
+    .footer-note span { color: var(--purple); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-brand">SB.</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Experience</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="nav-cta">Hire Me</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <!-- LEFT: text -->
+    <div class="hero-left">
+      <p class="eyebrow">Saurabh Bansal</p>
+      <h1 class="hero-name">
+        Laravel + Vue<br>
+        <span>Full Stack</span><br>
+        Engineer.
+      </h1>
+      <p class="hero-sub">
+        I convert business goals into secure backend systems, clean APIs,
+        and responsive frontends — with a strong focus on maintainability and delivery quality.
+      </p>
+      <div class="hero-pills">
+        <span class="pill"><span class="pill-dot" style="background:#E74C3C"></span>Laravel</span>
+        <span class="pill"><span class="pill-dot" style="background:#42B883"></span>Vue.js</span>
+        <span class="pill"><span class="pill-dot" style="background:#1E88E5"></span>MySQL</span>
+        <span class="pill"><span class="pill-dot" style="background:#9B8FFF"></span>PHP</span>
+        <span class="pill"><span class="pill-dot" style="background:#F39C12"></span>REST API</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary">Start a Project</a>
+        <a href="#" class="btn-outline">Explore Work</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-val">3+</div>
+          <div class="stat-lbl">Years Delivering</div>
+        </div>
+        <div>
+          <div class="stat-val">6+</div>
+          <div class="stat-lbl">Products Built</div>
+        </div>
+        <div>
+          <div class="stat-val">14+</div>
+          <div class="stat-lbl">Production Skills</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: 3D floating tech cubes scene -->
+    <div class="hero-right">
+
+      <!-- floating status badges -->
+      <div class="float-badge badge1">
+        <span class="badge-dot" style="background:#41D38A"></span>
+        Available for new projects
+      </div>
+      <div class="float-badge badge2">
+        <span class="badge-dot" style="background:#FF7A38"></span>
+        Open to remote opportunities
+      </div>
+
+      <div class="scene">
+        <!-- LARAVEL cube -->
+        <div class="cube-wrap cw1">
+          <div class="iso-cube cube-laravel">
+            <div class="face top">L</div>
+            <div class="face front">L</div>
+            <div class="face right">L</div>
+          </div>
+        </div>
+        <!-- VUE cube -->
+        <div class="cube-wrap cw2">
+          <div class="iso-cube cube-vue">
+            <div class="face top">V</div>
+            <div class="face front">V</div>
+            <div class="face right">V</div>
+          </div>
+        </div>
+        <!-- MYSQL cube -->
+        <div class="cube-wrap cw3">
+          <div class="iso-cube cube-mysql">
+            <div class="face top">DB</div>
+            <div class="face front">DB</div>
+            <div class="face right">DB</div>
+          </div>
+        </div>
+        <!-- PHP cube -->
+        <div class="cube-wrap cw4">
+          <div class="iso-cube cube-php">
+            <div class="face top">PHP</div>
+            <div class="face front">PHP</div>
+            <div class="face right">PHP</div>
+          </div>
+        </div>
+        <!-- small API cube -->
+        <div class="cube-wrap cw5">
+          <div class="iso-cube sm cube-api">
+            <div class="face top">API</div>
+            <div class="face front">API</div>
+            <div class="face right">API</div>
+          </div>
+        </div>
+        <!-- small PHP accent -->
+        <div class="cube-wrap cw6">
+          <div class="iso-cube sm cube-laravel">
+            <div class="face top"></div>
+            <div class="face front"></div>
+            <div class="face right"></div>
+          </div>
+        </div>
+
+        <!-- Spheres -->
+        <div class="sphere sp1"></div>
+        <div class="sphere sp2"></div>
+        <div class="sphere sp3"></div>
+        <div class="sphere sp4"></div>
+        <div class="ring"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="services">
+    <div class="section-head">
+      <p class="section-eyebrow">Services</p>
+      <h2 class="section-title">What I Can Build For You</h2>
+      <p class="section-sub">Delivery-focused full stack engineering for products that need speed, reliability, and scalability.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="svc-icon svc-purple">⚙️</div>
+        <h3 class="svc-title">Custom Web Applications</h3>
+        <p class="svc-desc">Business-driven apps using Laravel, Vue.js, and structured backend logic with clean data flow.</p>
+      </article>
+      <article class="service-card">
+        <div class="svc-icon svc-orange">🔗</div>
+        <h3 class="svc-title">REST API Development</h3>
+        <p class="svc-desc">Secure API architecture, validation layers, clear documentation, and auth middleware.</p>
+      </article>
+      <article class="service-card">
+        <div class="svc-icon svc-green">📊</div>
+        <h3 class="svc-title">Admin Dashboards</h3>
+        <p class="svc-desc">Interactive admin systems with user control, reporting, and smooth UX-focused workflows.</p>
+      </article>
+      <article class="service-card">
+        <div class="svc-icon svc-purple">🚀</div>
+        <h3 class="svc-title">Performance Optimization</h3>
+        <p class="svc-desc">Database tuning, query optimization, and performance improvements for production apps.</p>
+      </article>
+      <article class="service-card">
+        <div class="svc-icon svc-orange">🤖</div>
+        <h3 class="svc-title">AI Integration</h3>
+        <p class="svc-desc">Chatbot flows, LLM API hooks, and intelligent workflow automation into existing stacks.</p>
+      </article>
+      <article class="service-card">
+        <div class="svc-icon svc-green">📱</div>
+        <h3 class="svc-title">Responsive Frontend</h3>
+        <p class="svc-desc">Pixel-perfect responsive interfaces with Vue.js, Inertia.js, and Bootstrap.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ABOUT – full purple section with floating cubes -->
+  <section class="about-purple">
+    <div class="about-text">
+      <p class="about-eyebrow">Who I Work With</p>
+      <h2 class="about-title">Building Reliable<br>Digital Products<br>That Scale.</h2>
+      <p class="about-desc">
+        I research business goals, plan clean MVC architecture, and ship full stack solutions
+        with Laravel + Vue — focused on delivery quality, maintainability, and measurable results.
+      </p>
+      <a href="#" class="about-btn">See My Projects →</a>
+    </div>
+    <div class="about-cubes">
+      <div class="ac-wrap ac1">
+        <div class="iso-cube cube-vue">
+          <div class="face top">V</div>
+          <div class="face front">V</div>
+          <div class="face right">V</div>
+        </div>
+      </div>
+      <div class="ac-wrap ac2">
+        <div class="iso-cube cube-laravel">
+          <div class="face top">L</div>
+          <div class="face front">L</div>
+          <div class="face right">L</div>
+        </div>
+      </div>
+      <div class="ac-wrap ac3">
+        <div class="iso-cube sm cube-mysql">
+          <div class="face top">DB</div>
+          <div class="face front">DB</div>
+          <div class="face right">DB</div>
+        </div>
+      </div>
+      <div class="ac-wrap ac4">
+        <div class="iso-cube sm cube-php">
+          <div class="face top">PHP</div>
+          <div class="face front">PHP</div>
+          <div class="face right">PHP</div>
+        </div>
+      </div>
+      <div class="sp-a spa1"></div>
+      <div class="sp-a spa2"></div>
+      <div class="sp-a spa3"></div>
+    </div>
+  </section>
+
+  <div class="footer-note">
+    Design sample — <span>Saurabh Bansal Portfolio</span> · Inspired by Dribbble reference
+  </div>
+
+</body>
+</html>

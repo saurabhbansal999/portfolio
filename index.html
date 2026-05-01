@@ -74,61 +74,24 @@
   </head>
 
   <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="#home" class="brand">
-          <span>Saurabh Bansal</span>
-        </a>
-
-        <div class="header-actions">
-          <nav id="navMenu" class="main-nav" aria-label="Primary">
-            <a href="#home">Home</a>
-            <a href="#projects">Projects</a>
-            <a href="#services">Services</a>
-            <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
-            <a href="#blog">Blog</a>
-            <a href="#contact">Contact</a>
-          </nav>
-        </div>
-
-        <div class="header-controls">
-          <button id="themeToggle" class="btn btn-secondary theme-toggle cursor-pointer" type="button" aria-label="Toggle theme">
-            <i class="bi bi-moon-stars"></i>
-          </button>
-
-          <button
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Toggle navigation"
-            aria-expanded="false"
-            aria-controls="navMenu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-      </div>
-    </header>
 
     <main>
       <section id="home" class="section hero-section">
+        <div class="hero-purple-panel" aria-hidden="true"></div>
         <div class="container hero-grid">
           <div class="hero-content fade-in">
-            <p class="hero-name">Hi, I'm Saurabh Bansal</p>
-            <p class="eyebrow hero-highlight">Laravel + Vue Full Stack Engineer</p>
-            <h1 class="hero-small">I design and ship reliable web products that scale with your business.</h1>
+            <p class="hero-highlight eyebrow">Saurabh Bansal</p>
+            <h1 class="hero-small">Laravel + Vue<br><span style="color:var(--purple)">Full Stack</span><br>Engineer.</h1>
             <p class="lead">
               I convert business goals into secure backend systems, clean APIs,
               and responsive frontends with a strong focus on maintainability and delivery quality.
             </p>
             <div class="hero-pills" aria-label="Core capabilities">
-              <span>API Architecture</span>
-              <span>Admin Dashboards</span>
-              <span>Responsive Frontend</span>
-              <span>Performance Optimization</span>
+              <span><span class="pill-dot" style="background:#E74C3C"></span>Laravel</span>
+              <span><span class="pill-dot" style="background:#42B883"></span>Vue.js</span>
+              <span><span class="pill-dot" style="background:#1E88E5"></span>MySQL</span>
+              <span><span class="pill-dot" style="background:#9B8FFF"></span>PHP</span>
+              <span><span class="pill-dot" style="background:#F39C12"></span>REST API</span>
             </div>
             <div class="hero-actions">
               <a href="#contact" class="btn btn-primary">Start a Project</a>
@@ -154,29 +117,72 @@
           </div>
 
           <div class="hero-visual fade-in-delay">
-            <div class="code-showcase terminal-showcase" aria-label="Terminal preview">
-              <div class="code-head terminal-head">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-                <span class="file-name">saurabh@portfolio:~</span>
+            <div class="hero-cube-scene" aria-label="Tech stack visualization">
+              <!-- floating status badges -->
+              <div class="hfb hfb-1">
+                <span class="hfb-dot" style="background:#41D38A"></span>
+                Available for projects
               </div>
-              <pre><code><span class="prompt">$</span> stack --show
-Laravel  | Vue.js  | MySQL
-<span class="prompt">$</span> focus --show
-Performance  | Security  | UX
-<span class="prompt">$</span> run deliver-project
-<span class="ok">[ok]</span> solution shipped successfully</code></pre>
-            </div>
-            <div class="hero-snapshot" aria-label="Current role and stack">
-              <div class="status-card">
-                <span class="status-dot" aria-hidden="true"></span>
-                Currently working as a <strong>Full Stack Developer</strong>
+              <div class="hfb hfb-2">
+                <span class="hfb-dot" style="background:#FF7A38"></span>
+                Open to remote work
               </div>
-              <div class="status-card">
-                <span class="status-dot" aria-hidden="true"></span>
-                Core stack: <strong>Laravel, Vue.js, MySQL, API Integration</strong>
+
+              <!-- Laravel cube -->
+              <div class="cwrap cw1">
+                <div class="icube cube-lv">
+                  <div class="f top">L</div>
+                  <div class="f front">L</div>
+                  <div class="f right">L</div>
+                </div>
               </div>
+              <!-- Vue cube -->
+              <div class="cwrap cw2">
+                <div class="icube cube-vu">
+                  <div class="f top">V</div>
+                  <div class="f front">V</div>
+                  <div class="f right">V</div>
+                </div>
+              </div>
+              <!-- MySQL cube -->
+              <div class="cwrap cw3">
+                <div class="icube cube-db">
+                  <div class="f top">DB</div>
+                  <div class="f front">DB</div>
+                  <div class="f right">DB</div>
+                </div>
+              </div>
+              <!-- PHP cube -->
+              <div class="cwrap cw4">
+                <div class="icube cube-ph">
+                  <div class="f top">PHP</div>
+                  <div class="f front">PHP</div>
+                  <div class="f right">PHP</div>
+                </div>
+              </div>
+              <!-- small API cube -->
+              <div class="cwrap cw5">
+                <div class="icube sm cube-ap">
+                  <div class="f top">API</div>
+                  <div class="f front">API</div>
+                  <div class="f right">API</div>
+                </div>
+              </div>
+              <!-- small accent cube -->
+              <div class="cwrap cw6">
+                <div class="icube sm cube-lv">
+                  <div class="f top"></div>
+                  <div class="f front"></div>
+                  <div class="f right"></div>
+                </div>
+              </div>
+
+              <!-- Accent spheres -->
+              <div class="sp sp1"></div>
+              <div class="sp sp2"></div>
+              <div class="sp sp3"></div>
+              <div class="sp sp4"></div>
+              <div class="sp-ring"></div>
             </div>
           </div>
         </div>
@@ -215,18 +221,22 @@ Performance  | Security  | UX
           </div>
           <div class="services-grid">
             <article class="info-card">
+              <div class="svc-icon-wrap svc-purple">⚙️</div>
               <h3>Custom Web Applications</h3>
               <p>Business-driven applications using Laravel, Vue.js, and structured backend logic.</p>
             </article>
             <article class="info-card">
+              <div class="svc-icon-wrap svc-orange">🔗</div>
               <h3>REST API Development</h3>
               <p>Secure API architecture, validation layers, and clear documentation.</p>
             </article>
             <article class="info-card">
+              <div class="svc-icon-wrap svc-green">📊</div>
               <h3>Admin Dashboards</h3>
               <p>Interactive admin systems with user control, reporting, and smooth workflows.</p>
             </article>
             <article class="info-card">
+              <div class="svc-icon-wrap svc-purple">🚀</div>
               <h3>Performance Optimization</h3>
               <p>Database tuning, query optimization, and performance improvements for production apps.</p>
             </article>
@@ -462,14 +472,26 @@ Performance  | Security  | UX
       <section id="blog" class="section">
         <div class="container">
           <div class="section-head">
-            <p class="eyebrow">Other Experience</p>
+            <p class="eyebrow">Blog</p>
             <h2>Additional Technical Work</h2>
             <p>Complementary strengths that improve engineering quality and delivery velocity.</p>
           </div>
           <div class="blog-grid">
-            <article class="info-card"><h3>Version Control and Deployment</h3><p>Hands-on experience using Git and GitHub with live server management in cPanel.</p></article>
-            <article class="info-card"><h3>Architecture and API Integration</h3><p>MVC architecture, API integration, and modular backend implementation with Laravel.</p></article>
-            <article class="info-card"><h3>AI and Automation</h3><p>Worked on AI integration, AI-assisted workflows, and AI chatbot implementation.</p></article>
+            <article class="info-card">
+              <div class="svc-icon-wrap svc-green">🔧</div>
+              <h3>Version Control and Deployment</h3>
+              <p>Hands-on experience using Git and GitHub with live server management in cPanel.</p>
+            </article>
+            <article class="info-card">
+              <div class="svc-icon-wrap svc-purple">🏗️</div>
+              <h3>Architecture and API Integration</h3>
+              <p>MVC architecture, API integration, and modular backend implementation with Laravel.</p>
+            </article>
+            <article class="info-card">
+              <div class="svc-icon-wrap svc-orange">🤖</div>
+              <h3>AI and Automation</h3>
+              <p>Worked on AI integration, AI-assisted workflows, and AI chatbot implementation.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -510,6 +532,30 @@ Performance  | Security  | UX
       </section>
     </main>
 
+    <!-- Purple CTA section -->
+    <section class="purple-cta-section">
+      <div class="purple-cta-panel" aria-hidden="true"></div>
+      <div class="container purple-cta-inner">
+        <div class="purple-cta-text">
+          <p class="purple-cta-eyebrow">Let's Work Together</p>
+          <h2 class="purple-cta-title">Building Reliable<br>Digital Products<br>That Scale.</h2>
+          <p class="purple-cta-desc">
+            I take business goals and turn them into clean Laravel + Vue solutions — fast, secure, and built to last.
+          </p>
+          <a href="#contact" class="purple-cta-btn">Start a Conversation →</a>
+        </div>
+        <div class="purple-cta-cubes" aria-hidden="true">
+          <div class="cwrap ac1"><div class="icube cube-vu"><div class="f top">V</div><div class="f front">V</div><div class="f right">V</div></div></div>
+          <div class="cwrap ac2"><div class="icube cube-lv"><div class="f top">L</div><div class="f front">L</div><div class="f right">L</div></div></div>
+          <div class="cwrap ac3"><div class="icube sm cube-db"><div class="f top">DB</div><div class="f front">DB</div><div class="f right">DB</div></div></div>
+          <div class="cwrap ac4"><div class="icube sm cube-ph"><div class="f top">PHP</div><div class="f front">PHP</div><div class="f right">PHP</div></div></div>
+          <div class="sp cta-sp1"></div>
+          <div class="sp cta-sp2"></div>
+          <div class="sp cta-sp3"></div>
+        </div>
+      </div>
+    </section>
+
     <footer class="site-footer">
       <div class="container footer-inner">
         <div>
@@ -534,6 +580,36 @@ Performance  | Security  | UX
       </div>
       <p class="copyright">&copy; 2026 Saurabh Bansal. All rights reserved.</p>
     </footer>
+    <!-- ── FLOATING BOTTOM PILL NAV ── -->
+    <nav class="pill-nav" aria-label="Primary navigation">
+      <a href="#home" class="pill-brand">SB.</a>
+      <span class="pill-divider" aria-hidden="true"></span>
+      <div id="navMenu" class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <span class="pill-divider" aria-hidden="true"></span>
+      <div class="pill-controls">
+        <button
+          class="menu-toggle cursor-pointer"
+          id="menuToggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="navMenu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="#contact" class="pill-hire-btn">Hire Me</a>
+      </div>
+    </nav>
   </body>
 </html>
 
