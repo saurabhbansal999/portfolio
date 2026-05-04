@@ -1,0 +1,35 @@
+# Local tool state
+.claude/
+.playwright-mcp/
+.superpowers/
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
+.vite/
+.parcel-cache/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Test and coverage output
+coverage/
+test-results/
+playwright-report/

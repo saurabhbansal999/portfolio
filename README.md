@@ -1,50 +1,49 @@
-# 🚀 Saurabh | Portfolio Website
+# Saurabh Bansal Portfolio
 
-This is my personal portfolio website built using **HTML, CSS, JavaScript, and Bootstrap**.  
-It showcases my projects, technical skills, and professional experience as a **Full Stack Laravel Developer**.
+Personal portfolio website built with plain HTML, CSS, and JavaScript.
 
-The website is fully responsive, performance-focused, and designed with a clean, modern UI.
+## Live Demo
 
----
-
-## 🌐 Live Demo
-
-👉 **View Live Website:**  
 https://saurabhbansal999.github.io/portfolio/
 
----
+## Tech Stack
 
-## 🛠️ Tech Stack
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap Icons CDN
 
-- **Frontend:** HTML5, CSS3, SCSS, JavaScript  
-- **Frameworks & Libraries:** Bootstrap 5  
-- **Animations:** CSS Transitions & JavaScript  
-- **Icons:** Bootstrap Icons  
-- **Version Control:** Git & GitHub  
-- **Deployment:** GitHub Pages  
+## Run Locally
 
----
+This is a static website. You can open `index.html` directly, or serve the folder with any static server.
 
-## ✨ Features
+Using Node:
 
-- Responsive design for all screen sizes  
-- Sticky navigation with active section highlighting  
-- Dynamic projects section with **Load More** functionality  
-- Smooth scroll and hover animations  
-- Skills section with clean grid layout  
-- Modern UI with dark theme aesthetics  
+```bash
+npx serve .
+```
 
----
+Then open the local URL shown in the terminal.
 
-## 📂 Project Structure
+## Deploy To GitHub Pages
+
+1. Push this repository to GitHub.
+2. Open the repository on GitHub.
+3. Go to `Settings > Pages`.
+4. Set the source to the `main` branch and `/root`.
+5. Save and wait for GitHub Pages to publish the site.
+
+## Project Structure
 
 ```text
-├── index.html
-├── assets
-│   ├── css
-│   │   └── style.css
-│   ├── js
-│   │   └── app.js
-│   ├── images
-│   └── videos
-└── README.md
+index.html
+assets/
+  css/
+    style.css
+  js/
+    app.js
+  images/
+  fonts/
+  pdf/
+README.md
+```
