@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Carousel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ── */
+    :root {
+      --bg:        #111113;
+      --surface:   #1c1c1f;
+      --surface2:  #262629;
+      --border:    #2e2e33;
+      --text:      #f0f0f0;
+      --muted:     #6b6b74;
+      --accent:    #c8f000;        /* lime — change to your brand color */
+      --radius:    14px;
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --ease-expo: cubic-bezier(.77,0,.18,1);
+      --ease-spring: cubic-bezier(.34,1.3,.64,1);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    /* ════════════════════════════════
+       CAROUSEL WRAPPER
+    ════════════════════════════════ */
+    .carousel-section {
+      width: 100%;
+      max-width: 860px;
+    }
+
+    .carousel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 20px;
+      padding: 0 4px;
+    }
+
+    .carousel-header h2 {
+      font-family: var(--font-head);
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .carousel-header span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ════════════════════════════════
+       GRID
+    ════════════════════════════════ */
+    .c-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 185px 185px;
+      gap: 8px;
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .c-cell {
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      transition: transform .25s var(--ease-spring), filter .3s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .c-cell:not(.active):hover {
+      transform: scale(1.03);
+      filter: brightness(1.15);
+    }
+
+    .c-cell.active {
+      grid-column: 1 / 3;
+      grid-row:    1 / 3;
+      cursor: default;
+    }
+
+    /* Numbered label */
+    .c-num {
+      position: absolute;
+      bottom: 14px;
+      left: 16px;
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      color: rgba(0,0,0,.5);
+      transition: font-size .5s var(--ease-expo), color .3s;
+      pointer-events: none;
+    }
+
+    .c-cell.active .c-num {
+      font-size: 52px;
+      color: rgba(0,0,0,.25);
+      bottom: 12px;
+      left: 18px;
+    }
+
+    /* Active overlay info */
+    .c-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 16px 18px 18px;
+      background: linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 100%);
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity .4s .15s, transform .4s .15s var(--ease-expo);
+      pointer-events: none;
+    }
+
+    .c-cell.active .c-info {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .c-info-title {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+    }
+
+    .c-info-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,.65);
+      margin-top: 4px;
+    }
+
+    .c-open-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 7px 14px;
+      border-radius: 30px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      backdrop-filter: blur(6px);
+    }
+
+    .c-open-btn:hover {
+      background: rgba(255,255,255,.22);
+      transform: translateY(-1px);
+    }
+
+    /* ════════════════════════════════
+       NAV ROW
+    ════════════════════════════════ */
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .nav-btn {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, transform .1s, border-color .15s;
+    }
+
+    .nav-btn:hover { background: var(--surface2); border-color: var(--muted); }
+    .nav-btn:active { transform: scale(.9); }
+
+    .pips {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .pip {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: all .35s var(--ease-expo);
+    }
+
+    .pip.on {
+      width: 22px;
+      border-radius: 10px;
+      background: var(--accent);
+    }
+
+    /* ════════════════════════════════
+       MODAL OVERLAY
+    ════════════════════════════════ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.75);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal {
+      width: 100%;
+      max-width: 720px;
+      background: var(--surface);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transform: translateY(32px) scale(.96);
+      transition: transform .45s var(--ease-spring);
+      position: relative;
+    }
+
+    .modal-overlay.open .modal {
+      transform: translateY(0) scale(1);
+    }
+
+    /* Modal hero image/color strip */
+    .modal-hero {
+      width: 100%;
+      height: 240px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .modal-hero-num {
+      position: absolute;
+      top: -10px; right: 20px;
+      font-family: var(--font-head);
+      font-size: 140px;
+      font-weight: 800;
+      color: rgba(0,0,0,.18);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .modal-hero-tags {
+      position: absolute;
+      top: 18px; left: 18px;
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .modal-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(0,0,0,.25);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.15);
+      backdrop-filter: blur(6px);
+    }
+
+    /* Modal body */
+    .modal-body {
+      padding: 28px 30px 30px;
+    }
+
+    .modal-title {
+      font-family: var(--font-head);
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.1;
+      color: var(--text);
+    }
+
+    .modal-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-top: 12px;
+      max-width: 560px;
+    }
+
+    /* Chips row */
+    .modal-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .modal-chip {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      transition: border-color .2s, color .2s;
+    }
+
+    .modal-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Stats row */
+    .modal-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .modal-stat {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+    }
+
+    .modal-stat-val {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .modal-stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 3px;
+      letter-spacing: .03em;
+    }
+
+    /* CTA row */
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .modal-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 11px 22px;
+      border-radius: 30px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform .15s, opacity .2s;
+      border: 1px solid transparent;
+    }
+
+    .modal-btn:hover { transform: translateY(-2px); }
+    .modal-btn:active { transform: translateY(0); }
+
+    .modal-btn.primary {
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+    }
+
+    .modal-btn.secondary {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .modal-btn.secondary:hover { border-color: var(--muted); }
+
+    /* Close button */
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: rgba(0,0,0,.3);
+      border: 1px solid rgba(255,255,255,.12);
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      line-height: 1;
+      transition: background .15s, transform .15s;
+      backdrop-filter: blur(6px);
+      z-index: 10;
+    }
+
+    .modal-close:hover { background: rgba(0,0,0,.55); transform: scale(1.08); }
+
+    /* ════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════ */
+    @media (max-width: 540px) {
+      .c-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 150px 100px 100px;
+      }
+      .c-cell.active {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+      }
+      .modal-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ CAROUSEL ══ -->
+  <section class="carousel-section">
+    <div class="carousel-header">
+      <h2>Featured Projects</h2>
+      <span id="counter">01 / 05</span>
+    </div>
+
+    <div class="c-grid" id="cGrid"></div>
+
+    <div class="nav-row">
+      <button class="nav-btn" id="prevBtn" aria-label="Previous">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="pips" id="pips"></div>
+      <button class="nav-btn" id="nextBtn" aria-label="Next">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ══ MODAL ══ -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose" aria-label="Close">&#x2715;</button>
+      <div class="modal-hero" id="modalHero">
+        <div class="modal-hero-num" id="modalHeroNum"></div>
+        <div class="modal-hero-tags" id="modalHeroTags"></div>
+      </div>
+      <div class="modal-body">
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-chips" id="modalChips"></div>
+        <div class="modal-stats" id="modalStats"></div>
+        <div class="modal-actions" id="modalActions"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ══════════════════════════════════════
+       DATA — swap this out with your projects
+    ══════════════════════════════════════ */
+    const PROJECTS = [
+      {
+        num: '01',
+        color: '#c8f000',          // accent color for active cell + modal hero
+        title: 'AI Chat Platform',
+        subtitle: 'NLP · Real-time · Production',
+        description: 'A real-time conversational AI interface with streaming responses, multi-session memory, and custom model fine-tuning support. Handles 10k+ concurrent users with sub-100ms latency.',
+        chips: ['Next.js', 'Python', 'LangChain', 'WebSockets', 'Redis', 'Docker'],
+        stats: [
+          { val: '10k+', label: 'Active users' },
+          { val: '<100ms', label: 'Latency' },
+          { val: '99.9%', label: 'Uptime' },
+        ],
+        links: {
+          live: 'https://your-live-url.com',
+          github: 'https://github.com/your-repo',
+        },
+      },
+      {
+        num: '02',
+        color: '#00e5a0',
+        title: 'Finance Dashboard',
+        subtitle: 'Fintech · Data viz · Analytics',
+        description: 'Portfolio tracker with real-time market data, interactive P&L charts, and CSV export. Built for 200+ active investors managing over $2M in combined assets.',
+        chips: ['React', 'D3.js', 'FastAPI', 'PostgreSQL', 'TailwindCSS'],
+        stats: [
+          { val: '200+', label: 'Investors' },
+          { val: '$2M+', label: 'Assets tracked' },
+          { val: '38%', label: 'Avg portfolio growth' },
+        ],
+        links: {
+          live: 'https://your-live-url.com',
+          github: 'https://github.com/your-repo',
+        },
+      },
+      {
+        num: '03',
+        color: '#ff6b35',
+        title: 'Headless Storefront',
+        subtitle: 'E-Commerce · AR · Shopify',
+        description: 'Shopify-powered headless storefront with blazing-fast performance, AR product previews using Three.js, and a custom checkout flow. Resulted in a 3× conversion rate increase.',
+        chips: ['Remix', 'Shopify Hydrogen', 'Three.js', 'Stripe', 'Vercel'],
+        stats: [
+          { val: '3×', label: 'Conversion lift' },
+          { val: '98', label: 'Lighthouse score' },
+          { val: '$500k', label: 'Revenue driven' },
+        ],
+        links: {
+          live: 'https://your-live-url.com',
+          github: 'https://github.com/your-repo',
+        },
+      },
+      {
+        num: '04',
+        color: '#a78bfa',
+        title: 'Design System',
+        subtitle: 'Component lib · Figma · a11y',
+        description: 'A comprehensive component library with 120+ accessible UI components, a powerful theming engine, Figma integration, and full dark-mode support. Used across 4 products.',
+        chips: ['React', 'Storybook', 'Radix UI', 'CSS Variables', 'Jest'],
+        stats: [
+          { val: '120+', label: 'Components' },
+          { val: '4', label: 'Products using it' },
+          { val: '100%', label: 'A11y compliant' },
+        ],
+        links: {
+          live: 'https://your-storybook-url.com',
+          github: 'https://github.com/your-repo',
+        },
+      },
+      {
+        num: '05',
+        color: '#f472b6',
+        title: 'CLI Code Generator',
+        subtitle: 'DevTool · Node · Rust',
+        description: 'Scaffolds production-ready full-stack apps in seconds using smart template detection and AI-assisted prompts. 800+ GitHub stars within the first month of launch.',
+        chips: ['Node.js', 'Rust', 'WASM', 'Inquirer', 'Handlebars'],
+        stats: [
+          { val: '800+', label: 'GitHub stars' },
+          { val: '<3s', label: 'Scaffold time' },
+          { val: '12', label: 'Templates' },
+        ],
+        links: {
+          live: 'https://your-npm-url.com',
+          github: 'https://github.com/your-repo',
+        },
+      },
+    ];
+
+    /* ══════════════════════════════════════
+       STATE
+    ══════════════════════════════════════ */
+    const N = PROJECTS.length;
+    let active = 0;
+
+    /* ══════════════════════════════════════
+       DOM REFS
+    ══════════════════════════════════════ */
+    const grid       = document.getElementById('cGrid');
+    const pipsEl     = document.getElementById('pips');
+    const counter    = document.getElementById('counter');
+    const overlay    = document.getElementById('modalOverlay');
+    const modalClose = document.getElementById('modalClose');
+
+    /* ══════════════════════════════════════
+       RENDER GRID
+    ══════════════════════════════════════ */
+    function render(act) {
+      grid.innerHTML = '';
+
+      // order: active first, then the rest in sequence
+      const order = [];
+      for (let i = 0; i < N; i++) order.push((i - act + N) % N);
+      const sorted = [...Array(N).keys()].sort((a, b) => order[a] - order[b]);
+
+      sorted.forEach((projIdx, slot) => {
+        const p    = PROJECTS[projIdx];
+        const isAc = projIdx === act;
+
+        const cell = document.createElement('div');
+        cell.className = 'c-cell' + (isAc ? ' active' : '');
+        cell.style.background = isAc ? p.color : 'var(--surface2)';
+
+        if (isAc) {
+          cell.style.gridColumn = '1 / 3';
+          cell.style.gridRow    = '1 / 3';
+        } else {
+          const s   = slot - 1;
+          cell.style.gridColumn = 2 + (s % 2);
+          cell.style.gridRow    = 1 + Math.floor(s / 2);
+        }
+
+        // Number badge
+        const num = document.createElement('div');
+        num.className = 'c-num';
+        num.textContent = p.num;
+        cell.appendChild(num);
+
+        // Active overlay info
+        if (isAc) {
+          const info = document.createElement('div');
+          info.className = 'c-info';
+          info.innerHTML = `
+            <div class="c-info-title">${p.title}</div>
+            <div class="c-info-sub">${p.subtitle}</div>
+            <button class="c-open-btn" id="openModalBtn">
+              View details
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          `;
+          cell.appendChild(info);
+          cell.querySelector('#openModalBtn').addEventListener('click', () => openModal(active));
+        } else {
+          cell.addEventListener('click', () => goTo(projIdx));
+        }
+
+        grid.appendChild(cell);
+      });
+
+      // update pips
+      document.querySelectorAll('.pip').forEach((p, i) => p.classList.toggle('on', i === act));
+      // update counter
+      counter.textContent = `${String(act + 1).padStart(2,'0')} / ${String(N).padStart(2,'0')}`;
+    }
+
+    /* ══════════════════════════════════════
+       NAVIGATION
+    ══════════════════════════════════════ */
+    function goTo(n) {
+      active = ((n % N) + N) % N;
+      render(active);
+    }
+
+    // Build pips
+    PROJECTS.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'pip' + (i === 0 ? ' on' : '');
+      d.addEventListener('click', () => goTo(i));
+      pipsEl.appendChild(d);
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => goTo(active - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => goTo(active + 1));
+
+    // Drag / swipe
+    let sx = null, dragged = false;
+    document.querySelector('.carousel-section').addEventListener('mousedown', e => { sx = e.clientX; dragged = false; });
+    window.addEventListener('mousemove', e => { if (sx && Math.abs(e.clientX - sx) > 8) dragged = true; });
+    window.addEventListener('mouseup', e => {
+      if (!sx) return;
+      const d = sx - e.clientX;
+      if (dragged && Math.abs(d) > 40) goTo(d > 0 ? active + 1 : active - 1);
+      sx = null; dragged = false;
+    });
+    document.querySelector('.carousel-section').addEventListener('touchstart', e => { sx = e.touches[0].clientX; dragged = false; }, { passive: true });
+    document.querySelector('.carousel-section').addEventListener('touchmove',  e => { if (Math.abs(e.touches[0].clientX - sx) > 8) dragged = true; }, { passive: true });
+    document.querySelector('.carousel-section').addEventListener('touchend',   e => {
+      const d = sx - e.changedTouches[0].clientX;
+      if (dragged && Math.abs(d) > 40) goTo(d > 0 ? active + 1 : active - 1);
+      sx = null; dragged = false;
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  goTo(active - 1);
+      if (e.key === 'ArrowRight') goTo(active + 1);
+      if (e.key === 'Escape')     closeModal();
+    });
+
+    /* ══════════════════════════════════════
+       MODAL
+    ══════════════════════════════════════ */
+    function openModal(idx) {
+      const p = PROJECTS[idx];
+
+      // Hero
+      const hero = document.getElementById('modalHero');
+      hero.style.background = p.color;
+      document.getElementById('modalHeroNum').textContent = p.num;
+
+      const tagsEl = document.getElementById('modalHeroTags');
+      tagsEl.innerHTML = p.chips.slice(0, 3).map(c => `<span class="modal-tag">${c}</span>`).join('');
+
+      // Body
+      document.getElementById('modalTitle').textContent = p.title;
+      document.getElementById('modalDesc').textContent  = p.description;
+
+      document.getElementById('modalChips').innerHTML =
+        p.chips.map(c => `<span class="modal-chip">${c}</span>`).join('');
+
+      document.getElementById('modalStats').innerHTML =
+        p.stats.map(s => `
+          <div class="modal-stat">
+            <div class="modal-stat-val">${s.val}</div>
+            <div class="modal-stat-label">${s.label}</div>
+          </div>`).join('');
+
+      document.getElementById('modalActions').innerHTML = `
+        <a href="${p.links.live}" target="_blank" rel="noopener" class="modal-btn primary">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Live demo
+        </a>
+        <a href="${p.links.github}" target="_blank" rel="noopener" class="modal-btn secondary">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+          GitHub
+        </a>
+      `;
+
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+
+    /* ══════════════════════════════════════
+       INIT
+    ══════════════════════════════════════ */
+    render(0);
+  </script>
+</body>
+</html>

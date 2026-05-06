@@ -534,18 +534,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    const projectsGrid = document.getElementById('projectsGrid');
-    const loadMoreBtn = document.getElementById('viewAllProjects');
     const projectModal = createProjectModal();
     let revealObserver = null;
 
-    const batchSize = () => {
-        if (window.innerWidth <= 560) return 1;
-        if (window.innerWidth <= 1024) return 2;
-        return 3;
-    };
 
-    let visibleCount = batchSize();
+    let carouselActive = 0;
+    const N = projects.length;
 
     const setMenuExpanded = expanded => {
         if (!menuToggle) return;
@@ -764,105 +758,111 @@ document.addEventListener('DOMContentLoaded', () => {
         return { overlay, open, close };
     }
 
-    const renderProjects = () => {
-        if (!projectsGrid || !loadMoreBtn) return;
 
-        projectsGrid.innerHTML = '';
-        const accents = [
-            ['#0ea5e9', '#22d3ee'],
-            ['#6366f1', '#38bdf8'],
-            ['#f59e0b', '#f97316'],
-            ['#14b8a6', '#06b6d4'],
-            ['#8b5cf6', '#60a5fa'],
-            ['#10b981', '#0ea5e9'],
-            ['#f43f5e', '#fb7185'],
-            ['#06b6d4', '#3b82f6']
-        ];
+    const renderCarousel = act => {
+        const grid = document.getElementById('cGrid');
+        if (!grid) return;
+        grid.innerHTML = '';
 
-        projects.slice(0, visibleCount).forEach((project, index) => {
-            const article = document.createElement('article');
-            article.className = 'project-card';
-            const accent = accents[index % accents.length];
-            article.style.setProperty('--accent-a', accent[0]);
-            article.style.setProperty('--accent-b', accent[1]);
+        const order = [];
+        for (let i = 0; i < N; i++) order.push((i - act + N) % N);
+        const sorted = [...Array(N).keys()].sort((a, b) => order[a] - order[b]);
 
-            const badges = project.stack
-                .map(tag => `<span class="project-badge">${tag}</span>`)
-                .join('');
-            const hasSvgPreview = typeof project.image === 'string' && project.image.endsWith('.svg');
-            const mediaContent = hasSvgPreview
-                ? `<img src="${project.image}" alt="${project.title}" />`
-                : '<span class="project-media-title">Project Preview</span>';
+        sorted.slice(0, 5).forEach((projIdx, slot) => {
+            const project = projects[projIdx];
+            const isAc = projIdx === act;
 
-            article.innerHTML = `
-                <div class="project-media">
-                    <span class="project-media-glow" aria-hidden="true"></span>
-                    <span class="project-media-grid" aria-hidden="true"></span>
-                    ${mediaContent}
-                </div>
-                <div class="project-body">
-                    <div class="project-stack">${badges}</div>
-                    <h3 class="project-title">${project.title}</h3>
-                    <p class="project-desc">${project.desc}</p>
-                    <div class="project-actions">
-                        <button type="button" class="project-details-btn" data-project-index="${index}">View Details <i class="bi bi-arrow-up-right"></i></button>
-                    </div>
-                </div>
-            `;
+            const cell = document.createElement('div');
+            cell.className = 'c-cell' + (isAc ? ' active' : '');
+            cell.style.background = '#fdf8f5';
 
-            projectsGrid.appendChild(article);
+            if (isAc) {
+                cell.style.gridColumn = '1 / 3';
+                cell.style.gridRow = '1 / 3';
+            } else {
+                const s = slot - 1;
+                cell.style.gridColumn = String(2 + (s % 2));
+                cell.style.gridRow = String(1 + Math.floor(s / 2));
+            }
+
+            // SVG illustration background for every cell
+            const img = document.createElement('img');
+            img.className = 'c-cell-img';
+            img.src = project.image;
+            img.alt = '';
+            img.setAttribute('aria-hidden', 'true');
+            img.draggable = false;
+            cell.appendChild(img);
+
+            if (isAc) {
+                // Large watermark number
+                const numEl = document.createElement('div');
+                numEl.className = 'c-num';
+                numEl.textContent = String(projIdx + 1).padStart(2, '0');
+                cell.appendChild(numEl);
+
+                // Info panel — gradient baked in via CSS
+                const info = document.createElement('div');
+                info.className = 'c-info';
+                info.innerHTML = `
+                    <p class="c-info-cat">${project.stack[0]}</p>
+                    <div class="c-info-title">${project.title}</div>
+                    <div class="c-info-sub">${project.desc}</div>
+                    <button class="c-open-btn" type="button">
+                        View Details
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                            <path d="M2 10L10 2M10 2H4M10 2v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                `;
+                cell.appendChild(info);
+                cell.querySelector('.c-open-btn').addEventListener('click', () => {
+                    projectModal.open(project);
+                });
+            } else {
+                // Dark tint over thumbnail
+                const thumbOverlay = document.createElement('div');
+                thumbOverlay.className = 'c-thumb-overlay';
+                cell.appendChild(thumbOverlay);
+
+                // Project number badge
+                const numBadge = document.createElement('div');
+                numBadge.className = 'c-thumb-num';
+                numBadge.textContent = String(projIdx + 1).padStart(2, '0');
+                cell.appendChild(numBadge);
+
+                // Project title at bottom
+                const label = document.createElement('div');
+                label.className = 'c-thumb-label';
+                label.textContent = project.title;
+                cell.appendChild(label);
+
+                cell.addEventListener('click', () => carouselGoTo(projIdx));
+            }
+
+            grid.appendChild(cell);
         });
 
-        loadMoreBtn.style.display = visibleCount >= projects.length ? 'none' : 'inline-flex';
-        initProjectCard3D();
-        registerRevealTargets();
+        document.querySelectorAll('.c-pip').forEach((pip, i) => {
+            pip.classList.toggle('on', i === act);
+        });
+
+        const counter = document.getElementById('cCounter');
+        if (counter) {
+            counter.textContent = `${String(act + 1).padStart(2, '0')} / ${String(N).padStart(2, '0')}`;
+        }
     };
 
-    const initProjectCard3D = () => {
-        if (prefersReducedMotion || !window.matchMedia('(pointer: fine)').matches) return;
-        const cards = projectsGrid ? Array.from(projectsGrid.querySelectorAll('.project-card')) : [];
-
-        cards.forEach(card => {
-            if (card.dataset.tiltBound === '1') return;
-            card.dataset.tiltBound = '1';
-            card.classList.add('has-tilt');
-            let rect = null;
-            const readRect = () => {
-                rect = card.getBoundingClientRect();
-            };
-
-            const reset = () => {
-                card.style.setProperty('--card-tilt-x', '0deg');
-                card.style.setProperty('--card-tilt-y', '0deg');
-                card.style.setProperty('--card-pop', '0px');
-            };
-
-            card.addEventListener('mouseenter', readRect);
-            card.addEventListener('mousemove', event => {
-                if (!rect) readRect();
-                if (!rect || rect.width <= 0 || rect.height <= 0) return;
-                const x = (event.clientX - rect.left) / rect.width;
-                const y = (event.clientY - rect.top) / rect.height;
-                const tiltX = (0.5 - y) * 7;
-                const tiltY = (x - 0.5) * 9;
-                card.style.setProperty('--card-tilt-x', `${tiltX.toFixed(2)}deg`);
-                card.style.setProperty('--card-tilt-y', `${tiltY.toFixed(2)}deg`);
-                card.style.setProperty('--card-pop', '-2px');
-            });
-
-            card.addEventListener('mouseleave', () => {
-                rect = null;
-                reset();
-            });
-            reset();
-        });
+    const carouselGoTo = n => {
+        carouselActive = ((n % N) + N) % N;
+        renderCarousel(carouselActive);
+        registerRevealTargets();
     };
 
     const registerRevealTargets = () => {
         if (prefersReducedMotion) return;
         const revealTargets = document.querySelectorAll([
             '.section-head',
-            '.project-card',
             '.metric-card',
             '.skill-cluster',
             '.info-card',
@@ -1076,23 +1076,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (loadMoreBtn) {
-        loadMoreBtn.addEventListener('click', () => {
-            visibleCount += batchSize();
-            renderProjects();
-        });
-    }
+    const initCarousel = () => {
+        const pipsEl = document.getElementById('cPips');
+        if (!pipsEl) return;
 
-    if (projectsGrid) {
-        projectsGrid.addEventListener('click', event => {
-            const target = event.target.closest('.project-details-btn');
-            if (!target) return;
-            const index = Number(target.getAttribute('data-project-index'));
-            const project = projects[index];
-            if (!project) return;
-            projectModal.open(project);
+        projects.forEach((_, i) => {
+            const pip = document.createElement('div');
+            pip.className = 'c-pip' + (i === 0 ? ' on' : '');
+            pip.addEventListener('click', () => carouselGoTo(i));
+            pipsEl.appendChild(pip);
         });
-    }
+
+        const prevBtn = document.getElementById('cPrevBtn');
+        const nextBtn = document.getElementById('cNextBtn');
+        if (prevBtn) prevBtn.addEventListener('click', () => carouselGoTo(carouselActive - 1));
+        if (nextBtn) nextBtn.addEventListener('click', () => carouselGoTo(carouselActive + 1));
+
+        const cGrid = document.getElementById('cGrid');
+        let swipeStartX = null;
+        let swipeDragged = false;
+
+        if (cGrid) {
+            cGrid.addEventListener('mousedown', e => { swipeStartX = e.clientX; swipeDragged = false; });
+            window.addEventListener('mousemove', e => {
+                if (swipeStartX !== null && Math.abs(e.clientX - swipeStartX) > 8) swipeDragged = true;
+            });
+            window.addEventListener('mouseup', e => {
+                if (swipeStartX === null) return;
+                const delta = swipeStartX - e.clientX;
+                if (swipeDragged && Math.abs(delta) > 45) carouselGoTo(delta > 0 ? carouselActive + 1 : carouselActive - 1);
+                swipeStartX = null;
+                swipeDragged = false;
+            });
+            cGrid.addEventListener('touchstart', e => { swipeStartX = e.touches[0].clientX; swipeDragged = false; }, { passive: true });
+            cGrid.addEventListener('touchmove', e => { if (Math.abs(e.touches[0].clientX - swipeStartX) > 8) swipeDragged = true; }, { passive: true });
+            cGrid.addEventListener('touchend', e => {
+                const delta = swipeStartX - e.changedTouches[0].clientX;
+                if (swipeDragged && Math.abs(delta) > 45) carouselGoTo(delta > 0 ? carouselActive + 1 : carouselActive - 1);
+                swipeStartX = null;
+                swipeDragged = false;
+            });
+        }
+
+        document.addEventListener('keydown', e => {
+            const modal = document.querySelector('.project-modal-overlay.is-open');
+            if (modal) return;
+            if (e.key === 'ArrowLeft') carouselGoTo(carouselActive - 1);
+            if (e.key === 'ArrowRight') carouselGoTo(carouselActive + 1);
+        });
+
+        renderCarousel(0);
+    };
 
     const updateActiveByScroll = () => {
         if (!sections.length) return;
@@ -1132,10 +1166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
         if (resizeRafId) return;
         resizeRafId = window.requestAnimationFrame(() => {
-            const minimumVisible = batchSize();
-            visibleCount = Math.max(visibleCount, minimumVisible);
             if (window.innerWidth > 768) closeMenu();
-            renderProjects();
             updateActiveByScroll();
             updateNavIndicator();
             resizeRafId = null;
@@ -1193,7 +1224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initRevealObserver();
     initCustomCursor();
     initHeroScroll3D();
-    renderProjects();
+    initCarousel();
     updateActiveByScroll();
     updateNavIndicator();
 

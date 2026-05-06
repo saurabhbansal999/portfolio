@@ -1,17 +1,86 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
-  <title id="t">NoLimits Placeholder</title>
-  <desc id="d">Stylized placeholder image for NoLimits project.</desc>
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#0ea5e9"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="675" fill="url(#g)"/>
-  <path d="M40 500 C210 430, 330 590, 520 520 S830 430, 1160 500" fill="none" stroke="#a5f3fc" stroke-width="14" opacity="0.56"/>
-  <circle cx="980" cy="145" r="72" fill="#14b8a6" opacity="0.88"/>
-  <rect x="145" y="150" width="910" height="380" rx="24" fill="#ffffff" opacity="0.93"/>
-  <text x="205" y="275" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif" font-size="58" font-weight="700">NoLimits</text>
-  <text x="205" y="340" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="30">Real Estate Operations Platform</text>
-  <text x="205" y="402" fill="#475569" font-family="Segoe UI, Arial, sans-serif" font-size="24">Inventory, contracts, commission engine</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#fdf8f5"/>
+    <stop offset="100%" stop-color="#f0e8df"/>
+  </linearGradient>
+  <radialGradient id="gl" cx="78%" cy="20%" r="65%">
+    <stop offset="0%" stop-color="#7b4b2a" stop-opacity="0.28"/>
+    <stop offset="100%" stop-color="#7b4b2a" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="fd" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#fdf8f5" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#fdf8f5" stop-opacity="0.88"/>
+  </linearGradient>
+</defs>
+
+<rect width="1200" height="900" fill="url(#bg)"/>
+<rect width="1200" height="900" fill="url(#gl)"/>
+
+<!-- City skyline buildings (right area, ground at y=500) -->
+<!-- Building 1 -->
+<rect x="700" y="220" width="70" height="280" rx="4" fill="#7b4b2a" fill-opacity="0.1" stroke="#7b4b2a" stroke-opacity="0.3" stroke-width="1"/>
+<rect x="710" y="235" width="14" height="10" rx="2" fill="#7b4b2a" fill-opacity="0.3"/>
+<rect x="730" y="235" width="14" height="10" rx="2" fill="#7b4b2a" fill-opacity="0.18"/>
+<rect x="710" y="255" width="14" height="10" rx="2" fill="#7b4b2a" fill-opacity="0.18"/>
+<rect x="730" y="255" width="14" height="10" rx="2" fill="#7b4b2a" fill-opacity="0.3"/>
+<rect x="710" y="275" width="14" height="10" rx="2" fill="#7b4b2a" fill-opacity="0.25"/>
+<rect x="730" y="275" width="14" height="10" rx="2" fill="#7b4b2a" fill-opacity="0.18"/>
+<!-- Building 2 (tall) -->
+<rect x="785" y="140" width="80" height="360" rx="4" fill="#7b4b2a" fill-opacity="0.14" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1"/>
+<rect x="795" y="155" width="16" height="12" rx="2" fill="#7b4b2a" fill-opacity="0.35"/>
+<rect x="817" y="155" width="16" height="12" rx="2" fill="#7b4b2a" fill-opacity="0.22"/>
+<rect x="839" y="155" width="16" height="12" rx="2" fill="#7b4b2a" fill-opacity="0.3"/>
+<rect x="795" y="177" width="16" height="12" rx="2" fill="#7b4b2a" fill-opacity="0.2"/>
+<rect x="817" y="177" width="16" height="12" rx="2" fill="#7b4b2a" fill-opacity="0.35"/>
+<rect x="839" y="177" width="16" height="12" rx="2" fill="#7b4b2a" fill-opacity="0.18"/>
+<rect x="795" y="199" width="16" height="12" rx="2" fill="#7b4b2a" fill-opacity="0.3"/>
+<rect x="817" y="199" width="16" height="12" rx="2" fill="#7b4b2a" fill-opacity="0.18"/>
+<rect x="839" y="199" width="16" height="12" rx="2" fill="#7b4b2a" fill-opacity="0.28"/>
+<!-- Building 3 -->
+<rect x="880" y="190" width="60" height="310" rx="4" fill="#7b4b2a" fill-opacity="0.1" stroke="#7b4b2a" stroke-opacity="0.28" stroke-width="1"/>
+<rect x="890" y="205" width="12" height="9" rx="2" fill="#7b4b2a" fill-opacity="0.28"/>
+<rect x="907" y="205" width="12" height="9" rx="2" fill="#7b4b2a" fill-opacity="0.18"/>
+<rect x="890" y="222" width="12" height="9" rx="2" fill="#7b4b2a" fill-opacity="0.18"/>
+<rect x="907" y="222" width="12" height="9" rx="2" fill="#7b4b2a" fill-opacity="0.28"/>
+<!-- Building 4 -->
+<rect x="955" y="250" width="55" height="250" rx="4" fill="#7b4b2a" fill-opacity="0.08" stroke="#7b4b2a" stroke-opacity="0.22" stroke-width="1"/>
+<rect x="965" y="263" width="12" height="9" rx="2" fill="#7b4b2a" fill-opacity="0.22"/>
+<rect x="982" y="263" width="12" height="9" rx="2" fill="#7b4b2a" fill-opacity="0.14"/>
+<!-- Building 5 -->
+<rect x="1025" y="300" width="45" height="200" rx="4" fill="#7b4b2a" fill-opacity="0.06" stroke="#7b4b2a" stroke-opacity="0.18" stroke-width="1"/>
+<!-- Ground line -->
+<line x1="695" y1="500" x2="1090" y2="500" stroke="#7b4b2a" stroke-width="1" stroke-opacity="0.2"/>
+
+<!-- Bar chart (lower area, trend) -->
+<rect x="720" y="540" width="24" height="50" rx="3" fill="#7b4b2a" fill-opacity="0.18"/>
+<rect x="754" y="520" width="24" height="70" rx="3" fill="#7b4b2a" fill-opacity="0.28"/>
+<rect x="788" y="505" width="24" height="85" rx="3" fill="#7b4b2a" fill-opacity="0.42"/>
+<rect x="822" y="530" width="24" height="60" rx="3" fill="#7b4b2a" fill-opacity="0.22"/>
+<rect x="856" y="512" width="24" height="78" rx="3" fill="#7b4b2a" fill-opacity="0.35"/>
+<!-- Trend line -->
+<polyline points="732,540 766,520 800,505 834,525 868,515" fill="none" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.5" stroke-linejoin="round"/>
+
+<!-- Card frame -->
+<rect x="55" y="75" width="620" height="520" rx="16" fill="#7b4b2a" fill-opacity="0.04" stroke="#7b4b2a" stroke-opacity="0.15" stroke-width="1"/>
+
+<text x="95" y="134" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.7" letter-spacing="0.12em">REAL ESTATE PLATFORM</text>
+
+<text x="95" y="200" font-family="'Segoe UI',Arial,sans-serif" font-size="56" font-weight="700" fill="#1a0d05" letter-spacing="-0.03em">NoLimits</text>
+
+<text x="95" y="254" font-family="'Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#5a3820" fill-opacity="1">Enterprise real estate operations covering</text>
+<text x="95" y="276" font-family="'Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#5a3820" fill-opacity="1">inventory, contracts and commission engine.</text>
+
+<line x1="95" y1="302" x2="645" y2="302" stroke="#7b4b2a" stroke-opacity="0.15" stroke-width="1"/>
+
+<rect x="95" y="320" width="92" height="28" rx="14" fill="#7b4b2a" fill-opacity="0.1" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1"/>
+<text x="141" y="339" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.85">Laravel 11</text>
+
+<rect x="195" y="320" width="60" height="28" rx="14" fill="#7b4b2a" fill-opacity="0.1" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1"/>
+<text x="225" y="339" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.85">Vue 3</text>
+
+<rect x="263" y="320" width="78" height="28" rx="14" fill="#7b4b2a" fill-opacity="0.1" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1"/>
+<text x="302" y="339" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.85">Tailwind</text>
+
+<rect x="0" y="540" width="1200" height="360" fill="url(#fd)"/>
 </svg>

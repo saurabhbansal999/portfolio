@@ -1,16 +1,97 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
-  <title id="t">Akshar Star Electronics Placeholder</title>
-  <desc id="d">Stylized placeholder image for Akshar Star Electronics project.</desc>
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#022c22"/>
-      <stop offset="100%" stop-color="#0f766e"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="675" fill="url(#g)"/>
-  <rect x="145" y="145" width="910" height="385" rx="22" fill="#ffffff" opacity="0.93"/>
-  <rect x="190" y="205" width="250" height="250" rx="16" fill="#0f766e" opacity="0.15"/>
-  <rect x="485" y="205" width="250" height="250" rx="16" fill="#14b8a6" opacity="0.15"/>
-  <rect x="780" y="205" width="230" height="250" rx="16" fill="#2dd4bf" opacity="0.15"/>
-  <text x="190" y="590" fill="#f8fafc" font-family="Segoe UI, Arial, sans-serif" font-size="52" font-weight="700">Akshar Star Electronics</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#fdf8f5"/>
+    <stop offset="100%" stop-color="#f0e8df"/>
+  </linearGradient>
+  <radialGradient id="gl" cx="78%" cy="20%" r="65%">
+    <stop offset="0%" stop-color="#7b4b2a" stop-opacity="0.28"/>
+    <stop offset="100%" stop-color="#7b4b2a" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="fd" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#fdf8f5" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#fdf8f5" stop-opacity="0.88"/>
+  </linearGradient>
+</defs>
+
+<rect width="1200" height="900" fill="url(#bg)"/>
+<rect width="1200" height="900" fill="url(#gl)"/>
+
+<!-- PCB horizontal traces -->
+<line x1="730" y1="185" x2="1180" y2="185" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.16"/>
+<line x1="730" y1="220" x2="1180" y2="220" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.12"/>
+<line x1="730" y1="430" x2="1180" y2="430" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.16"/>
+<line x1="730" y1="465" x2="1180" y2="465" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.12"/>
+<!-- PCB vertical traces -->
+<line x1="785" y1="145" x2="785" y2="545" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.12"/>
+<line x1="840" y1="145" x2="840" y2="545" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.12"/>
+<line x1="1080" y1="145" x2="1080" y2="545" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.12"/>
+<line x1="1135" y1="145" x2="1135" y2="545" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.12"/>
+<!-- Via holes -->
+<circle cx="785" cy="185" r="5.5" fill="none" stroke="#7b4b2a" stroke-width="1.8" stroke-opacity="0.32"/>
+<circle cx="785" cy="185" r="2" fill="#7b4b2a" fill-opacity="0.3"/>
+<circle cx="1080" cy="430" r="5.5" fill="none" stroke="#7b4b2a" stroke-width="1.8" stroke-opacity="0.32"/>
+<circle cx="1080" cy="430" r="2" fill="#7b4b2a" fill-opacity="0.3"/>
+<circle cx="840" cy="465" r="5.5" fill="none" stroke="#7b4b2a" stroke-width="1.8" stroke-opacity="0.32"/>
+<circle cx="840" cy="465" r="2" fill="#7b4b2a" fill-opacity="0.3"/>
+<circle cx="1135" cy="185" r="5.5" fill="none" stroke="#7b4b2a" stroke-width="1.8" stroke-opacity="0.32"/>
+<circle cx="1135" cy="185" r="2" fill="#7b4b2a" fill-opacity="0.3"/>
+
+<!-- IC chip body -->
+<rect x="858" y="242" width="196" height="152" rx="8" fill="#7b4b2a" fill-opacity="0.09" stroke="#7b4b2a" stroke-width="2" stroke-opacity="0.45"/>
+<text x="956" y="322" text-anchor="middle" font-family="monospace" font-size="9" fill="#7b4b2a" fill-opacity="0.32" letter-spacing="1.5">AKSHAR</text>
+<!-- IC top pins -->
+<rect x="875" y="220" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="894" y="220" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="913" y="220" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="932" y="220" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="951" y="220" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="970" y="220" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="989" y="220" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="1008" y="220" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<!-- IC bottom pins -->
+<rect x="875" y="394" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="894" y="394" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="913" y="394" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="932" y="394" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="951" y="394" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="970" y="394" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="989" y="394" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="1008" y="394" width="11" height="22" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<!-- IC left pins -->
+<rect x="836" y="256" width="22" height="11" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="836" y="275" width="22" height="11" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="836" y="294" width="22" height="11" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="836" y="313" width="22" height="11" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<!-- IC right pins -->
+<rect x="1054" y="256" width="22" height="11" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="1054" y="275" width="22" height="11" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="1054" y="294" width="22" height="11" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+<rect x="1054" y="313" width="22" height="11" rx="2" fill="#7b4b2a" fill-opacity="0.38"/>
+
+<!-- Star (top-right) -->
+<polygon points="1108,62 1117,88 1145,88 1123,104 1131,130 1108,114 1085,130 1093,104 1071,88 1099,88" fill="#7b4b2a" fill-opacity="0.08" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.5"/>
+
+<!-- Card frame -->
+<rect x="55" y="75" width="620" height="520" rx="16" fill="#7b4b2a" fill-opacity="0.04" stroke="#7b4b2a" stroke-opacity="0.15" stroke-width="1"/>
+
+<text x="95" y="134" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.7" letter-spacing="0.12em">ELECTRONICS E-COMMERCE</text>
+
+<text x="95" y="200" font-family="'Segoe UI',Arial,sans-serif" font-size="54" font-weight="700" fill="#1a0d05" letter-spacing="-0.03em">Akshar Star</text>
+
+<text x="95" y="254" font-family="'Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#5a3820" fill-opacity="1">E-commerce platform with product catalog,</text>
+<text x="95" y="276" font-family="'Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#5a3820" fill-opacity="1">cart, orders and admin dashboard.</text>
+
+<line x1="95" y1="302" x2="645" y2="302" stroke="#7b4b2a" stroke-opacity="0.15" stroke-width="1"/>
+
+<rect x="95" y="320" width="80" height="28" rx="14" fill="#7b4b2a" fill-opacity="0.1" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1"/>
+<text x="135" y="339" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.85">Core PHP</text>
+
+<rect x="183" y="320" width="62" height="28" rx="14" fill="#7b4b2a" fill-opacity="0.1" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1"/>
+<text x="214" y="339" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.85">MySQL</text>
+
+<rect x="253" y="320" width="86" height="28" rx="14" fill="#7b4b2a" fill-opacity="0.1" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1"/>
+<text x="296" y="339" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.85">Bootstrap</text>
+
+<rect x="0" y="540" width="1200" height="360" fill="url(#fd)"/>
 </svg>

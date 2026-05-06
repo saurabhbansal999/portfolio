@@ -1,16 +1,90 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
-  <title id="t">JKN Tours and Travels Placeholder</title>
-  <desc id="d">Stylized placeholder image for JKN Tours and Travels project.</desc>
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0c4a6e"/>
-      <stop offset="100%" stop-color="#0369a1"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="675" fill="url(#g)"/>
-  <path d="M90 520 C290 410, 450 610, 670 500 S980 390, 1110 470" fill="none" stroke="#bae6fd" stroke-width="14" opacity="0.55"/>
-  <rect x="170" y="150" width="860" height="360" rx="24" fill="#ffffff" opacity="0.93"/>
-  <text x="230" y="285" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif" font-size="58" font-weight="700">JKN Tours and Travels</text>
-  <text x="230" y="350" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="30">Bookings, Packages, CMS Workflows</text>
-  <text x="230" y="410" fill="#475569" font-family="Segoe UI, Arial, sans-serif" font-size="24">Responsive travel operations platform</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#fdf8f5"/>
+    <stop offset="100%" stop-color="#f0e8df"/>
+  </linearGradient>
+  <radialGradient id="gl" cx="78%" cy="20%" r="65%">
+    <stop offset="0%" stop-color="#7b4b2a" stop-opacity="0.28"/>
+    <stop offset="100%" stop-color="#7b4b2a" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="fd" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#fdf8f5" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#fdf8f5" stop-opacity="0.88"/>
+  </linearGradient>
+</defs>
+
+<rect width="1200" height="900" fill="url(#bg)"/>
+<rect width="1200" height="900" fill="url(#gl)"/>
+
+<!-- Globe (centered around 960,310) -->
+<circle cx="960" cy="310" r="190" fill="none" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.22"/>
+<circle cx="960" cy="310" r="190" fill="#7b4b2a" fill-opacity="0.03"/>
+<!-- Equator -->
+<ellipse cx="960" cy="310" rx="190" ry="52" fill="none" stroke="#7b4b2a" stroke-width="1" stroke-opacity="0.14"/>
+<!-- Vertical meridian -->
+<ellipse cx="960" cy="310" rx="95" ry="190" fill="none" stroke="#7b4b2a" stroke-width="1" stroke-opacity="0.1"/>
+<!-- Tilted meridian -->
+<ellipse cx="960" cy="310" rx="95" ry="190" fill="none" stroke="#7b4b2a" stroke-width="1" stroke-opacity="0.08" transform="rotate(45,960,310)"/>
+<!-- Latitude bands -->
+<ellipse cx="960" cy="262" rx="182" ry="40" fill="none" stroke="#7b4b2a" stroke-width="1" stroke-opacity="0.08"/>
+<ellipse cx="960" cy="358" rx="182" ry="40" fill="none" stroke="#7b4b2a" stroke-width="1" stroke-opacity="0.08"/>
+
+<!-- Travel arc: A(790,200) → B(960,155) → C(1100,255) -->
+<path d="M 790,200 C 840,130 910,130 960,155 C 1010,180 1055,215 1100,255" fill="none" stroke="#7b4b2a" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="7 5"/>
+
+<!-- Airplane on arc -->
+<g transform="translate(880,162) rotate(-18,0,0)">
+  <rect x="-16" y="-3" width="32" height="6" rx="3" fill="#7b4b2a" fill-opacity="0.45"/>
+  <polygon points="-3,-3 -14,-16 8,-16 5,-3" fill="#7b4b2a" fill-opacity="0.32"/>
+  <polygon points="-3,3 -14,16 8,16 5,3" fill="#7b4b2a" fill-opacity="0.32"/>
+</g>
+
+<!-- Pin A (790,200) -->
+<circle cx="790" cy="188" r="13" fill="#7b4b2a" fill-opacity="0.14" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.48"/>
+<polygon points="777,200 803,200 790,222" fill="#7b4b2a" fill-opacity="0.14" stroke="#7b4b2a" stroke-width="1" stroke-opacity="0.48"/>
+<circle cx="790" cy="188" r="4" fill="#7b4b2a" fill-opacity="0.6"/>
+
+<!-- Pin B (960,155) -->
+<circle cx="960" cy="142" r="15" fill="#7b4b2a" fill-opacity="0.18" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.55"/>
+<polygon points="945,155 975,155 960,180" fill="#7b4b2a" fill-opacity="0.18" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.55"/>
+<circle cx="960" cy="142" r="5" fill="#7b4b2a" fill-opacity="0.7"/>
+
+<!-- Pin C (1100,255) — primary -->
+<circle cx="1100" cy="240" r="18" fill="#7b4b2a" fill-opacity="0.24" stroke="#7b4b2a" stroke-width="2.5" stroke-opacity="0.85"/>
+<polygon points="1082,255 1118,255 1100,282" fill="#7b4b2a" fill-opacity="0.24" stroke="#7b4b2a" stroke-width="2" stroke-opacity="0.85"/>
+<circle cx="1100" cy="240" r="26" fill="none" stroke="#7b4b2a" stroke-width="1" stroke-opacity="0.2"/>
+<circle cx="1100" cy="240" r="6" fill="#7b4b2a" fill-opacity="0.9"/>
+
+<!-- Compass (bottom of globe area) -->
+<circle cx="800" cy="468" r="34" fill="none" stroke="#7b4b2a" stroke-width="1" stroke-opacity="0.18"/>
+<circle cx="800" cy="468" r="22" fill="none" stroke="#7b4b2a" stroke-width="1" stroke-opacity="0.12"/>
+<line x1="800" y1="435" x2="800" y2="445" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.28"/>
+<line x1="800" y1="491" x2="800" y2="501" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.28"/>
+<line x1="832" y1="468" x2="822" y2="468" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.28"/>
+<line x1="768" y1="468" x2="778" y2="468" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.28"/>
+<text x="800" y="430" text-anchor="middle" font-family="monospace" font-size="8" fill="#7b4b2a" fill-opacity="0.3">N</text>
+
+<!-- Card frame -->
+<rect x="55" y="75" width="620" height="520" rx="16" fill="#7b4b2a" fill-opacity="0.04" stroke="#7b4b2a" stroke-opacity="0.15" stroke-width="1"/>
+
+<text x="95" y="134" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.7" letter-spacing="0.12em">TRAVEL BOOKING PLATFORM</text>
+
+<text x="95" y="200" font-family="'Segoe UI',Arial,sans-serif" font-size="56" font-weight="700" fill="#1a0d05" letter-spacing="-0.03em">JKN Tours</text>
+
+<text x="95" y="254" font-family="'Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#5a3820" fill-opacity="1">Travel agency platform with packages,</text>
+<text x="95" y="276" font-family="'Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#5a3820" fill-opacity="1">bookings, authentication and CMS.</text>
+
+<line x1="95" y1="302" x2="645" y2="302" stroke="#7b4b2a" stroke-opacity="0.15" stroke-width="1"/>
+
+<rect x="95" y="320" width="72" height="28" rx="14" fill="#7b4b2a" fill-opacity="0.1" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1"/>
+<text x="131" y="339" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.85">Laravel</text>
+
+<rect x="175" y="320" width="62" height="28" rx="14" fill="#7b4b2a" fill-opacity="0.1" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1"/>
+<text x="206" y="339" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.85">MySQL</text>
+
+<rect x="245" y="320" width="86" height="28" rx="14" fill="#7b4b2a" fill-opacity="0.1" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1"/>
+<text x="288" y="339" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.85">Bootstrap</text>
+
+<rect x="0" y="540" width="1200" height="360" fill="url(#fd)"/>
 </svg>

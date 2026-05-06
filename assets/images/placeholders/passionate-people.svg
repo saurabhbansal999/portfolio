@@ -1,16 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
-  <title id="t">Passionate People Project Placeholder</title>
-  <desc id="d">Stylized placeholder image for Passionate People project.</desc>
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1e1b4b"/>
-      <stop offset="100%" stop-color="#0ea5e9"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="675" fill="url(#g)"/>
-  <rect x="130" y="130" width="940" height="415" rx="26" fill="#ffffff" opacity="0.92"/>
-  <path d="M130 450 C320 360, 470 520, 680 430 S1020 350, 1070 410" fill="none" stroke="#93c5fd" stroke-width="12" opacity="0.8"/>
-  <text x="190" y="260" fill="#111827" font-family="Segoe UI, Arial, sans-serif" font-size="58" font-weight="700">Passionate People</text>
-  <text x="190" y="330" fill="#334155" font-family="Segoe UI, Arial, sans-serif" font-size="30">Media and Branding Website</text>
-  <text x="190" y="390" fill="#475569" font-family="Segoe UI, Arial, sans-serif" font-size="24">Structured content and responsive UI</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#fdf8f5"/>
+    <stop offset="100%" stop-color="#f0e8df"/>
+  </linearGradient>
+  <radialGradient id="gl" cx="78%" cy="20%" r="65%">
+    <stop offset="0%" stop-color="#7b4b2a" stop-opacity="0.28"/>
+    <stop offset="100%" stop-color="#7b4b2a" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="fd" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#fdf8f5" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#fdf8f5" stop-opacity="0.88"/>
+  </linearGradient>
+</defs>
+
+<rect width="1200" height="900" fill="url(#bg)"/>
+<rect width="1200" height="900" fill="url(#gl)"/>
+
+<!-- Broadcast wave arcs from point (850,330) -->
+<circle cx="850" cy="330" r="9" fill="#7b4b2a" fill-opacity="0.75"/>
+<path d="M 850,330 Q 895,268 948,330 Q 895,392 850,330" fill="none" stroke="#7b4b2a" stroke-width="2" stroke-opacity="0.5"/>
+<path d="M 850,330 Q 925,220 1010,330 Q 925,440 850,330" fill="none" stroke="#7b4b2a" stroke-width="1.8" stroke-opacity="0.35"/>
+<path d="M 850,330 Q 955,168 1074,330 Q 955,492 850,330" fill="none" stroke="#7b4b2a" stroke-width="1.5" stroke-opacity="0.22"/>
+<path d="M 850,330 Q 985,112 1140,330 Q 985,548 850,330" fill="none" stroke="#7b4b2a" stroke-width="1" stroke-opacity="0.12"/>
+
+<!-- Camera lens (top-right) -->
+<circle cx="1072" cy="148" r="58" fill="#7b4b2a" fill-opacity="0.05" stroke="#7b4b2a" stroke-opacity="0.4" stroke-width="2"/>
+<circle cx="1072" cy="148" r="40" fill="#7b4b2a" fill-opacity="0.08" stroke="#7b4b2a" stroke-opacity="0.28" stroke-width="1.5"/>
+<circle cx="1072" cy="148" r="25" fill="#7b4b2a" fill-opacity="0.18" stroke="#7b4b2a" stroke-opacity="0.45" stroke-width="1.5"/>
+<circle cx="1072" cy="148" r="9" fill="#7b4b2a" fill-opacity="0.55"/>
+<rect x="1016" y="108" width="112" height="80" rx="10" fill="none" stroke="#7b4b2a" stroke-opacity="0.16" stroke-width="1" stroke-dasharray="4 4"/>
+
+<!-- People avatars (bottom) -->
+<circle cx="800" cy="488" r="20" fill="#7b4b2a" fill-opacity="0.12" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1.5"/>
+<ellipse cx="800" cy="479" rx="9" ry="9" fill="#7b4b2a" fill-opacity="0.32"/>
+<path d="M 780,508 Q 800,496 820,508" fill="none" stroke="#7b4b2a" stroke-opacity="0.28" stroke-width="1.2"/>
+
+<circle cx="865" cy="478" r="24" fill="#7b4b2a" fill-opacity="0.18" stroke="#7b4b2a" stroke-opacity="0.5" stroke-width="2"/>
+<ellipse cx="865" cy="467" rx="11" ry="11" fill="#7b4b2a" fill-opacity="0.48"/>
+<path d="M 841,500 Q 865,486 889,500" fill="none" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1.5"/>
+
+<circle cx="932" cy="488" r="20" fill="#7b4b2a" fill-opacity="0.12" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1.5"/>
+<ellipse cx="932" cy="479" rx="9" ry="9" fill="#7b4b2a" fill-opacity="0.32"/>
+<path d="M 912,508 Q 932,496 952,508" fill="none" stroke="#7b4b2a" stroke-opacity="0.28" stroke-width="1.2"/>
+
+<text x="865" y="450" text-anchor="middle" font-family="monospace" font-size="8" fill="#7b4b2a" fill-opacity="0.38" letter-spacing="3">LIVE</text>
+
+<!-- Card frame -->
+<rect x="55" y="75" width="620" height="520" rx="16" fill="#7b4b2a" fill-opacity="0.04" stroke="#7b4b2a" stroke-opacity="0.15" stroke-width="1"/>
+
+<text x="95" y="134" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.7" letter-spacing="0.12em">MEDIA &amp; BRANDING WEBSITE</text>
+
+<text x="95" y="196" font-family="'Segoe UI',Arial,sans-serif" font-size="46" font-weight="700" fill="#1a0d05" letter-spacing="-0.03em">Passionate People</text>
+
+<text x="95" y="254" font-family="'Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#5a3820" fill-opacity="1">Brand communication website with PHP backend</text>
+<text x="95" y="276" font-family="'Segoe UI',Arial,sans-serif" font-size="17" font-weight="400" fill="#5a3820" fill-opacity="1">and responsive UI, content management.</text>
+
+<line x1="95" y1="302" x2="645" y2="302" stroke="#7b4b2a" stroke-opacity="0.15" stroke-width="1"/>
+
+<rect x="95" y="320" width="48" height="28" rx="14" fill="#7b4b2a" fill-opacity="0.1" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1"/>
+<text x="119" y="339" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.85">PHP</text>
+
+<rect x="151" y="320" width="62" height="28" rx="14" fill="#7b4b2a" fill-opacity="0.1" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1"/>
+<text x="182" y="339" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.85">MySQL</text>
+
+<rect x="221" y="320" width="86" height="28" rx="14" fill="#7b4b2a" fill-opacity="0.1" stroke="#7b4b2a" stroke-opacity="0.35" stroke-width="1"/>
+<text x="264" y="339" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="600" fill="#7b4b2a" fill-opacity="0.85">Bootstrap</text>
+
+<rect x="0" y="540" width="1200" height="360" fill="url(#fd)"/>
 </svg>

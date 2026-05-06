@@ -153,11 +153,20 @@
             </p>
           </div>
 
-          <div id="projectsGrid" class="projects-grid"></div>
+          <div class="c-grid" id="cGrid"></div>
 
-          <div class="center-wrap">
-            <button id="viewAllProjects" class="btn btn-secondary cursor-pointer" type="button">
-              View More Projects
+          <div class="c-nav-row">
+            <button class="c-nav-btn" id="cPrevBtn" aria-label="Previous project">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="c-pips" id="cPips"></div>
+            <span class="c-counter" id="cCounter">01 / 11</span>
+            <button class="c-nav-btn" id="cNextBtn" aria-label="Next project">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </button>
           </div>
         </div>
