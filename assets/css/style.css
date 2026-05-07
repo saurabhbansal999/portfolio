@@ -50,6 +50,7 @@ html {
     font-size: 16px;
     scroll-behavior: smooth;
     scroll-padding-top: 0;
+    overflow-x: hidden;
 }
 
 body {
@@ -2402,6 +2403,7 @@ body.cursor-hover .cursor-ring {
 
     .main-nav.active {
         display: grid;
+        z-index: 1799;
     }
 
     .main-nav a {
@@ -2421,7 +2423,7 @@ body.cursor-hover .cursor-ring {
 
 @media (max-width: 640px) {
     .container {
-        width: min(100% - 1.25rem, var(--max-w));
+        width: min(100% - 2rem, var(--max-w));
     }
 
     .hero-section {
@@ -2587,7 +2589,7 @@ body {
     .pill-nav {
         left: 50%;
         right: auto;
-        width: min(320px, calc(100vw - 1rem));
+        width: min(calc(100vw - 1rem), 420px);
         transform: translateX(-50%);
     }
 
@@ -3285,6 +3287,7 @@ body::before {
 
     .main-nav.active {
         display: grid;
+        z-index: 1799;
     }
 
     .main-nav a {
@@ -3348,7 +3351,7 @@ body::before {
     .pill-nav {
         left: 50%;
         right: auto;
-        width: min(320px, calc(100vw - 1rem));
+        width: min(calc(100vw - 1rem), 420px);
         transform: translateX(-50%);
     }
 }
@@ -3382,6 +3385,117 @@ body::before {
 .hero-profile-card {
     width: 100%;
     max-width: 400px;
+}
+
+/* ════════════════════════════════════════════════════
+   GLOBAL RESPONSIVE FIXES
+   ════════════════════════════════════════════════════ */
+
+/* ── Tablet (≤768px) ── */
+@media (max-width: 768px) {
+    .project-modal {
+        padding: 1.4rem;
+        border-radius: var(--radius);
+    }
+
+    .about-panel,
+    .info-card {
+        padding: 1.6rem 1.4rem;
+    }
+
+    .timeline-item,
+    .edu-card {
+        padding: 1.5rem;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem 1.3rem;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+}
+
+/* ── Mobile (≤640px) ── */
+@media (max-width: 640px) {
+    .project-modal {
+        padding: 1rem;
+        border-radius: var(--radius);
+    }
+
+    .info-card {
+        padding: 1.2rem 1rem;
+    }
+
+    .stat-card {
+        padding: 0.9rem;
+    }
+
+    .timeline-item,
+    .edu-card {
+        padding: 1.2rem;
+    }
+
+    .skill-cluster {
+        padding: 1.1rem;
+    }
+
+    .testimonial-card {
+        padding: 1.2rem 1rem;
+    }
+
+    .about-panel {
+        padding: 1.2rem;
+    }
+
+    .contact-card {
+        padding: 1.1rem;
+    }
+
+    .marquee-track {
+        gap: 1.5rem;
+    }
+
+    .hero-pills {
+        max-width: none;
+    }
+
+    .section-head {
+        margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .c-nav-row {
+        gap: 0.5rem;
+    }
+}
+
+/* ── Small phones (≤400px) ── */
+@media (max-width: 400px) {
+    .container {
+        width: min(100% - 1.5rem, var(--max-w));
+    }
+
+    .pill-nav {
+        border-radius: 18px;
+    }
+
+    .project-modal {
+        padding: 0.85rem;
+    }
+
+    .info-card,
+    .about-panel,
+    .contact-card {
+        padding: 1rem;
+    }
+
+    .timeline-item,
+    .edu-card,
+    .testimonial-card,
+    .skill-cluster {
+        padding: 1rem;
+    }
 }
 
 /* ════════════════════════════════════════════════════
