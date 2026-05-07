@@ -777,7 +777,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cell.style.background = '#fdf8f5';
 
             if (isAc) {
-                cell.style.gridColumn = '1 / 3';
+                cell.style.gridColumn = '1 / 2';
                 cell.style.gridRow = '1 / 3';
             } else {
                 const s = slot - 1;

@@ -3433,6 +3433,11 @@ body::before {
     user-select: none;
 }
 
+/* Thumbnails show the illustration (right half of SVG) not the text card frame */
+.c-cell:not(.active) .c-cell-img {
+    object-position: right center;
+}
+
 /* Gradient overlay — active cell — keeps bottom readable */
 .c-cell-cover {
     position: absolute;
