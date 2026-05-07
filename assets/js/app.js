@@ -837,7 +837,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 label.textContent = project.title;
                 cell.appendChild(label);
 
-                cell.addEventListener('click', () => carouselGoTo(projIdx));
+                cell.addEventListener('click', () => {
+                    cell.classList.add('c-selecting');
+                    carouselGoTo(projIdx, 'right');
+                });
             }
 
             grid.appendChild(cell);
@@ -853,9 +856,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const carouselGoTo = n => {
+    const carouselGoTo = (n, forcedDir) => {
         const next = ((n % N) + N) % N;
         if (next === carouselActive) return;
+
+        // Auto-detect direction: shorter path forward = right, backward = left
+        const fwd = (next - carouselActive + N) % N;
+        const dir = forcedDir || (fwd <= N / 2 ? 'right' : 'left');
+
         carouselActive = next;
 
         const grid = document.getElementById('cGrid');
@@ -866,6 +874,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 renderCarousel(carouselActive);
                 registerRevealTargets();
+                grid.dataset.dir = dir;
                 grid.style.transition = '';
                 grid.style.opacity = '';
                 grid.style.transform = '';
@@ -873,6 +882,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             renderCarousel(carouselActive);
             registerRevealTargets();
+            grid.dataset.dir = dir;
         }
     };
 
@@ -1106,8 +1116,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const prevBtn = document.getElementById('cPrevBtn');
         const nextBtn = document.getElementById('cNextBtn');
-        if (prevBtn) prevBtn.addEventListener('click', () => carouselGoTo(carouselActive - 1));
-        if (nextBtn) nextBtn.addEventListener('click', () => carouselGoTo(carouselActive + 1));
+        if (prevBtn) prevBtn.addEventListener('click', () => carouselGoTo(carouselActive - 1, 'left'));
+        if (nextBtn) nextBtn.addEventListener('click', () => carouselGoTo(carouselActive + 1, 'right'));
 
         const cGrid = document.getElementById('cGrid');
         let swipeStartX = null;
@@ -1143,6 +1153,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         renderCarousel(0);
+        const initGrid = document.getElementById('cGrid');
+        if (initGrid) initGrid.dataset.dir = 'right';
     };
 
     const updateActiveByScroll = () => {
