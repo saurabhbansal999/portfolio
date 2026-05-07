@@ -3387,6 +3387,17 @@ body::before {
 /* ════════════════════════════════════════════════════
    PROJECT CAROUSEL
    ════════════════════════════════════════════════════ */
+
+@keyframes c-cell-in {
+    from { opacity: 0; transform: scale(0.94) translateY(8px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes c-info-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 .c-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
@@ -3410,7 +3421,14 @@ body::before {
     -webkit-tap-highlight-color: transparent;
     background: var(--bg-3);
     border: 1px solid rgba(123, 75, 42, 0.2);
+    animation: c-cell-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+/* Staggered entrance for thumbnail cards */
+.c-grid .c-cell:nth-child(2) { animation-delay: 0.07s; }
+.c-grid .c-cell:nth-child(3) { animation-delay: 0.14s; }
+.c-grid .c-cell:nth-child(4) { animation-delay: 0.21s; }
+.c-grid .c-cell:nth-child(5) { animation-delay: 0.28s; }
 
 .c-cell:not(.active):hover {
     transform: scale(1.04);
@@ -3505,17 +3523,13 @@ body::before {
         rgba(253, 248, 245, 0.2) 75%,
         transparent 100%
     );
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.4s 0.12s, transform 0.4s 0.12s cubic-bezier(0.77, 0, 0.18, 1);
     pointer-events: none;
     z-index: 4;
 }
 
 .c-cell.active .c-info {
-    opacity: 1;
-    transform: translateY(0);
     pointer-events: auto;
+    animation: c-info-up 0.5s 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .c-info-cat {
@@ -3715,5 +3729,14 @@ body::before {
 
     .c-info {
         padding: 20px 16px 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .c-cell,
+    .c-cell.active .c-info {
+        animation: none;
+        opacity: 1;
+        transform: none;
     }
 }

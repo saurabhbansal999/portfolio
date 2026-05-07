@@ -854,9 +854,26 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const carouselGoTo = n => {
-        carouselActive = ((n % N) + N) % N;
-        renderCarousel(carouselActive);
-        registerRevealTargets();
+        const next = ((n % N) + N) % N;
+        if (next === carouselActive) return;
+        carouselActive = next;
+
+        const grid = document.getElementById('cGrid');
+        if (!prefersReducedMotion && grid) {
+            grid.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
+            grid.style.opacity = '0';
+            grid.style.transform = 'scale(0.985)';
+            setTimeout(() => {
+                renderCarousel(carouselActive);
+                registerRevealTargets();
+                grid.style.transition = '';
+                grid.style.opacity = '';
+                grid.style.transform = '';
+            }, 160);
+        } else {
+            renderCarousel(carouselActive);
+            registerRevealTargets();
+        }
     };
 
     const registerRevealTargets = () => {
