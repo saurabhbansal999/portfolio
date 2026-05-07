@@ -3393,6 +3393,23 @@ body::before {
 
 /* ── Tablet (≤768px) ── */
 @media (max-width: 768px) {
+    /* Hero grid: force single column (overrides the ungated HERO TITLE FIX rule) */
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        position: static;
+        top: auto;
+    }
+
+    /* Badge "Available for projects" — clip so it doesn't overflow */
+    .hero-profile-card::after {
+        right: 0;
+        rotate: none;
+        border-radius: 0 12px 0 12px;
+    }
+
     .project-modal {
         padding: 1.4rem;
         border-radius: var(--radius);
@@ -3419,6 +3436,16 @@ body::before {
 
 /* ── Mobile (≤640px) ── */
 @media (max-width: 640px) {
+    /* Override ungated HERO TITLE FIX font-size for mobile */
+    .hero-small {
+        font-size: clamp(2rem, 9vw, 2.65rem);
+        line-height: 1.07;
+    }
+
+    .hero-section {
+        padding-top: 3rem;
+    }
+
     .project-modal {
         padding: 1rem;
         border-radius: var(--radius);
